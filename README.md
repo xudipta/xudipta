@@ -1,7 +1,7 @@
-- 👋 Hi, I’m @xudipta
-- 👀 I’m interested in Application Development 
-- 🌱 I’m currently learning flutter and spring framework
-- 📫 mail me at nathsudipta7@gmail.com
+- 👋 Hi, I’m @sudipta
+- 👀 I’m interested in Software Development, with an M.Tech CSE from NIT DGP. 
+- 🌱 I’m currently working as an application developer.
+- 📫 Mail me at nathsudipta7@gmail.com
 
 <!---
 xudipta/xudipta is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
