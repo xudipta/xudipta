@@ -1,6 +1,6 @@
 ### Hey there, I'm Sudipta 🚀
 
-> 💡 Full-time code wrangler, part-time stack overflow archaeologist.  
+> 💡 Full-time code wrangler, part-time philosopher.  
 > 🧠 Known to stare at bugs longer than most people stare at sunsets.  
 > 🔁 I don’t quit until the problem gives up first. Ask my laptop.
 
