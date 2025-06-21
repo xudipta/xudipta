@@ -1,9 +1,19 @@
-- 👋 Hi, I’m @sudipta
-- 👀 I’m interested in Software Development, with an M.Tech CSE from NIT DGP. 
-- 🌱 I’m currently working as an application developer.
-- 📫 Mail me at nathsudipta7@gmail.com
+### Hey there, I'm Sudipta 🚀
 
-<!---
-xudipta/xudipta is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+> 💡 Full-time code wrangler, part-time stack overflow archaeologist.  
+> 🧠 Known to stare at bugs longer than most people stare at sunsets.  
+> 🔁 I don’t quit until the problem gives up first. Ask my laptop.
+
+---
+
+### ⚙️ Tech Playground
+`HLD` • `LLD` • `Go` • `Python` • `Kubernetes` • `Docker`  
+`Ansible` • `Linux` • `Java` • `C++` • `Jenkins` • `Networking`
+
+---
+
+### 🎯 What I’m About
+- Writing code that doesn’t crash... eventually.
+- Designing systems from scratch — then watching them evolve (and sometimes explode).
+- Automating the boring stuff so I can break new things faster.
+- Always learning, always building — sometimes both at once.
