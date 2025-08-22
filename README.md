@@ -7,8 +7,8 @@
 ---
 
 ### ⚙️ Tech Playground
-`HLD` • `LLD` • `Go` • `Python` • `Kubernetes` • `Docker`  
-`Ansible` • `Linux` • `Java` • `C++` • `Jenkins` • `Networking`
+`Kubernetes` •  `HLD` • `LLD` • `Go` • `Python` • `Kubernetes` • `Docker`  
+`Ansible` • `Linux` • `Java` • `C++` • `Jenkins` • `Networking` • `Helm` 
 
 ---
 
