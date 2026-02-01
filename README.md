@@ -8,7 +8,7 @@
 
 ### ⚙️ Tech Playground
 `Kubernetes` •  `HLD` • `LLD` • `Go` • `Python` • `Scripting` • `Docker`  
-`Ansible` • `Linux` • `Java` • `C++` • `Jenkins` • `Networking` • `Helm` 
+`Terraform` • `Linux` • `Java` • `C++` • `AWS` • `Networking` • `Helm` 
 
 ---
 
