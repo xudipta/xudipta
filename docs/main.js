@@ -319,7 +319,7 @@
         "Available commands:",
         "  <span class='hl'>about</span>       who is this person?",
         "  <span class='hl'>experience</span>  where I've worked",
-        "  <span class='hl'>oss</span>         open source at Intel",
+        "  <span class='hl'>oss</span>         open-source projects",
         "  <span class='hl'>skills</span>      the tech playground",
         "  <span class='hl'>projects</span>    things I've built",
         "  <span class='hl'>chaos</span>       break my Kubernetes cluster",
