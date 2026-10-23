@@ -1,5 +1,5 @@
 // "From chaos to order": a WebGL particle field that morphs between shapes as you scroll.
-// Sphere (golden ratio) -> neural network -> torus knot (the endless loop) -> Möbius strip.
+// Sphere (golden ratio) -> torus knot (build, break, fix, repeat) -> neural network -> Möbius strip.
 // Reacts to pointer/touch (tilt + ripple), clicks/taps (shockwave) and device tilt.
 // Falls back to the 2D canvas in main.js when WebGL is unavailable or motion is reduced.
 (() => {
@@ -89,7 +89,7 @@
   const NETWORK = 1;
 
   // Section id -> shape index.
-  const stageFor = { home: 0, about: 0, solver: 1, skills: 2, oss: 2, projects: 2, terminal: 2, game: 2, k8s: 2, resume: 3 };
+  const stageFor = { home: 0, about: 0, resume: 2, oss: 2, skills: 2, projects: 2, solver: 1, terminal: 3, k8s: 3, game: 3 };
   const sections = Object.keys(stageFor).map((id) => document.getElementById(id)).filter(Boolean);
 
   // ---------- Particle state ----------
