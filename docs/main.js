@@ -34,8 +34,6 @@
     { name: "cookbook", repo: `${GITHUB_USER}/cookbook`, icon: "📖",
       desc: "CI-validated notes on Kubernetes, Docker, Linux, Terraform, CI/CD, Agent Skills and MCP. Every note ships with a runnable, automatically checked example.",
       tags: ["Python", "Shell", "GitHub Actions"] },
-    { name: "prep", repo: `${GITHUB_USER}/prep`, icon: "🧭",
-      desc: "Preparation and practice work in Go.", tags: ["Go"] },
   ];
 
   // ---------- Background: animated "cluster" network ----------
@@ -245,6 +243,8 @@
         "  <span class='hl'>projects</span>    things I've built",
         "  <span class='hl'>resume</span>      jump to the resume",
         "  <span class='hl'>game</span>        squash some bugs",
+        "  <span class='hl'>puzzle</span>      a logic puzzle",
+        "  <span class='hl'>motto</span>       how I solve problems",
         "  <span class='hl'>kubectl</span>     try: kubectl get pods",
         "  <span class='hl'>github</span>      open my GitHub",
         "  <span class='hl'>clear</span>       clear the screen",
@@ -280,6 +280,8 @@
       date: () => new Date().toString(),
       echo: (args) => esc(args.join(" ")),
       exit: () => "There is no escape. Try <span class='hl'>game</span> instead.",
+      puzzle: () => { location.hash = "#solver"; return "Opening the Logic Lab... turn all the lights off."; },
+      motto: () => "Understand → Break it down → Build → Break it (on purpose) → Fix → Repeat.",
       clear: () => { body.innerHTML = ""; return null; },
     };
 
@@ -419,6 +421,65 @@
     drawGrid();
   }
 
+  // ---------- Problem-solving loop (highlights one step at a time) ----------
+  function initLoop() {
+    const steps = document.querySelectorAll("#loop li");
+    let i = 0;
+    steps[0].classList.add("active");
+    if (reducedMotion) return;
+    setInterval(() => {
+      steps[i].classList.remove("active");
+      i = (i + 1) % steps.length;
+      steps[i].classList.add("active");
+    }, 1400);
+  }
+
+  // ---------- Lights Out puzzle ----------
+  function initLightsOut() {
+    const N = 5, grid = $("#lo-grid"), movesEl = $("#lo-moves"), status = $("#lo-status");
+    let board = [], moves = 0, solved = false;
+    const cells = [];
+
+    function toggle(r, c) {
+      for (const [dr, dc] of [[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const y = r + dr, x = c + dc;
+        if (y >= 0 && y < N && x >= 0 && x < N) board[y * N + x] ^= 1;
+      }
+    }
+    function draw() {
+      board.forEach((on, k) => cells[k].classList.toggle("on", !!on));
+      movesEl.textContent = moves;
+    }
+    // Scramble by pressing random cells from a solved board, so every puzzle is solvable.
+    function newPuzzle() {
+      board = new Array(N * N).fill(0); moves = 0; solved = false;
+      while (board.every((v) => !v)) {
+        for (let k = 0; k < 6; k++) toggle(Math.floor(Math.random() * N), Math.floor(Math.random() * N));
+      }
+      status.textContent = "";
+      grid.classList.remove("won");
+      draw();
+    }
+    for (let k = 0; k < N * N; k++) {
+      const b = document.createElement("button");
+      b.className = "lo-cell";
+      b.setAttribute("aria-label", `Row ${Math.floor(k / N) + 1}, column ${(k % N) + 1}`);
+      b.addEventListener("click", () => {
+        if (solved) return;
+        toggle(Math.floor(k / N), k % N);
+        moves++; draw();
+        if (board.every((v) => !v)) {
+          solved = true;
+          grid.classList.add("won");
+          status.textContent = `Solved in ${moves} moves! 🎉`;
+        }
+      });
+      cells.push(b); grid.appendChild(b);
+    }
+    $("#lo-new").addEventListener("click", newPuzzle);
+    newPuzzle();
+  }
+
   // ---------- Konami code easter egg ----------
   function initKonami() {
     const code = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
@@ -452,5 +513,7 @@
   initResume();
   initTerminal();
   initGame();
+  initLoop();
+  initLightsOut();
   initKonami();
 })();

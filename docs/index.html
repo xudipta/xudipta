@@ -17,6 +17,7 @@
     <a class="logo" href="#top">~/xudipta<span class="cursor">_</span></a>
     <nav>
       <a href="#about">about</a>
+      <a href="#solver">logic</a>
       <a href="#skills">skills</a>
       <a href="#projects">projects</a>
       <a href="#terminal">terminal</a>
@@ -65,18 +66,51 @@
       </div>
     </section>
 
+    <section id="solver" class="reveal">
+      <h3 class="section-title"><span>02.</span> Problem Solver at Heart</h3>
+      <div class="solver-grid">
+        <div>
+          <p>Give me a bug, a puzzle or a system that "just doesn't scale", and I'm hooked. Tech or pure logic, the itch is the same: I want to know <em>why</em>, not just make the error go away.</p>
+          <div class="traits">
+            <div class="card trait"><span class="ico">🔍</span><div><h4>Curious first</h4><p>Root cause over quick patch.</p></div></div>
+            <div class="card trait"><span class="ico">🪜</span><div><h4>Break it down</h4><p>Big problems become small, testable steps.</p></div></div>
+            <div class="card trait"><span class="ico">🔁</span><div><h4>Consistent</h4><p>A little every day. Small commits compound.</p></div></div>
+            <div class="card trait"><span class="ico">🧠</span><div><h4>Logic for fun</h4><p>Algorithms and brain teasers are how I relax.</p></div></div>
+          </div>
+          <h4 class="sub">My problem-solving loop</h4>
+          <ol class="loop" id="loop">
+            <li>Understand</li><li>Break it down</li><li>Build</li><li>Break it (on purpose)</li><li>Fix</li><li>Repeat</li>
+          </ol>
+        </div>
+        <div class="card puzzle">
+          <h4>🧩 Logic Lab: Lights Out</h4>
+          <p class="muted small">Clicking a cell flips it and its four neighbours. Turn every light off. I solve these for fun; can you?</p>
+          <div class="lo-grid" id="lo-grid" role="grid" aria-label="Lights Out puzzle"></div>
+          <div class="lo-bar">
+            <span>Moves <b id="lo-moves">0</b></span>
+            <span id="lo-status" class="muted"></span>
+            <button class="btn small-btn" id="lo-new">New puzzle</button>
+          </div>
+        </div>
+      </div>
+      <div class="card activity">
+        <h4>📈 Consistency, visualised: my GitHub activity</h4>
+        <img src="https://ghchart.rshah.org/22d3ee/xudipta" alt="xudipta's GitHub contribution graph over the last year" loading="lazy" onerror="this.closest('.activity').hidden = true">
+      </div>
+    </section>
+
     <section id="skills" class="reveal">
-      <h3 class="section-title"><span>02.</span> Tech Playground</h3>
+      <h3 class="section-title"><span>03.</span> Tech Playground</h3>
       <div id="skill-groups" class="skill-groups"></div>
     </section>
 
     <section id="projects" class="reveal">
-      <h3 class="section-title"><span>03.</span> Featured Projects</h3>
+      <h3 class="section-title"><span>04.</span> Featured Projects</h3>
       <div id="project-grid" class="project-grid"></div>
     </section>
 
     <section id="terminal" class="reveal">
-      <h3 class="section-title"><span>04.</span> Interactive Terminal</h3>
+      <h3 class="section-title"><span>05.</span> Interactive Terminal</h3>
       <p class="muted">Poke around. Type <code>help</code> to get started.</p>
       <div class="term" id="term">
         <div class="term-bar"><i></i><i></i><i></i><span>sudipta@portfolio: ~</span></div>
@@ -89,7 +123,7 @@
     </section>
 
     <section id="game" class="reveal">
-      <h3 class="section-title"><span>05.</span> Bug Squash</h3>
+      <h3 class="section-title"><span>06.</span> Bug Squash</h3>
       <p class="muted">Production is on fire. Squash the 🐛 bugs, but don't touch the ✅ features. You have 30 seconds.</p>
       <div class="game-wrap">
         <div class="game-hud">
@@ -107,7 +141,7 @@
     </section>
 
     <section id="resume" class="reveal">
-      <h3 class="section-title"><span>06.</span> Resume</h3>
+      <h3 class="section-title"><span>07.</span> Resume</h3>
       <div class="resume">
         <div class="timeline">
           <div class="tl-item"><span class="dot"></span><h4>AI Products · <a href="https://trip.mynna.chat" target="_blank" rel="noopener">Mynna</a> @OxomiAi</h4><p>A real-time, shared-session trip planner: FastAPI and WebSockets, Postgres <code>LISTEN/NOTIFY</code> fan-out, hybrid pgvector retrieval, and a pluggable small-LLM pipeline. Key decisions are recorded as ADRs.</p></div>

@@ -33,7 +33,24 @@ I work across the stack, from infrastructure and cloud automation down to system
 | [**🐦 Mynna**](https://trip.mynna.chat) · [@OxomiAi](https://github.com/OxomiAi) | Shared-session trip planner for Northeast India. Friends plan together in one live chat with Mynna, an AI bot grounded in a curated knowledge base, which builds a shared, live itinerary. | `Python` `FastAPI` `WebSockets` `PostgreSQL` `pgvector` `RAG` `LLM` `Docker` |
 | [**🎮 nostalgia-bytes**](https://github.com/sbrous-org/nostalgia-bytes) · [@sbrous-org](https://github.com/sbrous-org) | Classic games built in C++: Serpente (Snake), Traffigo (car race), Egatho (egg basket) and Broppy (Flappy Bird). | `C++` `Game Dev` `Make` |
 | [**📖 cookbook**](https://github.com/xudipta/cookbook) | CI-validated notes on Kubernetes, Docker, Linux, Terraform, CI/CD, Agent Skills and MCP. Every note ships with a runnable, automatically checked example. | `Python` `Shell` `GitHub Actions` |
-| [**🧭 prep**](https://github.com/xudipta/prep) | Preparation and practice work in Go. | `Go` |
+
+---
+
+### 🧩 Problem Solver at Heart
+Give me a bug, a puzzle or a system that "just doesn't scale", and I'm hooked. Tech or pure logic, the itch is the same.
+
+- 🔍 **Curious first:** I want to know *why* it broke, not just how to make the error go away.
+- 🪜 **Break it down:** big problems become small, testable steps, whether it's a distributed system, a DSA question or a riddle.
+- 🔁 **Consistent:** I show up every day, a little at a time. Small commits compound.
+- 🧠 **Logic for fun:** algorithms, brain teasers and puzzles are how I relax, not just how I work.
+
+> My loop: **Understand → Break it down → Build → Break it (on purpose) → Fix → Repeat.**
+
+<p>
+  <img src="https://streak-stats.demolab.com?user=xudipta&theme=tokyonight&hide_border=true" alt="GitHub contribution streak for xudipta" height="160">
+</p>
+
+![xudipta's GitHub contribution graph](https://ghchart.rshah.org/22d3ee/xudipta)
 
 ---
 
