@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sudipta · Portfolio</title>
+  <meta name="description" content="Sudipta (xudipta): cloud, infrastructure, system design and automation. Portfolio, projects and resume.">
+  <meta property="og:title" content="Sudipta · Portfolio">
+  <meta property="og:description" content="Cloud & infrastructure, system design, automation. Come squash some bugs.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a class="logo" href="#top">~/xudipta<span class="cursor">_</span></a>
+    <nav>
+      <a href="#about">about</a>
+      <a href="#solver">logic</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#terminal">terminal</a>
+      <a href="#game">play</a>
+      <a href="#resume">resume</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">$ whoami</p>
+      <h1>Hey, I'm <span class="grad">Sudipta</span> 🚀</h1>
+      <h2 class="typed-line">I'm a <span id="typed"></span><span class="cursor">|</span></h2>
+      <p class="lead">Full-time code wrangler, part-time philosopher. I build across the stack, from Kubernetes clusters and Terraform to system design and the scripts that keep it all running.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn" href="#game">Squash some bugs 🐛</a>
+        <a class="btn" href="https://github.com/xudipta" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <div class="stats">
+        <div><b data-count="14">0</b><span>languages &amp; tools</span></div>
+        <div><b data-count="13">0</b><span>repositories</span></div>
+        <div><b>∞</b><span>bugs stared at</span></div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <h3 class="section-title"><span>01.</span> About</h3>
+      <div class="about-grid">
+        <div>
+          <p>I like designing things end to end: the high-level architecture, the low-level class design, and the automation that keeps it all alive in production.</p>
+          <p>Known to stare at bugs longer than most people stare at sunsets. I don't quit until the problem gives up first. Ask my laptop.</p>
+          <ul class="ticks">
+            <li>Writing code that doesn't crash... eventually.</li>
+            <li>Designing systems from scratch, then watching them evolve (and sometimes explode).</li>
+            <li>Automating the boring stuff so I can break new things faster.</li>
+            <li>Always learning, always building, sometimes both at once.</li>
+          </ul>
+        </div>
+        <div class="focus">
+          <div class="card tilt"><span class="ico">☸️</span><h4>Cloud &amp; Infra</h4><p>Kubernetes, Docker, Helm, Terraform, AWS, Linux, networking and CI/CD.</p></div>
+          <div class="card tilt"><span class="ico">🏗️</span><h4>System Design</h4><p>HLD and LLD: from whiteboard boxes to class diagrams.</p></div>
+          <div class="card tilt"><span class="ico">🤖</span><h4>Automation</h4><p>Python, Go and shell to turn toil into scripts.</p></div>
+          <div class="card tilt"><span class="ico">🧠</span><h4>AI Products</h4><p>LLM apps with RAG (Mynna), plus Agent Skills and MCP.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solver" class="reveal">
+      <h3 class="section-title"><span>02.</span> Problem Solver at Heart</h3>
+      <div class="solver-grid">
+        <div>
+          <p>Give me a bug, a puzzle or a system that "just doesn't scale", and I'm hooked. Tech or pure logic, the itch is the same: I want to know <em>why</em>, not just make the error go away.</p>
+          <div class="traits">
+            <div class="card trait"><span class="ico">🔍</span><div><h4>Curious first</h4><p>Root cause over quick patch.</p></div></div>
+            <div class="card trait"><span class="ico">🪜</span><div><h4>Break it down</h4><p>Big problems become small, testable steps.</p></div></div>
+            <div class="card trait"><span class="ico">🔁</span><div><h4>Consistent</h4><p>A little every day. Small commits compound.</p></div></div>
+            <div class="card trait"><span class="ico">🧠</span><div><h4>Logic for fun</h4><p>Algorithms and brain teasers are how I relax.</p></div></div>
+          </div>
+          <h4 class="sub">My problem-solving loop</h4>
+          <ol class="loop" id="loop">
+            <li>Understand</li><li>Break it down</li><li>Build</li><li>Break it (on purpose)</li><li>Fix</li><li>Repeat</li>
+          </ol>
+        </div>
+        <div class="card puzzle">
+          <h4>🧩 Logic Lab: Lights Out</h4>
+          <p class="muted small">Clicking a cell flips it and its four neighbours. Turn every light off. I solve these for fun; can you?</p>
+          <div class="lo-grid" id="lo-grid" role="grid" aria-label="Lights Out puzzle"></div>
+          <div class="lo-bar">
+            <span>Moves <b id="lo-moves">0</b></span>
+            <span id="lo-status" class="muted"></span>
+            <button class="btn small-btn" id="lo-new">New puzzle</button>
+          </div>
+        </div>
+      </div>
+      <div class="card activity">
+        <h4>📈 Consistency, visualised: my GitHub activity</h4>
+        <img src="https://ghchart.rshah.org/22d3ee/xudipta" alt="xudipta's GitHub contribution graph over the last year" loading="lazy" onerror="this.closest('.activity').hidden = true">
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <h3 class="section-title"><span>03.</span> Tech Playground</h3>
+      <div id="skill-groups" class="skill-groups"></div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h3 class="section-title"><span>04.</span> Featured Projects</h3>
+      <div id="project-grid" class="project-grid"></div>
+    </section>
+
+    <section id="terminal" class="reveal">
+      <h3 class="section-title"><span>05.</span> Interactive Terminal</h3>
+      <p class="muted">Poke around. Type <code>help</code> to get started.</p>
+      <div class="term" id="term">
+        <div class="term-bar"><i></i><i></i><i></i><span>sudipta@portfolio: ~</span></div>
+        <div class="term-body" id="term-body"></div>
+        <form class="term-input" id="term-form" autocomplete="off">
+          <label for="term-in" class="prompt">sudipta@portfolio:~$</label>
+          <input id="term-in" spellcheck="false" autocapitalize="off" aria-label="Terminal command">
+        </form>
+      </div>
+    </section>
+
+    <section id="game" class="reveal">
+      <h3 class="section-title"><span>06.</span> Bug Squash</h3>
+      <p class="muted">Production is on fire. Squash the 🐛 bugs, but don't touch the ✅ features. You have 30 seconds.</p>
+      <div class="game-wrap">
+        <div class="game-hud">
+          <span>Score <b id="g-score">0</b></span>
+          <span>Time <b id="g-time">30</b>s</span>
+          <span>Best <b id="g-best">0</b></span>
+        </div>
+        <canvas id="game-canvas" width="800" height="400" aria-label="Bug squash game"></canvas>
+        <div class="game-overlay" id="g-overlay">
+          <h4 id="g-title">Ready to debug?</h4>
+          <p id="g-msg">Click or tap bugs to squash them.</p>
+          <button class="btn primary" id="g-start">Start</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="reveal">
+      <h3 class="section-title"><span>07.</span> Resume</h3>
+      <div class="resume">
+        <div class="timeline">
+          <div class="tl-item"><span class="dot"></span><h4>AI Products · <a href="https://trip.mynna.chat" target="_blank" rel="noopener">Mynna</a> @OxomiAi</h4><p>A real-time, shared-session trip planner: FastAPI and WebSockets, Postgres <code>LISTEN/NOTIFY</code> fan-out, hybrid pgvector retrieval, and a pluggable small-LLM pipeline. Key decisions are recorded as ADRs.</p></div>
+          <div class="tl-item"><span class="dot"></span><h4>Game Development · <a href="https://github.com/sbrous-org/nostalgia-bytes" target="_blank" rel="noopener">nostalgia-bytes</a> @sbrous-org</h4><p>Classic arcade games in C++ (Snake, a car race, egg basket and a Flappy Bird clone) with cross-platform build scripts.</p></div>
+          <div class="tl-item"><span class="dot"></span><h4>Infrastructure &amp; DevOps</h4><p>Containerised workloads on Kubernetes, packaged with Helm, provisioned with Terraform on AWS, shipped through CI/CD pipelines.</p></div>
+          <div class="tl-item"><span class="dot"></span><h4>Backend &amp; Systems</h4><p>Services in Go, Java (Spring Boot) and Python; system design across HLD and LLD.</p></div>
+          <div class="tl-item"><span class="dot"></span><h4>Automation &amp; Tooling</h4><p>Scripting in Python, Shell and PowerShell; a CI-validated cookbook where every note is a runnable, tested example.</p></div>
+          <div class="tl-item"><span class="dot"></span><h4>Fundamentals</h4><p>Data structures &amp; algorithms in C++ and Java, low-level design patterns.</p></div>
+        </div>
+        <div class="resume-cta card">
+          <h4>Want the full picture?</h4>
+          <p>Grab my resume, or reach out on GitHub.</p>
+          <a class="btn primary" id="resume-btn" href="resume.pdf" download hidden>Download resume (PDF)</a>
+          <a class="btn" href="https://github.com/xudipta" target="_blank" rel="noopener">github.com/xudipta ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with plain HTML, CSS &amp; JS · hosted on GitHub Pages · <span class="muted">psst… try the Konami code</span></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
