@@ -8,6 +8,7 @@
   const GITHUB_USER = "xudipta";
 
   const roles = [
+    "software engineer @ Intel",
     "cloud & infra engineer",
     "Kubernetes wrangler",
     "system designer (HLD + LLD)",
@@ -240,6 +241,8 @@
       help: () => [
         "Available commands:",
         "  <span class='hl'>about</span>       who is this person?",
+        "  <span class='hl'>experience</span>  where I've worked",
+        "  <span class='hl'>oss</span>         open source at Intel",
         "  <span class='hl'>skills</span>      the tech playground",
         "  <span class='hl'>projects</span>    things I've built",
         "  <span class='hl'>resume</span>      jump to the resume",
@@ -252,7 +255,17 @@
         "  <span class='hl'>clear</span>       clear the screen",
         "  ...and a few hidden ones 👀",
       ].join("\n"),
-      about: () => "Sudipta: full-time code wrangler, part-time philosopher.\nCloud & infra, system design, automation. Doesn't quit until the problem gives up first.",
+      about: () => "Sudipta: engineer at Intel, full-time code wrangler, part-time philosopher.\nM.Tech, NIT Durgapur. Doesn't quit until the problem gives up first.",
+      experience: () => [
+        "<span class='hl'>Intel</span> (current)",
+        "  ▸ next     🔒 under wraps (will be open-sourced)",
+        "  ▸ now      drone SDK (Federal & Aerospace AI Suite), Local Lingua",
+        "  ▸ then     Edge Node Infrastructure Blueprint",
+        "  ▸ started  Edge Manageability Framework",
+        "<span class='hl'>State Bank of India</span>: application developer, scalable apps & backends",
+        "<span class='hl'>Food delivery startup</span>: end-to-end campus delivery, college venture",
+        "<span class='hl'>Education</span>: M.Tech, NIT Durgapur",
+      ].join("\n"),
       whoami: () => "sudipta",
       skills: () => Object.entries(skills).map(([g, s]) => `<span class='hl'>${g}</span>: ${s.join(", ")}`).join("\n"),
       projects: () => projects.map((p) => `${p.icon} <a href="${p.url || `https://github.com/${p.repo}`}" target="_blank" rel="noopener">${p.name}</a>${p.org ? ` <span class='hl'>@${p.org}</span>` : ""}`).join("\n"),
@@ -284,6 +297,11 @@
       exit: () => "There is no escape. Try <span class='hl'>game</span> instead.",
       puzzle: () => { location.hash = "#solver"; return "Opening the Logic Lab... turn all the lights off."; },
       quote: () => { const [q, a] = quotes[Math.floor(Math.random() * quotes.length)]; return `“${q}”\n  <span class='hl'>— ${a}</span>`; },
+      oss: () => [
+        ["federal-and-aerospace-ai-suite", "drone SDK for aerospace & defence edge AI"],
+        ["edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua", "Local Lingua: offline translation + sentiment on CPU/GPU/NPU"],
+        ["edge-node-infrastructure-blueprint", "edge nodes with GPU, NPU and SR-IOV acceleration"],
+      ].map(([p, d]) => `🔓 <a href="https://github.com/open-edge-platform/${p}" target="_blank" rel="noopener">${p.split("/").pop()}</a>  ${d}`).concat("🔒 ██████████  coming soon").join("\n"),
       motto: () => "Understand → Break it down → Build → Break it (on purpose) → Fix → Repeat.",
       clear: () => { body.innerHTML = ""; return null; },
     };
@@ -545,6 +563,18 @@
     document.querySelectorAll("main section[id]").forEach((s) => io.observe(s));
   }
 
+  // ---------- "Decrypting" scramble on the classified project card ----------
+  function initRedacted() {
+    if (reducedMotion) return;
+    const glyphs = "█▓▒░<>/\\#$%&@01";
+    document.querySelectorAll(".redacted").forEach((el) => {
+      const len = el.dataset.text.length;
+      setInterval(() => {
+        el.textContent = Array.from({ length: len }, (_, k) => (el.dataset.text[k] === " " ? " " : glyphs[Math.floor(Math.random() * glyphs.length)])).join("");
+      }, 120);
+    });
+  }
+
   // ---------- Konami code easter egg ----------
   function initKonami() {
     const code = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
@@ -581,6 +611,7 @@
   initLoop();
   initLightsOut();
   initKonami();
+  initRedacted();
   initQuotes();
   initCursorGlow();
   initNavSpy();

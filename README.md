@@ -4,9 +4,23 @@
 > 🧠 Known to stare at bugs longer than most people stare at sunsets.  
 > 🔁 I don’t quit until the problem gives up first. Ask my laptop.
 
-🌐 **Portfolio:** [xudipta.github.io/xudipta](https://xudipta.github.io/xudipta/) (interactive terminal, a bug-squashing mini-game and my resume)
+🌐 **Portfolio:** [xudipta.github.io/xudipta](https://xudipta.github.io/xudipta/) (a 3D particle universe, a Kubernetes chaos-monkey game, an interactive terminal, logic puzzles and my experience)
 
 I work across the stack, from infrastructure and cloud automation down to systems code, and I like designing things end to end: high-level architecture, low-level class design, and the scripts that keep it all running.
+
+---
+
+### 💼 Experience
+- **Intel** *(current)*
+  - **Next:** 🔒 a new project for Intel hardware, under wraps for now and to be open-sourced
+  - **Now:** SDKs and edge AI for Intel hardware: the drone SDK in the [Federal & Aerospace AI Suite](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) and [Local Lingua](https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua)
+  - **Then:** [Edge Node Infrastructure Blueprint](https://github.com/open-edge-platform/edge-node-infrastructure-blueprint)
+  - **Started on:** [Edge Manageability Framework](https://github.com/open-edge-platform/edge-manageability-framework)
+- **State Bank of India**: application developer, building scalable applications and handling backends
+- **Food delivery startup** *(college)*: an end-to-end food delivery service for students on campus
+- **Bootstrapped projects** throughout my career, from zero to one
+
+🎓 **M.Tech**, NIT Durgapur
 
 ---
 
@@ -27,7 +41,17 @@ I work across the stack, from infrastructure and cloud automation down to system
 
 ---
 
-### 📌 Featured Projects
+### 🔓 Open Source @ Intel
+| Project | What it is | Stack |
+|---|---|---|
+| [**🛸 Federal & Aerospace AI Suite**](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) | AI applications for aerospace and defence edge deployments. I worked on the drone SDK. | `UAV` `Edge AI` `OpenVINO` `DL Streamer` `MAVLink` |
+| [**🗣️ Local Lingua**](https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua) | Offline voice translation and sentiment analysis in 15+ languages, running entirely on Intel CPU, GPU and NPU. | `Whisper` `NLLB-200` `OpenVINO` `NPU` `FastAPI` |
+| [**🧱 Edge Node Infrastructure Blueprint**](https://github.com/open-edge-platform/edge-node-infrastructure-blueprint) | Turns edge hardware into a cloud-native platform with GPU, NPU and SR-IOV acceleration. | `Edge` `Provisioning` `Cloud-native` |
+| **🔒 Coming soon** | A new project for Intel hardware, under wraps for now and to be open-sourced. | `████` |
+
+---
+
+### 📌 Side Projects
 | Project | What it is | Stack |
 |---|---|---|
 | [**🐦 Mynna**](https://trip.mynna.chat) · [@OxomiAi](https://github.com/OxomiAi) | Shared-session trip planner for Northeast India. Friends plan together in one live chat with Mynna, an AI bot grounded in a curated knowledge base, which builds a shared, live itinerary. | `Python` `FastAPI` `WebSockets` `PostgreSQL` `pgvector` `RAG` `LLM` `Docker` |
