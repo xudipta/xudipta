@@ -11,6 +11,8 @@
     "cloud & infrastructure engineer",
     "Kubernetes wrangler",
     "system designer (HLD + LLD)",
+    "AI product builder",
+    "game developer (C++)",
     "automation enthusiast",
     "professional bug starer",
   ];
@@ -21,14 +23,19 @@
     "Foundations": ["Linux", "Networking", "HLD", "LLD", "DSA"],
   };
 
+  // `repo` is the public GitHub repo (used for live star counts); `url` overrides the link.
   const projects = [
-    { name: "cookbook", desc: "CI-validated notes on Kubernetes, Docker, Linux, Terraform, CI/CD, Agent Skills and MCP. Every note ships with a runnable, automatically checked example.", tags: ["Python", "Shell", "GitHub Actions"] },
-    { name: "prep", desc: "Preparation and practice work in Go.", tags: ["Go"] },
-    { name: "LLD", desc: "Low-level design exercises and patterns.", tags: ["Java", "OOP"] },
-    { name: "dsaRepo", desc: "Data structures and algorithms practice.", tags: ["C++"] },
-    { name: "scripts", desc: "General-purpose automation scripts.", tags: ["PowerShell"] },
-    { name: "springbootCRUD", desc: "Spring Boot CRUD service.", tags: ["Java", "Spring Boot"] },
-    { name: "HtmlToPdf", desc: "HTML to PDF conversion using different approaches.", tags: ["Java"] },
+    { name: "Mynna", org: "OxomiAi", url: "https://trip.mynna.chat", linkLabel: "live ↗", icon: "🐦",
+      desc: "Shared-session trip planner for Northeast India. Friends plan together in one live chat with Mynna, an AI bot grounded in a curated knowledge base, which builds a shared, live itinerary.",
+      tags: ["Python", "FastAPI", "WebSockets", "PostgreSQL", "pgvector", "RAG", "LLM", "Docker"] },
+    { name: "nostalgia-bytes", org: "sbrous-org", repo: "sbrous-org/nostalgia-bytes", icon: "🎮",
+      desc: "Classic games built in C++: Serpente (Snake), Traffigo (car race), Egatho (egg basket) and Broppy (Flappy Bird), with Make and Windows build scripts.",
+      tags: ["C++", "Game Dev", "Make"] },
+    { name: "cookbook", repo: `${GITHUB_USER}/cookbook`, icon: "📖",
+      desc: "CI-validated notes on Kubernetes, Docker, Linux, Terraform, CI/CD, Agent Skills and MCP. Every note ships with a runnable, automatically checked example.",
+      tags: ["Python", "Shell", "GitHub Actions"] },
+    { name: "prep", repo: `${GITHUB_USER}/prep`, icon: "🧭",
+      desc: "Preparation and practice work in Go.", tags: ["Go"] },
   ];
 
   // ---------- Background: animated "cluster" network ----------
@@ -154,10 +161,11 @@
     for (const p of projects) {
       const a = document.createElement("a");
       a.className = "card project tilt";
-      a.href = `https://github.com/${GITHUB_USER}/${p.name}`;
+      a.href = p.url || `https://github.com/${p.repo}`;
       a.target = "_blank"; a.rel = "noopener";
       a.innerHTML = `
-        <div class="top"><h4>📁 ${p.name}</h4><span class="stars" data-repo="${p.name}"></span></div>
+        <div class="top"><h4>${p.icon} ${p.name}</h4><span class="stars" data-repo="${p.repo || ""}">${p.linkLabel || ""}</span></div>
+        ${p.org ? `<span class="org">@${p.org}</span>` : ""}
         <p>${p.desc}</p>
         <div class="meta">${p.tags.map((t) => `<span>#${t}</span>`).join("")}</div>`;
       a.addEventListener("pointermove", (e) => {
@@ -168,15 +176,15 @@
       grid.appendChild(a);
     }
     // Live star counts; silently skipped if the API is unavailable or rate limited.
-    fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100`)
-      .then((r) => (r.ok ? r.json() : []))
-      .then((repos) => {
-        for (const repo of repos) {
-          const el = document.querySelector(`.stars[data-repo="${repo.name}"]`);
-          if (el && repo.stargazers_count > 0) el.textContent = `★ ${repo.stargazers_count}`;
-        }
-      })
-      .catch(() => {});
+    for (const p of projects.filter((p) => p.repo)) {
+      fetch(`https://api.github.com/repos/${p.repo}`)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((repo) => {
+          const el = document.querySelector(`.stars[data-repo="${p.repo}"]`);
+          if (repo && el && repo.stargazers_count > 0) el.textContent = `★ ${repo.stargazers_count}`;
+        })
+        .catch(() => {});
+    }
   }
 
   // ---------- 3D tilt on cards ----------
@@ -245,7 +253,7 @@
       about: () => "Sudipta: full-time code wrangler, part-time philosopher.\nCloud & infra, system design, automation. Doesn't quit until the problem gives up first.",
       whoami: () => "sudipta",
       skills: () => Object.entries(skills).map(([g, s]) => `<span class='hl'>${g}</span>: ${s.join(", ")}`).join("\n"),
-      projects: () => projects.map((p) => `📁 <a href="https://github.com/${GITHUB_USER}/${p.name}" target="_blank" rel="noopener">${p.name}</a>  ${p.desc}`).join("\n"),
+      projects: () => projects.map((p) => `${p.icon} <a href="${p.url || `https://github.com/${p.repo}`}" target="_blank" rel="noopener">${p.name}</a>${p.org ? ` <span class='hl'>@${p.org}</span>` : ""}`).join("\n"),
       ls: () => projects.map((p) => p.name + "/").join("  ") + "  README.md",
       "cat": (args) => args[0] && args[0].toLowerCase() === "readme.md"
         ? "# Hey there, I'm Sudipta 🚀\nWriting code that doesn't crash... eventually."

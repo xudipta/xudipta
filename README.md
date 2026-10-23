@@ -15,7 +15,8 @@ I work across the stack, from infrastructure and cloud automation down to system
 - **🏗️ System Design:** HLD and LLD, designing systems from scratch and watching them evolve (and sometimes explode).
 - **🤖 Automation & Tooling:** Python, Go and shell scripting to automate the boring stuff so I can break new things faster.
 - **📚 Fundamentals:** data structures and algorithms in C++ and Java, and low-level design practice.
-- **🧪 Exploring:** Agent Skills and the Model Context Protocol (MCP).
+- **🧠 AI Products:** LLM apps with retrieval-augmented generation (RAG), real-time collaboration and pluggable models, plus Agent Skills and the Model Context Protocol (MCP).
+- **🎮 Game Development:** classic arcade games in C++.
 
 ---
 
@@ -29,13 +30,10 @@ I work across the stack, from infrastructure and cloud automation down to system
 ### 📌 Featured Projects
 | Project | What it is | Stack |
 |---|---|---|
-| [**cookbook**](https://github.com/xudipta/cookbook) | CI-validated notes on Kubernetes, Docker, Linux, Terraform, CI/CD, Agent Skills and MCP. Every note ships with a runnable, automatically checked example. | `Python` `Shell` `GitHub Actions` |
-| [**prep**](https://github.com/xudipta/prep) | Preparation and practice work in Go. | `Go` |
-| [**LLD**](https://github.com/xudipta/LLD) | Low-level design exercises and patterns. | `Java` |
-| [**dsaRepo**](https://github.com/xudipta/dsaRepo) | Data structures and algorithms practice. | `C++` |
-| [**scripts**](https://github.com/xudipta/scripts) | General-purpose automation scripts. | `PowerShell` |
-| [**springbootCRUD**](https://github.com/xudipta/springbootCRUD) | Spring Boot CRUD service. | `Java` |
-| [**HtmlToPdf**](https://github.com/xudipta/HtmlToPdf) | HTML to PDF conversion using different approaches. | `Java` |
+| [**🐦 Mynna**](https://trip.mynna.chat) · [@OxomiAi](https://github.com/OxomiAi) | Shared-session trip planner for Northeast India. Friends plan together in one live chat with Mynna, an AI bot grounded in a curated knowledge base, which builds a shared, live itinerary. | `Python` `FastAPI` `WebSockets` `PostgreSQL` `pgvector` `RAG` `LLM` `Docker` |
+| [**🎮 nostalgia-bytes**](https://github.com/sbrous-org/nostalgia-bytes) · [@sbrous-org](https://github.com/sbrous-org) | Classic games built in C++: Serpente (Snake), Traffigo (car race), Egatho (egg basket) and Broppy (Flappy Bird). | `C++` `Game Dev` `Make` |
+| [**📖 cookbook**](https://github.com/xudipta/cookbook) | CI-validated notes on Kubernetes, Docker, Linux, Terraform, CI/CD, Agent Skills and MCP. Every note ships with a runnable, automatically checked example. | `Python` `Shell` `GitHub Actions` |
+| [**🧭 prep**](https://github.com/xudipta/prep) | Preparation and practice work in Go. | `Go` |
 
 ---
 
