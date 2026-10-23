@@ -35,9 +35,14 @@ I work across the stack, from infrastructure and cloud automation down to system
 ---
 
 ### ⚙️ Tech Playground
-**Languages:** `Go` • `Python` • `Java` • `C++` • `Shell` • `PowerShell`  
-**Cloud & DevOps:** `Kubernetes` • `Docker` • `Helm` • `Terraform` • `AWS` • `GitHub Actions`  
-**Foundations:** `Linux` • `Networking` • `HLD` • `LLD` • `DSA`
+**🧠 Edge AI & Acceleration:** `OpenVINO` • `Intel NPU` • `Intel iGPU` • `DL Streamer` • `YOLO` • `Whisper` • `NLLB-200` • `Sentiment & voice emotion` • `Text-to-speech`  
+**🛸 Drones & Aerospace:** `Drone / UAV SDKs` • `MAVLink` • `Video analytics pipelines` • `RTSP`  
+**☸️ Edge & Cloud Infrastructure:** `Kubernetes` • `Helm` • `Docker` • `Edge node provisioning` • `Edge fleet management` • `SR-IOV` • `Terraform` • `AWS` • `Linux` • `Networking` • `CI/CD`  
+**🗄️ Backend & Data:** `FastAPI` • `Spring Boot` • `REST` • `WebSockets` • `PostgreSQL` • `pgvector` • `SQLite`  
+**🤖 AI & LLM Apps:** `RAG` • `LLM pipelines` • `Hybrid search` • `Prompt design` • `Agent Skills` • `MCP`  
+**💻 Languages:** `Go` • `Python` • `Java` • `C++` • `JavaScript` • `SQL` • `Shell` • `PowerShell`  
+**🎨 Frontend & Games:** `WebGL` • `Canvas` • `HTML & CSS` • `Flutter` • `Game development`  
+**📐 Engineering Craft:** `HLD` • `LLD` • `Design patterns` • `DSA` • `ADRs` • `POC → production`
 
 ---
 

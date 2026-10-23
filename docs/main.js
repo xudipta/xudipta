@@ -18,11 +18,48 @@
     "professional bug starer",
   ];
 
-  const skills = {
-    "Languages": ["Go", "Python", "Java", "C++", "Shell", "PowerShell"],
-    "Cloud & DevOps": ["Kubernetes", "Docker", "Helm", "Terraform", "AWS", "GitHub Actions"],
-    "Foundations": ["Linux", "Networking", "HLD", "LLD", "DSA"],
+  // Where a skill was used. Keys are referenced from the skill list below.
+  const OEP = "https://github.com/open-edge-platform";
+  const proof = {
+    lingua: ["Local Lingua", `${OEP}/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua`],
+    fedaero: ["Federal & Aerospace AI Suite", `${OEP}/federal-and-aerospace-ai-suite`],
+    enib: ["Edge Node Infrastructure Blueprint", `${OEP}/edge-node-infrastructure-blueprint`],
+    emf: ["Edge Manageability Framework", `${OEP}/edge-manageability-framework`],
+    mynna: ["Mynna", "https://trip.mynna.chat"],
+    cookbook: ["cookbook", "https://github.com/xudipta/cookbook"],
+    games: ["nostalgia-bytes", "https://github.com/sbrous-org/nostalgia-bytes"],
+    sbi: ["State Bank of India", null],
+    lld: ["LLD", "https://github.com/xudipta/LLD"],
+    dsa: ["dsaRepo", "https://github.com/xudipta/dsaRepo"],
+    spring: ["springbootCRUD", "https://github.com/xudipta/springbootCRUD"],
+    flutter: ["paint_flutter", "https://github.com/xudipta/paint_flutter"],
+    site: ["this site", null],
   };
+
+  const skills = [
+    { id: "edge-ai", icon: "🧠", title: "Edge AI & Acceleration", blurb: "Running real models locally on Intel CPU, GPU and NPU. No cloud required.",
+      items: [["OpenVINO", "lingua", "fedaero"], ["Intel NPU", "lingua"], ["Intel iGPU", "lingua", "enib"], ["DL Streamer", "fedaero"], ["YOLO object detection", "fedaero"],
+        ["Whisper speech-to-text", "lingua"], ["NLLB-200 translation", "lingua"], ["Sentiment & voice emotion", "lingua"], ["Text-to-speech", "lingua"]] },
+    { id: "drones", icon: "🛸", title: "Drones & Aerospace", blurb: "SDKs and AI for UAVs and aerospace edge deployments.",
+      items: [["Drone / UAV SDKs", "fedaero"], ["MAVLink telemetry", "fedaero"], ["Video analytics pipelines", "fedaero"], ["RTSP streaming", "fedaero"]] },
+    { id: "infra", icon: "☸️", title: "Edge & Cloud Infrastructure", blurb: "From bare-metal edge nodes to Kubernetes clusters.",
+      items: [["Kubernetes", "cookbook"], ["Helm", "cookbook"], ["Docker", "lingua", "mynna", "cookbook"], ["Edge node provisioning", "enib"], ["Edge fleet management", "emf"],
+        ["SR-IOV", "enib"], ["GPU / NPU enablement", "enib"], ["Terraform", "cookbook"], ["AWS"], ["Linux", "cookbook"], ["Networking"], ["CI/CD & GitHub Actions", "cookbook"]] },
+    { id: "backend", icon: "🗄️", title: "Backend & Data", blurb: "Scalable services, from banking backends to real-time apps.",
+      items: [["Scalable backends", "sbi"], ["FastAPI", "mynna", "lingua"], ["Spring Boot", "spring"], ["REST APIs", "lingua", "spring"], ["WebSockets", "mynna"],
+        ["PostgreSQL", "mynna"], ["pgvector", "mynna"], ["SQLite", "lingua"], ["LISTEN/NOTIFY fan-out", "mynna"]] },
+    { id: "ai-apps", icon: "🤖", title: "AI & LLM Apps", blurb: "Grounded, cheap and swappable: LLM products that actually ship.",
+      items: [["RAG", "mynna"], ["LLM pipelines", "mynna"], ["Pluggable small models", "mynna"], ["Prompt design", "mynna"], ["Hybrid search", "mynna"],
+        ["Agent Skills", "cookbook"], ["Model Context Protocol (MCP)", "cookbook"]] },
+    { id: "langs", icon: "💻", title: "Languages", blurb: "Picking the right tool, not the favourite one.",
+      items: [["Go"], ["Python", "lingua", "mynna"], ["Java", "spring", "lld"], ["C++", "games", "dsa"], ["JavaScript", "site"], ["SQL", "mynna"], ["Shell", "cookbook"], ["PowerShell"]] },
+    { id: "frontend", icon: "🎨", title: "Frontend, Graphics & Games", blurb: "Because shipping includes the part people see.",
+      items: [["WebGL", "site"], ["Canvas & animation", "site"], ["HTML & CSS", "site"], ["Flutter", "flutter"], ["Game development", "games"]] },
+    { id: "craft", icon: "📐", title: "Engineering Craft", blurb: "How I think before I type.",
+      items: [["System design (HLD)"], ["Low-level design (LLD)", "lld"], ["Design patterns", "lld"], ["Data structures & algorithms", "dsa"],
+        ["Architecture decision records", "mynna"], ["POC → production", "mynna"], ["Testing in CI", "cookbook"]] },
+  ];
+  const exploring = ["Agentic AI workflows", "NPU-first AI apps", "Small language models on the edge"];
 
   // `repo` is the public GitHub repo (used for live star counts); `url` overrides the link.
   const projects = [
@@ -137,23 +174,63 @@
 
   // ---------- Skills & projects ----------
   function renderSkills() {
-    const root = $("#skill-groups");
+    const root = $("#skill-groups"), tabs = $("#skill-tabs");
+    const total = skills.reduce((n, g) => n + g.items.length, 0);
+    const stat = document.querySelector("[data-count-skills]");
+    if (stat) stat.dataset.count = total;
+
+    const tip = document.createElement("div");
+    tip.className = "skill-tip";
+    document.body.appendChild(tip);
+
+    tabs.innerHTML = [`<button type="button" class="tab active" data-f="all">All <span>${total}</span></button>`]
+      .concat(skills.map((g) => `<button type="button" class="tab" data-f="${g.id}">${g.icon} ${g.title} <span>${g.items.length}</span></button>`)).join("");
+
     let delay = 0;
-    for (const [group, items] of Object.entries(skills)) {
-      const div = document.createElement("div");
-      div.className = "skill-group";
-      div.innerHTML = `<h4>// ${group}</h4><div class="chips"></div>`;
-      const chips = div.querySelector(".chips");
-      for (const s of items) {
-        const c = document.createElement("span");
-        c.className = "chip";
-        c.textContent = s;
-        c.style.transitionDelay = `${(delay += 40)}ms`;
-        c.addEventListener("mouseleave", () => (c.style.transitionDelay = "0ms"));
+    for (const g of skills) {
+      const card = document.createElement("div");
+      card.className = "card skill-card tilt";
+      card.dataset.group = g.id;
+      card.innerHTML = `<div class="skill-head"><span class="ico">${g.icon}</span><h4>${g.title}</h4><span class="count">${g.items.length}</span></div><p>${g.blurb}</p><div class="chips"></div>`;
+      const chips = card.querySelector(".chips");
+      for (const [name, ...refs] of g.items) {
+        const used = refs.map((r) => proof[r]).filter(Boolean);
+        const link = used.find(([, url]) => url);
+        const c = document.createElement(link ? "a" : "span");
+        c.className = "chip" + (used.length ? " proven" : "");
+        c.textContent = name;
+        if (link) { c.href = link[1]; c.target = "_blank"; c.rel = "noopener"; }
+        if (used.length) {
+          c.dataset.used = used.map(([label]) => label).join(" · ");
+          c.setAttribute("aria-label", `${name}, used in ${c.dataset.used}`);
+        }
+        c.style.transitionDelay = `${(delay += 18)}ms`;
+        c.addEventListener("mouseleave", () => { c.style.transitionDelay = "0ms"; tip.classList.remove("on"); });
+        c.addEventListener("mouseenter", () => {
+          if (!c.dataset.used) return;
+          tip.innerHTML = `<small>used in</small>${c.dataset.used}`;
+          const r = c.getBoundingClientRect();
+          tip.style.left = `${Math.min(Math.max(8, r.left + r.width / 2 - tip.offsetWidth / 2), window.innerWidth - tip.offsetWidth - 8)}px`;
+          tip.style.top = `${r.top - tip.offsetHeight - 10}px`;
+          tip.classList.add("on");
+        });
         chips.appendChild(c);
       }
-      root.appendChild(div);
+      root.appendChild(card);
     }
+
+    root.insertAdjacentHTML("afterend", `<div class="exploring"><span class="pulse"></span><b>Currently exploring</b>${exploring.map((e) => `<span>${e}</span>`).join("")}</div>`);
+
+    tabs.addEventListener("click", (e) => {
+      const t = e.target.closest(".tab");
+      if (!t) return;
+      tabs.querySelectorAll(".tab").forEach((b) => b.classList.toggle("active", b === t));
+      root.querySelectorAll(".skill-card").forEach((card) => {
+        card.hidden = t.dataset.f !== "all" && card.dataset.group !== t.dataset.f;
+      });
+      root.classList.toggle("single", t.dataset.f !== "all");
+    });
+    window.addEventListener("scroll", () => tip.classList.remove("on"), { passive: true });
   }
 
   function renderProjects() {
@@ -267,7 +344,7 @@
         "<span class='hl'>Education</span>: M.Tech, NIT Durgapur",
       ].join("\n"),
       whoami: () => "sudipta",
-      skills: () => Object.entries(skills).map(([g, s]) => `<span class='hl'>${g}</span>: ${s.join(", ")}`).join("\n"),
+      skills: () => skills.map((g) => `${g.icon} <span class='hl'>${g.title}</span>: ${g.items.map(([n]) => n).join(", ")}`).join("\n"),
       projects: () => projects.map((p) => `${p.icon} <a href="${p.url || `https://github.com/${p.repo}`}" target="_blank" rel="noopener">${p.name}</a>${p.org ? ` <span class='hl'>@${p.org}</span>` : ""}`).join("\n"),
       ls: () => projects.map((p) => p.name + "/").join("  ") + "  README.md",
       "cat": (args) => args[0] && args[0].toLowerCase() === "readme.md"
