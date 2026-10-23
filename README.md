@@ -12,9 +12,10 @@ I work across the stack, from infrastructure and cloud automation down to system
 
 ### 💼 Experience
 - **Intel** *(current)*
-  - **Now:** creating new SDKs for Intel hardware
-  - **Then:** Infrastructure Blueprints
-  - **Started on:** Edge Manageability Framework
+  - **Next:** 🔒 a new project for Intel hardware, under wraps for now and to be open-sourced
+  - **Now:** SDKs and edge AI for Intel hardware: the drone SDK in the [Federal & Aerospace AI Suite](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) and [Local Lingua](https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua)
+  - **Then:** [Edge Node Infrastructure Blueprint](https://github.com/open-edge-platform/edge-node-infrastructure-blueprint)
+  - **Started on:** [Edge Manageability Framework](https://github.com/open-edge-platform/edge-manageability-framework)
 - **State Bank of India**: application developer, building scalable applications and handling backends
 - **Food delivery startup** *(college)*: an end-to-end food delivery service for students on campus
 - **Bootstrapped projects** throughout my career, from zero to one
@@ -40,7 +41,17 @@ I work across the stack, from infrastructure and cloud automation down to system
 
 ---
 
-### 📌 Featured Projects
+### 🔓 Open Source @ Intel
+| Project | What it is | Stack |
+|---|---|---|
+| [**🛸 Federal & Aerospace AI Suite**](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) | AI applications for aerospace and defence edge deployments. I worked on the drone SDK. | `UAV` `Edge AI` `OpenVINO` `DL Streamer` `MAVLink` |
+| [**🗣️ Local Lingua**](https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua) | Offline voice translation and sentiment analysis in 15+ languages, running entirely on Intel CPU, GPU and NPU. | `Whisper` `NLLB-200` `OpenVINO` `NPU` `FastAPI` |
+| [**🧱 Edge Node Infrastructure Blueprint**](https://github.com/open-edge-platform/edge-node-infrastructure-blueprint) | Turns edge hardware into a cloud-native platform with GPU, NPU and SR-IOV acceleration. | `Edge` `Provisioning` `Cloud-native` |
+| **🔒 Coming soon** | A new project for Intel hardware, under wraps for now and to be open-sourced. | `████` |
+
+---
+
+### 📌 Side Projects
 | Project | What it is | Stack |
 |---|---|---|
 | [**🐦 Mynna**](https://trip.mynna.chat) · [@OxomiAi](https://github.com/OxomiAi) | Shared-session trip planner for Northeast India. Friends plan together in one live chat with Mynna, an AI bot grounded in a curated knowledge base, which builds a shared, live itinerary. | `Python` `FastAPI` `WebSockets` `PostgreSQL` `pgvector` `RAG` `LLM` `Docker` |

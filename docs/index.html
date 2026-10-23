@@ -39,6 +39,7 @@
       <a href="#about">about</a>
       <a href="#solver">logic</a>
       <a href="#skills">skills</a>
+      <a href="#oss">open-source</a>
       <a href="#projects">projects</a>
       <a href="#terminal">terminal</a>
       <a href="#game">play</a>
@@ -51,7 +52,7 @@
       <p class="eyebrow"><span class="pulse"></span>$ whoami · engineer @ intel · problem solver</p>
       <h1>Hey, I'm <span class="grad">Sudipta</span></h1>
       <h2 class="typed-line">I'm a <span id="typed"></span><span class="cursor">|</span></h2>
-      <p class="lead">Engineer at <strong>Intel</strong>, building new SDKs for Intel hardware. Before that: edge manageability and infrastructure blueprints at Intel, scalable backends at State Bank of India, and a food delivery startup in college. Full-time code wrangler, part-time philosopher.</p>
+      <p class="lead">Engineer at <strong>Intel</strong>, building SDKs and edge AI for Intel hardware, from a drone SDK to an offline translator that runs on the NPU. Before that: edge manageability and infrastructure blueprints at Intel, scalable backends at State Bank of India, and a food delivery startup in college. Full-time code wrangler, part-time philosopher.</p>
       <div class="cta">
         <a class="btn primary" href="#projects">See my work</a>
         <a class="btn" href="#game">Squash some bugs 🐛</a>
@@ -135,13 +136,52 @@
       <div id="skill-groups" class="skill-groups"></div>
     </section>
 
+    <section id="oss" class="reveal">
+      <h3 class="section-title"><span>04.</span> Open Source @ Intel</h3>
+      <p class="muted oss-intro">Things I've built at Intel that are out in the open. Edge AI, drones and the infrastructure underneath them.</p>
+      <div class="oss-grid">
+        <a class="card oss tilt" href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" target="_blank" rel="noopener">
+          <div class="oss-top"><span class="oss-ico">🛸</span><span class="oss-tag">Drone SDK</span></div>
+          <h4>Federal &amp; Aerospace AI Suite</h4>
+          <code class="oss-path">open-edge-platform/federal-and-aerospace-ai-suite</code>
+          <p>AI applications for aerospace and defence edge deployments. I worked on the drone SDK. The suite's UAV Vision Analytics app, for example, runs YOLO11 object detection on a drone's camera feed with live MAVLink telemetry (GPS, altitude, speed, heading) overlaid.</p>
+          <div class="meta"><span>#UAV</span><span>#EdgeAI</span><span>#OpenVINO</span><span>#DLStreamer</span><span>#MAVLink</span></div>
+          <span class="oss-link">View on GitHub ↗</span>
+        </a>
+        <a class="card oss tilt" href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" target="_blank" rel="noopener">
+          <div class="oss-top"><span class="oss-ico">🗣️</span><span class="oss-tag">Built it</span></div>
+          <h4>Local Lingua</h4>
+          <code class="oss-path">edge-developer-kit-reference-scripts/samples/ai/local-lingua</code>
+          <p>Offline voice translation and sentiment analysis in 15+ languages. No cloud: speech-to-text, translation, text sentiment, voice-tone emotion and text-to-speech all run locally on Intel CPU, GPU and NPU.</p>
+          <div class="meta"><span>#Whisper</span><span>#NLLB-200</span><span>#OpenVINO</span><span>#NPU</span><span>#FastAPI</span><span>#Docker</span></div>
+          <span class="oss-link">View on GitHub ↗</span>
+        </a>
+        <a class="card oss tilt" href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" target="_blank" rel="noopener">
+          <div class="oss-top"><span class="oss-ico">🧱</span><span class="oss-tag">Infrastructure</span></div>
+          <h4>Edge Node Infrastructure Blueprint</h4>
+          <code class="oss-path">open-edge-platform/edge-node-infrastructure-blueprint</code>
+          <p>Turns edge hardware into a cloud-native platform: builds bootable install media, provisions edge nodes, and enables GPU, NPU and SR-IOV acceleration for containerised AI and real-time workloads.</p>
+          <div class="meta"><span>#Edge</span><span>#Provisioning</span><span>#CloudNative</span><span>#GPU</span><span>#NPU</span><span>#SR-IOV</span></div>
+          <span class="oss-link">View on GitHub ↗</span>
+        </a>
+        <div class="card oss locked" aria-label="Upcoming project, not yet public">
+          <div class="oss-top"><span class="oss-ico">🔒</span><span class="oss-tag soon">Coming soon</span></div>
+          <h4 class="redacted" data-text="Classified Project">Classified Project</h4>
+          <code class="oss-path">open-edge-platform/<span class="redacted" data-text="??????????">??????????</span></code>
+          <p>Currently building something new for Intel hardware. It's under wraps for now, and it will be open-sourced.</p>
+          <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="oss-link muted">Decrypting… check back soon</span>
+        </div>
+      </div>
+    </section>
+
     <section id="projects" class="reveal">
-      <h3 class="section-title"><span>04.</span> Featured Projects</h3>
+      <h3 class="section-title"><span>05.</span> Side Projects</h3>
       <div id="project-grid" class="project-grid"></div>
     </section>
 
     <section id="terminal" class="reveal">
-      <h3 class="section-title"><span>05.</span> Interactive Terminal</h3>
+      <h3 class="section-title"><span>06.</span> Interactive Terminal</h3>
       <p class="muted">Poke around. Type <code>help</code> to get started.</p>
       <div class="term" id="term">
         <div class="term-bar"><i></i><i></i><i></i><span>sudipta@portfolio: ~</span></div>
@@ -154,7 +194,7 @@
     </section>
 
     <section id="game" class="reveal">
-      <h3 class="section-title"><span>06.</span> Bug Squash</h3>
+      <h3 class="section-title"><span>07.</span> Bug Squash</h3>
       <p class="muted">Production is on fire. Squash the 🐛 bugs, but don't touch the ✅ features. You have 30 seconds.</p>
       <div class="game-wrap">
         <div class="game-hud">
@@ -172,16 +212,17 @@
     </section>
 
     <section id="resume" class="reveal">
-      <h3 class="section-title"><span>07.</span> Experience</h3>
+      <h3 class="section-title"><span>08.</span> Experience</h3>
       <div class="resume">
         <div class="timeline">
           <div class="tl-item current">
             <span class="dot"></span>
             <div class="tl-head"><h4>Intel</h4><span class="badge">Current</span></div>
             <div class="phases">
-              <div class="phase now"><b>Now</b><div><h5>SDKs for Intel hardware</h5><p>Creating new SDKs that let developers build on Intel hardware.</p></div></div>
-              <div class="phase"><b>Then</b><div><h5>Infrastructure Blueprints</h5><p>Worked on Intel's infrastructure blueprints.</p></div></div>
-              <div class="phase"><b>Started</b><div><h5>Edge Manageability Framework</h5><p>Worked on the framework for managing edge infrastructure at scale.</p></div></div>
+              <div class="phase next"><b>Next</b><div><h5>🔒 Under wraps</h5><p>A new project for Intel hardware, to be open-sourced.</p></div></div>
+              <div class="phase now"><b>Now</b><div><h5>SDKs &amp; edge AI for Intel hardware</h5><p>The drone SDK in the <a href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" target="_blank" rel="noopener">Federal &amp; Aerospace AI Suite</a>, and <a href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" target="_blank" rel="noopener">Local Lingua</a>, an offline translation and sentiment app running on CPU, GPU and NPU.</p></div></div>
+              <div class="phase"><b>Then</b><div><h5><a href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" target="_blank" rel="noopener">Edge Node Infrastructure Blueprint</a></h5><p>Provisioning edge nodes with GPU, NPU and SR-IOV acceleration for cloud-native workloads.</p></div></div>
+              <div class="phase"><b>Started</b><div><h5><a href="https://github.com/open-edge-platform/edge-manageability-framework" target="_blank" rel="noopener">Edge Manageability Framework</a></h5><p>Worked on the framework for managing edge infrastructure at scale.</p></div></div>
             </div>
           </div>
           <div class="tl-item">
