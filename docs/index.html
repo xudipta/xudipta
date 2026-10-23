@@ -3,15 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sudipta · Portfolio</title>
-  <meta name="description" content="Sudipta (xudipta): cloud, infrastructure, system design and automation. Portfolio, projects and resume.">
-  <meta property="og:title" content="Sudipta · Portfolio">
-  <meta property="og:description" content="Cloud & infrastructure, system design, automation. Come squash some bugs.">
+  <title>Sudipta · Engineer &amp; Problem Solver</title>
+  <meta name="description" content="Sudipta (xudipta): engineer and problem solver across cloud infrastructure, system design, AI products and automation. Portfolio, projects and resume.">
+  <meta name="theme-color" content="#05060d">
+  <link rel="canonical" href="https://xudipta.github.io/xudipta/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xudipta.github.io/xudipta/">
+  <meta property="og:title" content="Sudipta · Engineer & Problem Solver">
+  <meta property="og:description" content="Turning chaos into order: cloud infrastructure, system design, AI products and automation.">
+  <meta property="og:image" content="https://xudipta.github.io/xudipta/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="boot" aria-hidden="true">
+    <pre><span>&gt; initialising curiosity ........ ok</span>
+<span>&gt; loading problem_solver ......... ok</span>
+<span>&gt; mounting /dev/coffee ........... ok</span>
+<span>&gt; ordering chaos ................. ok</span></pre>
+  </div>
   <canvas id="bg" aria-hidden="true"></canvas>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
   <header class="nav">
     <a class="logo" href="#top">~/xudipta<span class="cursor">_</span></a>
@@ -27,9 +47,9 @@
   </header>
 
   <main id="top">
-    <section class="hero">
-      <p class="eyebrow">$ whoami</p>
-      <h1>Hey, I'm <span class="grad">Sudipta</span> 🚀</h1>
+    <section class="hero" id="home">
+      <p class="eyebrow"><span class="pulse"></span>$ whoami · engineer · problem solver</p>
+      <h1>Hey, I'm <span class="grad">Sudipta</span></h1>
       <h2 class="typed-line">I'm a <span id="typed"></span><span class="cursor">|</span></h2>
       <p class="lead">Full-time code wrangler, part-time philosopher. I build across the stack, from Kubernetes clusters and Terraform to system design and the scripts that keep it all running.</p>
       <div class="cta">
@@ -42,6 +62,8 @@
         <div><b data-count="13">0</b><span>repositories</span></div>
         <div><b>∞</b><span>bugs stared at</span></div>
       </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about"><span></span></a>
+      <figure class="quote" aria-live="off"><blockquote id="quote-text"></blockquote><figcaption id="quote-by"></figcaption></figure>
     </section>
 
     <section id="about" class="reveal">
@@ -162,9 +184,11 @@
   </main>
 
   <footer>
-    <p>Built with plain HTML, CSS &amp; JS · hosted on GitHub Pages · <span class="muted">psst… try the Konami code</span></p>
+    <p class="footer-quote">“We are what we repeatedly do.” <span>Will Durant</span></p>
+    <p>Hand-built with HTML, CSS, JS &amp; raw WebGL · hosted on GitHub Pages · <span class="muted">psst… try the Konami code</span></p>
   </footer>
 
+  <script src="scene.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
   const GITHUB_USER = "xudipta";
 
   const roles = [
-    "cloud & infrastructure engineer",
+    "cloud & infra engineer",
     "Kubernetes wrangler",
     "system designer (HLD + LLD)",
     "AI product builder",
@@ -38,6 +38,7 @@
 
   // ---------- Background: animated "cluster" network ----------
   function initBackground() {
+    if (document.documentElement.classList.contains("has-3d")) return; // scene.js is running
     const canvas = $("#bg");
     const ctx = canvas.getContext("2d");
     let w, h, nodes, packets;
@@ -245,6 +246,7 @@
         "  <span class='hl'>game</span>        squash some bugs",
         "  <span class='hl'>puzzle</span>      a logic puzzle",
         "  <span class='hl'>motto</span>       how I solve problems",
+        "  <span class='hl'>quote</span>       Nietzsche, Dostoevsky, Kafka & co.",
         "  <span class='hl'>kubectl</span>     try: kubectl get pods",
         "  <span class='hl'>github</span>      open my GitHub",
         "  <span class='hl'>clear</span>       clear the screen",
@@ -281,6 +283,7 @@
       echo: (args) => esc(args.join(" ")),
       exit: () => "There is no escape. Try <span class='hl'>game</span> instead.",
       puzzle: () => { location.hash = "#solver"; return "Opening the Logic Lab... turn all the lights off."; },
+      quote: () => { const [q, a] = quotes[Math.floor(Math.random() * quotes.length)]; return `“${q}”\n  <span class='hl'>— ${a}</span>`; },
       motto: () => "Understand → Break it down → Build → Break it (on purpose) → Fix → Repeat.",
       clear: () => { body.innerHTML = ""; return null; },
     };
@@ -480,6 +483,68 @@
     newPuzzle();
   }
 
+  // ---------- Philosophical quotes drifting in the background ----------
+  const quotes = [
+    ["Simplicity is prerequisite for reliability.", "Edsger W. Dijkstra"],
+    ["The obstacle is the way.", "Marcus Aurelius"],
+    ["What I cannot create, I do not understand.", "Richard Feynman"],
+    ["First, solve the problem. Then, write the code.", "John Johnson"],
+    ["The only way to go fast is to go well.", "Robert C. Martin"],
+    ["Order is the shape upon which beauty depends.", "Pearl S. Buck"],
+    ["One must still have chaos in oneself to be able to give birth to a dancing star.", "Friedrich Nietzsche"],
+    ["He who has a why to live can bear almost any how.", "Friedrich Nietzsche"],
+    ["The mystery of human existence lies not in just staying alive, but in finding something to live for.", "Fyodor Dostoevsky"],
+    ["To go wrong in one's own way is better than to go right in someone else's.", "Fyodor Dostoevsky"],
+    ["A book must be the axe for the frozen sea within us.", "Franz Kafka"],
+    ["From a certain point onward there is no longer any turning back. That is the point that must be reached.", "Franz Kafka"],
+  ];
+  function initQuotes() {
+    const fig = $(".quote"), text = $("#quote-text"), by = $("#quote-by");
+    const favourites = ["Friedrich Nietzsche", "Fyodor Dostoevsky", "Franz Kafka"];
+    const deck = quotes.flatMap((q) => (favourites.includes(q[1]) ? [q, q] : [q]))
+      .sort(() => Math.random() - 0.5)
+      .filter((q, k, a) => k === 0 || q !== a[k - 1]);
+    let i = 0;
+    const show = () => {
+      fig.classList.remove("show");
+      setTimeout(() => {
+        [text.textContent, by.textContent] = [`“${deck[i][0]}”`, deck[i][1]];
+        fig.classList.add("show");
+        i = (i + 1) % deck.length;
+      }, reducedMotion ? 0 : 900);
+    };
+    show();
+    if (!reducedMotion) setInterval(show, 9000);
+  }
+
+  // ---------- Cursor glow ----------
+  function initCursorGlow() {
+    const glow = $(".cursor-glow");
+    if (reducedMotion || !window.matchMedia("(hover: hover)").matches) return;
+    let x = 0, y = 0, gx = 0, gy = 0;
+    window.addEventListener("pointermove", (e) => { x = e.clientX; y = e.clientY; glow.classList.add("on"); }, { passive: true });
+    document.addEventListener("pointerleave", () => glow.classList.remove("on"));
+    (function follow() {
+      gx += (x - gx) * 0.15; gy += (y - gy) * 0.15;
+      glow.style.transform = `translate(${gx}px, ${gy}px)`;
+      requestAnimationFrame(follow);
+    })();
+  }
+
+  // ---------- Highlight the nav link of the section in view ----------
+  function initNavSpy() {
+    const links = new Map([...document.querySelectorAll(".nav nav a")].map((a) => [a.getAttribute("href").slice(1), a]));
+    const io = new IntersectionObserver((entries) => {
+      for (const en of entries) {
+        if (!en.isIntersecting) continue;
+        links.forEach((a) => a.classList.remove("active"));
+        const link = links.get(en.target.id);
+        if (link) link.classList.add("active");
+      }
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    document.querySelectorAll("main section[id]").forEach((s) => io.observe(s));
+  }
+
   // ---------- Konami code easter egg ----------
   function initKonami() {
     const code = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
@@ -516,4 +581,7 @@
   initLoop();
   initLightsOut();
   initKonami();
+  initQuotes();
+  initCursorGlow();
+  initNavSpy();
 })();
