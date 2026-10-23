@@ -12,10 +12,9 @@ I'm a software engineer at **Intel**, building SDKs and edge AI for Intel hardwa
 
 ### 💼 Experience
 - **Intel** *(current)*
-  - **Next:** 🔒 a new project for Intel hardware, under wraps for now and to be open-sourced
   - **Now:** SDKs and edge AI for Intel hardware: the drone SDK in the [Federal & Aerospace AI Suite](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) and [Local Lingua](https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua)
   - **Then:** [Edge Node Infrastructure Blueprint](https://github.com/open-edge-platform/edge-node-infrastructure-blueprint)
-  - **Started on:** [Edge Manageability Framework](https://github.com/open-edge-platform/edge-manageability-framework)
+  - **Started on:** [Edge Manageability Framework](https://github.com/open-edge-platform/edge-manageability-framework), an edge orchestrator for onboarding nodes, provisioning OS and creating clusters
 - **State Bank of India**: application developer, building scalable applications and handling backends
 - **Food delivery startup** *(college)*: an end-to-end food delivery service for students on campus
 - **Bootstrapped projects** throughout my career, from zero to one
@@ -30,7 +29,7 @@ I'm a software engineer at **Intel**, building SDKs and edge AI for Intel hardwa
 | [**🛸 Federal & Aerospace AI Suite**](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) | AI applications for aerospace and defence edge deployments. I worked on the drone SDK. | `UAV` `Edge AI` `OpenVINO` `DL Streamer` `MAVLink` |
 | [**🗣️ Local Lingua**](https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua) | Offline voice translation and sentiment analysis in 15+ languages, running entirely on Intel CPU, GPU and NPU. | `Whisper` `NLLB-200` `OpenVINO` `NPU` `FastAPI` |
 | [**🧱 Edge Node Infrastructure Blueprint**](https://github.com/open-edge-platform/edge-node-infrastructure-blueprint) | Turns edge hardware into a cloud-native platform with GPU, NPU and SR-IOV acceleration. | `Edge` `Provisioning` `Cloud-native` |
-| **🔒 Coming soon** | A new project for Intel hardware, under wraps for now and to be open-sourced. | `████` |
+| [**🛰️ Edge Manageability Framework**](https://github.com/open-edge-platform/edge-manageability-framework) | Edge Orchestrator: onboard edge nodes, provision their OS, create Kubernetes clusters and deploy apps across distributed edge sites. | `Edge orchestration` `OS provisioning` `Kubernetes` `Cluster lifecycle` |
 
 ---
 

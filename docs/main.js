@@ -43,7 +43,7 @@
     { id: "drones", icon: "🛸", title: "Drones & Aerospace", blurb: "SDKs and AI for UAVs and aerospace edge deployments.",
       items: [["Drone / UAV SDKs", "fedaero"], ["MAVLink telemetry", "fedaero"], ["Video analytics pipelines", "fedaero"], ["RTSP streaming", "fedaero"]] },
     { id: "infra", icon: "☸️", title: "Edge & Cloud Infrastructure", blurb: "From bare-metal edge nodes to Kubernetes clusters.",
-      items: [["Kubernetes", "cookbook"], ["Helm", "cookbook"], ["Docker", "lingua", "mynna", "cookbook"], ["Edge node provisioning", "enib"], ["Edge fleet management", "emf"],
+      items: [["Kubernetes", "emf", "cookbook"], ["Helm", "cookbook"], ["Docker", "lingua", "mynna", "cookbook"], ["Edge node provisioning", "emf", "enib"], ["Edge fleet management", "emf"],
         ["SR-IOV", "enib"], ["GPU / NPU enablement", "enib"], ["Terraform", "cookbook"], ["AWS"], ["Linux", "cookbook"], ["Networking"], ["CI/CD & GitHub Actions", "cookbook"]] },
     { id: "backend", icon: "🗄️", title: "Backend & Data", blurb: "Scalable services, from banking backends to real-time apps.",
       items: [["Scalable backends", "sbi"], ["FastAPI", "mynna", "lingua"], ["Spring Boot", "spring"], ["REST APIs", "lingua", "spring"], ["WebSockets", "mynna"],
@@ -335,10 +335,9 @@
       about: () => "Sudipta: engineer at Intel, full-time code wrangler, part-time philosopher.\nM.Tech, NIT Durgapur. Doesn't quit until the problem gives up first.",
       experience: () => [
         "<span class='hl'>Intel</span> (current)",
-        "  ▸ next     🔒 under wraps (will be open-sourced)",
         "  ▸ now      drone SDK (Federal & Aerospace AI Suite), Local Lingua",
         "  ▸ then     Edge Node Infrastructure Blueprint",
-        "  ▸ started  Edge Manageability Framework",
+        "  ▸ started  Edge Manageability Framework (edge orchestrator)",
         "<span class='hl'>State Bank of India</span>: application developer, scalable apps & backends",
         "<span class='hl'>Food delivery startup</span>: end-to-end campus delivery, college venture",
         "<span class='hl'>Education</span>: M.Tech, NIT Durgapur",
@@ -379,7 +378,8 @@
         ["federal-and-aerospace-ai-suite", "drone SDK for aerospace & defence edge AI"],
         ["edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua", "Local Lingua: offline translation + sentiment on CPU/GPU/NPU"],
         ["edge-node-infrastructure-blueprint", "edge nodes with GPU, NPU and SR-IOV acceleration"],
-      ].map(([p, d]) => `🔓 <a href="https://github.com/open-edge-platform/${p}" target="_blank" rel="noopener">${p.split("/").pop()}</a>  ${d}`).concat("🔒 ██████████  coming soon").join("\n"),
+        ["edge-manageability-framework", "edge orchestrator: onboard nodes, provision OS, create clusters"],
+      ].map(([p, d]) => `🔓 <a href="https://github.com/open-edge-platform/${p}" target="_blank" rel="noopener">${p.split("/").pop()}</a>  ${d}`).join("\n"),
       motto: () => "Understand → Break it down → Build → Break it (on purpose) → Fix → Repeat.",
       clear: () => { body.innerHTML = ""; return null; },
     };
@@ -641,18 +641,6 @@
     document.querySelectorAll("main section[id]").forEach((s) => io.observe(s));
   }
 
-  // ---------- "Decrypting" scramble on the classified project card ----------
-  function initRedacted() {
-    if (reducedMotion) return;
-    const glyphs = "█▓▒░<>/\\#$%&@01";
-    document.querySelectorAll(".redacted").forEach((el) => {
-      const len = el.dataset.text.length;
-      setInterval(() => {
-        el.textContent = Array.from({ length: len }, (_, k) => (el.dataset.text[k] === " " ? " " : glyphs[Math.floor(Math.random() * glyphs.length)])).join("");
-      }, 120);
-    });
-  }
-
   // ---------- Konami code easter egg ----------
   function initKonami() {
     const code = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
@@ -689,7 +677,6 @@
   initLoop();
   initLightsOut();
   initKonami();
-  initRedacted();
   initQuotes();
   initCursorGlow();
   initNavSpy();
