@@ -10,6 +10,19 @@ I work across the stack, from infrastructure and cloud automation down to system
 
 ---
 
+### 💼 Experience
+- **Intel** *(current)*
+  - **Now:** creating new SDKs for Intel hardware
+  - **Then:** Infrastructure Blueprints
+  - **Started on:** Edge Manageability Framework
+- **State Bank of India**: application developer, building scalable applications and handling backends
+- **Food delivery startup** *(college)*: an end-to-end food delivery service for students on campus
+- **Bootstrapped projects** throughout my career, from zero to one
+
+🎓 **M.Tech**, NIT Durgapur
+
+---
+
 ### 🛠️ What I Work On
 - **☸️ Cloud & Infrastructure:** Kubernetes, Docker, Helm, Terraform, AWS, Linux and networking, plus the CI/CD that ties them together.
 - **🏗️ System Design:** HLD and LLD, designing systems from scratch and watching them evolve (and sometimes explode).

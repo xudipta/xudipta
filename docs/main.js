@@ -8,6 +8,7 @@
   const GITHUB_USER = "xudipta";
 
   const roles = [
+    "builder of SDKs @ Intel",
     "cloud & infra engineer",
     "Kubernetes wrangler",
     "system designer (HLD + LLD)",
@@ -240,6 +241,7 @@
       help: () => [
         "Available commands:",
         "  <span class='hl'>about</span>       who is this person?",
+        "  <span class='hl'>experience</span>  where I've worked",
         "  <span class='hl'>skills</span>      the tech playground",
         "  <span class='hl'>projects</span>    things I've built",
         "  <span class='hl'>resume</span>      jump to the resume",
@@ -252,7 +254,16 @@
         "  <span class='hl'>clear</span>       clear the screen",
         "  ...and a few hidden ones 👀",
       ].join("\n"),
-      about: () => "Sudipta: full-time code wrangler, part-time philosopher.\nCloud & infra, system design, automation. Doesn't quit until the problem gives up first.",
+      about: () => "Sudipta: engineer at Intel, full-time code wrangler, part-time philosopher.\nM.Tech, NIT Durgapur. Doesn't quit until the problem gives up first.",
+      experience: () => [
+        "<span class='hl'>Intel</span> (current)",
+        "  ▸ now      SDKs for Intel hardware",
+        "  ▸ then     Infrastructure Blueprints",
+        "  ▸ started  Edge Manageability Framework",
+        "<span class='hl'>State Bank of India</span>: application developer, scalable apps & backends",
+        "<span class='hl'>Food delivery startup</span>: end-to-end campus delivery, college venture",
+        "<span class='hl'>Education</span>: M.Tech, NIT Durgapur",
+      ].join("\n"),
       whoami: () => "sudipta",
       skills: () => Object.entries(skills).map(([g, s]) => `<span class='hl'>${g}</span>: ${s.join(", ")}`).join("\n"),
       projects: () => projects.map((p) => `${p.icon} <a href="${p.url || `https://github.com/${p.repo}`}" target="_blank" rel="noopener">${p.name}</a>${p.org ? ` <span class='hl'>@${p.org}</span>` : ""}`).join("\n"),

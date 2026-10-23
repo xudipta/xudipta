@@ -264,7 +264,22 @@ h1 { font-size: clamp(2.6rem, 7.5vw, 5rem); line-height: 1.02; margin: 1rem 0 0.
 .timeline { border-left: 2px solid var(--line); padding-left: 1.5rem; }
 .tl-item { position: relative; margin-bottom: 1.6rem; }
 .tl-item .dot { position: absolute; left: calc(-1.5rem - 7px); top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(34, 211, 238, .2); }
-.tl-item h4 { margin: 0 0 0.2rem; }
+.tl-item h4 { margin: 0; font-size: 1.1rem; }
+.tl-head { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 0.3rem; }
+.tl-head .role { font: 500 0.8rem var(--mono); color: var(--accent-2); }
+.badge { font: 600 0.7rem var(--mono); color: #05060d; background: var(--good); padding: 0.1rem 0.5rem; border-radius: 999px; box-shadow: 0 0 12px rgba(52, 211, 153, .5); }
+.tl-item.current .dot { background: var(--good); box-shadow: 0 0 0 4px rgba(52, 211, 153, .2), 0 0 14px rgba(52, 211, 153, .6); }
+.phases { display: grid; gap: 0.6rem; margin-top: 0.6rem; }
+.phase { display: grid; grid-template-columns: 64px 1fr; gap: 0.8rem; align-items: start; padding: 0.7rem 0.9rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(5, 6, 13, 0.45); }
+.phase > b { font: 600 0.72rem var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; padding-top: 0.15rem; }
+.phase.now { border-color: rgba(34, 211, 238, .45); box-shadow: 0 0 20px rgba(34, 211, 238, .12); }
+.phase.now > b { color: var(--accent); }
+.phase h5 { margin: 0; font-size: 0.98rem; }
+.phase p { margin: 0.1rem 0 0; }
+.edu { display: flex; gap: 0.8rem; align-items: center; padding-bottom: 0.9rem; border-bottom: 1px solid var(--line); }
+.edu .ico { font-size: 1.8rem; }
+.strengths { display: flex; flex-wrap: wrap; gap: 0.4rem; padding-bottom: 0.4rem; }
+.strengths span { font: 500 0.75rem var(--mono); padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid var(--line); color: var(--text); }
 .tl-item p { margin: 0; color: var(--muted); }
 .resume-cta { display: flex; flex-direction: column; gap: 0.8rem; position: sticky; top: 90px; }
 .resume-cta h4, .resume-cta p { margin: 0; }
@@ -300,3 +315,4 @@ footer { position: relative; background: rgba(5, 6, 13, 0.6); backdrop-filter: b
   .boot { display: none; }
   .reveal, .chip { opacity: 1; transform: none; }
 }
+.lead strong { color: var(--text); font-weight: 600; }
