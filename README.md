@@ -23,7 +23,7 @@ I'm a software engineer at **Intel**, building SDKs and edge AI for Intel hardwa
 
 ---
 
-### 🔓 Open Source @ Intel
+### 🔓 Open Source Projects
 | Project | What it is | Stack |
 |---|---|---|
 | [**🛸 Federal & Aerospace AI Suite**](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) | AI applications for aerospace and defence edge deployments. I worked on the drone SDK. | `UAV` `Edge AI` `OpenVINO` `DL Streamer` `MAVLink` |

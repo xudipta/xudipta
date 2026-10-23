@@ -21,7 +21,7 @@
     ["Go to", "Home", "🏠", go("home")],
     ["Go to", "About", "👋", go("about")],
     ["Go to", "Experience", "💼", go("resume")],
-    ["Go to", "Open Source @ Intel", "🔓", go("oss")],
+    ["Go to", "Open Source Projects", "🔓", go("oss")],
     ["Go to", "Tech Playground", "🛠️", go("skills")],
     ["Go to", "Side Projects", "📁", go("projects")],
     ["Go to", "Problem Solver at Heart", "🧩", go("solver")],
