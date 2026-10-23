@@ -6,7 +6,7 @@
 
 🌐 **Portfolio:** [xudipta.github.io/xudipta](https://xudipta.github.io/xudipta/) (a 3D particle universe, a Kubernetes chaos-monkey game, an interactive terminal, logic puzzles and my experience)
 
-I work across the stack, from infrastructure and cloud automation down to systems code, and I like designing things end to end: high-level architecture, low-level class design, and the scripts that keep it all running.
+I'm a software engineer at **Intel**, building SDKs and edge AI for Intel hardware. I like designing things end to end: high-level architecture, low-level class design, and the scripts that keep it all running.
 
 ---
 
@@ -24,12 +24,22 @@ I work across the stack, from infrastructure and cloud automation down to system
 
 ---
 
+### 🔓 Open Source @ Intel
+| Project | What it is | Stack |
+|---|---|---|
+| [**🛸 Federal & Aerospace AI Suite**](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) | AI applications for aerospace and defence edge deployments. I worked on the drone SDK. | `UAV` `Edge AI` `OpenVINO` `DL Streamer` `MAVLink` |
+| [**🗣️ Local Lingua**](https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua) | Offline voice translation and sentiment analysis in 15+ languages, running entirely on Intel CPU, GPU and NPU. | `Whisper` `NLLB-200` `OpenVINO` `NPU` `FastAPI` |
+| [**🧱 Edge Node Infrastructure Blueprint**](https://github.com/open-edge-platform/edge-node-infrastructure-blueprint) | Turns edge hardware into a cloud-native platform with GPU, NPU and SR-IOV acceleration. | `Edge` `Provisioning` `Cloud-native` |
+| **🔒 Coming soon** | A new project for Intel hardware, under wraps for now and to be open-sourced. | `████` |
+
+---
+
 ### 🛠️ What I Work On
-- **☸️ Cloud & Infrastructure:** Kubernetes, Docker, Helm, Terraform, AWS, Linux and networking, plus the CI/CD that ties them together.
-- **🏗️ System Design:** HLD and LLD, designing systems from scratch and watching them evolve (and sometimes explode).
-- **🤖 Automation & Tooling:** Python, Go and shell scripting to automate the boring stuff so I can break new things faster.
-- **📚 Fundamentals:** data structures and algorithms in C++ and Java, and low-level design practice.
+- **🛸 Edge AI & SDKs:** SDKs and AI apps for Intel CPU, GPU and NPU, from a drone SDK to offline translation and sentiment analysis.
+- **☸️ Edge & Cloud Infrastructure:** edge node provisioning and fleet management, Kubernetes, Docker, Helm, Terraform, AWS and the CI/CD that ties them together.
+- **🗄️ Backends at Scale:** scalable applications and backends, from banking systems at State Bank of India to real-time apps.
 - **🧠 AI Products:** LLM apps with retrieval-augmented generation (RAG), real-time collaboration and pluggable models, plus Agent Skills and the Model Context Protocol (MCP).
+- **🏗️ System Design:** HLD and LLD, designing systems from scratch and watching them evolve (and sometimes explode).
 - **🎮 Game Development:** classic arcade games in C++.
 
 ---
@@ -43,16 +53,6 @@ I work across the stack, from infrastructure and cloud automation down to system
 **💻 Languages:** `Go` • `Python` • `Java` • `C++` • `JavaScript` • `SQL` • `Shell` • `PowerShell`  
 **🎨 Frontend & Games:** `WebGL` • `Canvas` • `HTML & CSS` • `Flutter` • `Game development`  
 **📐 Engineering Craft:** `HLD` • `LLD` • `Design patterns` • `DSA` • `ADRs` • `POC → production`
-
----
-
-### 🔓 Open Source @ Intel
-| Project | What it is | Stack |
-|---|---|---|
-| [**🛸 Federal & Aerospace AI Suite**](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) | AI applications for aerospace and defence edge deployments. I worked on the drone SDK. | `UAV` `Edge AI` `OpenVINO` `DL Streamer` `MAVLink` |
-| [**🗣️ Local Lingua**](https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua) | Offline voice translation and sentiment analysis in 15+ languages, running entirely on Intel CPU, GPU and NPU. | `Whisper` `NLLB-200` `OpenVINO` `NPU` `FastAPI` |
-| [**🧱 Edge Node Infrastructure Blueprint**](https://github.com/open-edge-platform/edge-node-infrastructure-blueprint) | Turns edge hardware into a cloud-native platform with GPU, NPU and SR-IOV acceleration. | `Edge` `Provisioning` `Cloud-native` |
-| **🔒 Coming soon** | A new project for Intel hardware, under wraps for now and to be open-sourced. | `████` |
 
 ---
 

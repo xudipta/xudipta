@@ -322,7 +322,7 @@
         "  <span class='hl'>oss</span>         open source at Intel",
         "  <span class='hl'>skills</span>      the tech playground",
         "  <span class='hl'>projects</span>    things I've built",
-        "  <span class='hl'>resume</span>      jump to the resume",
+        "  <span class='hl'>chaos</span>       break my Kubernetes cluster",
         "  <span class='hl'>game</span>        squash some bugs",
         "  <span class='hl'>puzzle</span>      a logic puzzle",
         "  <span class='hl'>motto</span>       how I solve problems",
@@ -350,7 +350,8 @@
       "cat": (args) => args[0] && args[0].toLowerCase() === "readme.md"
         ? "# Hey there, I'm Sudipta 🚀\nWriting code that doesn't crash... eventually."
         : "cat: missing or unknown file. Try: cat README.md",
-      resume: () => { location.hash = "#resume"; return "Opening resume..."; },
+      resume: () => { location.hash = "#resume"; return "Opening experience..."; },
+      chaos: () => { location.hash = "#k8s"; return "Releasing the chaos monkey 🐒..."; },
       game: () => { location.hash = "#game"; return "Loading bug squash... good luck."; },
       github: () => { window.open(`https://github.com/${GITHUB_USER}`, "_blank", "noopener"); return "Opening github.com/" + GITHUB_USER; },
       kubectl: (args) => {

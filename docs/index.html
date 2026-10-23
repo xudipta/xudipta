@@ -37,14 +37,14 @@
     <a class="logo" href="#top">~/xudipta<span class="cursor">_</span></a>
     <nav>
       <a href="#about">about</a>
-      <a href="#solver">logic</a>
-      <a href="#skills">skills</a>
-      <a href="#oss">open-source</a>
-      <a href="#projects">projects</a>
-      <a href="#terminal">terminal</a>
-      <a href="#game">play</a>
-      <a href="#k8s">chaos</a>
       <a href="#resume">experience</a>
+      <a href="#oss">open-source</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#solver">logic</a>
+      <a href="#terminal">terminal</a>
+      <a href="#k8s">chaos</a>
+      <a href="#game">play</a>
     </nav>
     <button class="palette-btn" id="palette-open" type="button" aria-label="Open command palette"><span>⌕</span><kbd>Ctrl K</kbd></button>
   </header>
@@ -56,13 +56,13 @@
       <h2 class="typed-line">I'm a <span id="typed"></span><span class="cursor">|</span></h2>
       <p class="lead">Engineer at <strong>Intel</strong>, building SDKs and edge AI for Intel hardware, from a drone SDK to an offline translator that runs on the NPU. Before that: edge manageability and infrastructure blueprints at Intel, scalable backends at State Bank of India, and a food delivery startup in college. Full-time code wrangler, part-time philosopher.</p>
       <div class="cta">
-        <a class="btn primary" href="#projects">See my work</a>
-        <a class="btn" href="#game">Squash some bugs 🐛</a>
+        <a class="btn primary" href="#oss">See my work</a>
+        <a class="btn" href="#k8s">Break my cluster 🐒</a>
         <a class="btn" href="https://github.com/xudipta" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
       <div class="stats">
-        <div><b data-count="60" data-count-skills>0</b><span>skills &amp; tools</span></div>
-        <div><b data-count="13">0</b><span>repositories</span></div>
+        <div><b data-count="61" data-count-skills>0</b><span>skills &amp; tools</span></div>
+        <div><b data-count="4">0</b><span>open-source repos @ Intel</span></div>
         <div><b>∞</b><span>bugs stared at</span></div>
       </div>
       <a class="scroll-cue" href="#about" aria-label="Scroll to about"><span></span></a>
@@ -83,16 +83,110 @@
           </ul>
         </div>
         <div class="focus">
-          <div class="card tilt"><span class="ico">☸️</span><h4>Cloud &amp; Infra</h4><p>Kubernetes, Docker, Helm, Terraform, AWS, Linux, networking and CI/CD.</p></div>
+          <div class="card tilt"><span class="ico">🛸</span><h4>Edge AI &amp; SDKs</h4><p>SDKs and AI apps for Intel CPU, GPU and NPU, from drones to offline translation.</p></div>
+          <div class="card tilt"><span class="ico">☸️</span><h4>Edge &amp; Cloud Infra</h4><p>Edge nodes, Kubernetes, Docker, Helm, Terraform and CI/CD.</p></div>
           <div class="card tilt"><span class="ico">🏗️</span><h4>System Design</h4><p>HLD and LLD: from whiteboard boxes to class diagrams.</p></div>
-          <div class="card tilt"><span class="ico">🤖</span><h4>Automation</h4><p>Python, Go and shell to turn toil into scripts.</p></div>
           <div class="card tilt"><span class="ico">🧠</span><h4>AI Products</h4><p>LLM apps with RAG (Mynna), plus Agent Skills and MCP.</p></div>
         </div>
       </div>
     </section>
 
+    <section id="resume" class="reveal">
+      <h3 class="section-title"><span>02.</span> Experience</h3>
+      <div class="resume">
+        <div class="timeline">
+          <div class="tl-item current">
+            <span class="dot"></span>
+            <div class="tl-head"><h4>Intel</h4><span class="badge">Current</span></div>
+            <div class="phases">
+              <div class="phase next"><b>Next</b><div><h5>🔒 Under wraps</h5><p>A new project for Intel hardware, to be open-sourced.</p></div></div>
+              <div class="phase now"><b>Now</b><div><h5>SDKs &amp; edge AI for Intel hardware</h5><p>The drone SDK in the <a href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" target="_blank" rel="noopener">Federal &amp; Aerospace AI Suite</a>, and <a href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" target="_blank" rel="noopener">Local Lingua</a>, an offline translation and sentiment app running on CPU, GPU and NPU.</p></div></div>
+              <div class="phase"><b>Then</b><div><h5><a href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" target="_blank" rel="noopener">Edge Node Infrastructure Blueprint</a></h5><p>Provisioning edge nodes with GPU, NPU and SR-IOV acceleration for cloud-native workloads.</p></div></div>
+              <div class="phase"><b>Started</b><div><h5><a href="https://github.com/open-edge-platform/edge-manageability-framework" target="_blank" rel="noopener">Edge Manageability Framework</a></h5><p>Worked on the framework for managing edge infrastructure at scale.</p></div></div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="dot"></span>
+            <div class="tl-head"><h4>State Bank of India</h4><span class="role">Application Developer</span></div>
+            <p>Developed scalable applications and handled backend systems.</p>
+          </div>
+          <div class="tl-item">
+            <span class="dot"></span>
+            <div class="tl-head"><h4>Food delivery startup</h4><span class="role">College venture</span></div>
+            <p>Started and ran an end-to-end food delivery service for students on campus, from ordering to the doorstep.</p>
+          </div>
+          <div class="tl-item">
+            <span class="dot"></span>
+            <div class="tl-head"><h4>Bootstrapped projects</h4><span class="role">Throughout my career</span></div>
+            <p>Taking ideas from zero to one: <a href="https://trip.mynna.chat" target="_blank" rel="noopener">Mynna</a> (AI trip planner, @OxomiAi), <a href="https://github.com/sbrous-org/nostalgia-bytes" target="_blank" rel="noopener">nostalgia-bytes</a> (C++ games, @sbrous-org), a POC-to-production workspace, and a <a href="https://github.com/xudipta/cookbook" target="_blank" rel="noopener">CI-validated cookbook</a>.</p>
+          </div>
+        </div>
+        <div class="resume-cta card">
+          <div class="edu"><span class="ico">🎓</span><div><h4>M.Tech</h4><p>NIT Durgapur</p></div></div>
+          <div class="strengths">
+            <span>Edge &amp; infrastructure</span><span>SDKs</span><span>Backends at scale</span><span>System design</span><span>Go · Python · Java · C++</span><span>Kubernetes</span>
+          </div>
+          <h4>Want the full picture?</h4>
+          <p>Reach out on GitHub, or check out what I'm building there.</p>
+          <a class="btn primary" id="resume-btn" href="resume.pdf" download hidden>Download resume (PDF)</a>
+          <a class="btn" href="https://github.com/xudipta" target="_blank" rel="noopener">github.com/xudipta ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="oss" class="reveal">
+      <h3 class="section-title"><span>03.</span> Open Source @ Intel</h3>
+      <p class="muted oss-intro">Things I've built at Intel that are out in the open. Edge AI, drones and the infrastructure underneath them.</p>
+      <div class="oss-grid">
+        <a class="card oss tilt" href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" target="_blank" rel="noopener">
+          <div class="oss-top"><span class="oss-ico">🛸</span><span class="oss-tag">Drone SDK</span></div>
+          <h4>Federal &amp; Aerospace AI Suite</h4>
+          <code class="oss-path">open-edge-platform/federal-and-aerospace-ai-suite</code>
+          <p>AI applications for aerospace and defence edge deployments. I worked on the drone SDK. The suite's UAV Vision Analytics app, for example, runs YOLO11 object detection on a drone's camera feed with live MAVLink telemetry (GPS, altitude, speed, heading) overlaid.</p>
+          <div class="meta"><span>#UAV</span><span>#EdgeAI</span><span>#OpenVINO</span><span>#DLStreamer</span><span>#MAVLink</span></div>
+          <span class="oss-link">View on GitHub ↗</span>
+        </a>
+        <a class="card oss tilt" href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" target="_blank" rel="noopener">
+          <div class="oss-top"><span class="oss-ico">🗣️</span><span class="oss-tag">Built it</span></div>
+          <h4>Local Lingua</h4>
+          <code class="oss-path">edge-developer-kit-reference-scripts/samples/ai/local-lingua</code>
+          <p>Offline voice translation and sentiment analysis in 15+ languages. No cloud: speech-to-text, translation, text sentiment, voice-tone emotion and text-to-speech all run locally on Intel CPU, GPU and NPU.</p>
+          <div class="meta"><span>#Whisper</span><span>#NLLB-200</span><span>#OpenVINO</span><span>#NPU</span><span>#FastAPI</span><span>#Docker</span></div>
+          <span class="oss-link">View on GitHub ↗</span>
+        </a>
+        <a class="card oss tilt" href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" target="_blank" rel="noopener">
+          <div class="oss-top"><span class="oss-ico">🧱</span><span class="oss-tag">Infrastructure</span></div>
+          <h4>Edge Node Infrastructure Blueprint</h4>
+          <code class="oss-path">open-edge-platform/edge-node-infrastructure-blueprint</code>
+          <p>Turns edge hardware into a cloud-native platform: builds bootable install media, provisions edge nodes, and enables GPU, NPU and SR-IOV acceleration for containerised AI and real-time workloads.</p>
+          <div class="meta"><span>#Edge</span><span>#Provisioning</span><span>#CloudNative</span><span>#GPU</span><span>#NPU</span><span>#SR-IOV</span></div>
+          <span class="oss-link">View on GitHub ↗</span>
+        </a>
+        <div class="card oss locked" aria-label="Upcoming project, not yet public">
+          <div class="oss-top"><span class="oss-ico">🔒</span><span class="oss-tag soon">Coming soon</span></div>
+          <h4 class="redacted" data-text="Classified Project">Classified Project</h4>
+          <code class="oss-path">open-edge-platform/<span class="redacted" data-text="??????????">??????????</span></code>
+          <p>Currently building something new for Intel hardware. It's under wraps for now, and it will be open-sourced.</p>
+          <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="oss-link muted">Decrypting… check back soon</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <h3 class="section-title"><span>04.</span> Tech Playground</h3>
+      <p class="muted skills-intro">The tools I reach for, grouped by the problems they solve. Hover a highlighted skill to see where I've used it; click to open the project.</p>
+      <div id="skill-tabs" class="skill-tabs" role="toolbar" aria-label="Filter skills"></div>
+      <div id="skill-groups" class="skill-groups"></div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h3 class="section-title"><span>05.</span> Side Projects</h3>
+      <div id="project-grid" class="project-grid"></div>
+    </section>
+
     <section id="solver" class="reveal">
-      <h3 class="section-title"><span>02.</span> Problem Solver at Heart</h3>
+      <h3 class="section-title"><span>06.</span> Problem Solver at Heart</h3>
       <div class="solver-grid">
         <div>
           <p>Give me a bug, a puzzle or a system that "just doesn't scale", and I'm hooked. Tech or pure logic, the itch is the same: I want to know <em>why</em>, not just make the error go away.</p>
@@ -133,59 +227,8 @@
       </div>
     </section>
 
-    <section id="skills" class="reveal">
-      <h3 class="section-title"><span>03.</span> Tech Playground</h3>
-      <p class="muted skills-intro">The tools I reach for, grouped by the problems they solve. Hover a highlighted skill to see where I've used it; click to open the project.</p>
-      <div id="skill-tabs" class="skill-tabs" role="toolbar" aria-label="Filter skills"></div>
-      <div id="skill-groups" class="skill-groups"></div>
-    </section>
-
-    <section id="oss" class="reveal">
-      <h3 class="section-title"><span>04.</span> Open Source @ Intel</h3>
-      <p class="muted oss-intro">Things I've built at Intel that are out in the open. Edge AI, drones and the infrastructure underneath them.</p>
-      <div class="oss-grid">
-        <a class="card oss tilt" href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" target="_blank" rel="noopener">
-          <div class="oss-top"><span class="oss-ico">🛸</span><span class="oss-tag">Drone SDK</span></div>
-          <h4>Federal &amp; Aerospace AI Suite</h4>
-          <code class="oss-path">open-edge-platform/federal-and-aerospace-ai-suite</code>
-          <p>AI applications for aerospace and defence edge deployments. I worked on the drone SDK. The suite's UAV Vision Analytics app, for example, runs YOLO11 object detection on a drone's camera feed with live MAVLink telemetry (GPS, altitude, speed, heading) overlaid.</p>
-          <div class="meta"><span>#UAV</span><span>#EdgeAI</span><span>#OpenVINO</span><span>#DLStreamer</span><span>#MAVLink</span></div>
-          <span class="oss-link">View on GitHub ↗</span>
-        </a>
-        <a class="card oss tilt" href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" target="_blank" rel="noopener">
-          <div class="oss-top"><span class="oss-ico">🗣️</span><span class="oss-tag">Built it</span></div>
-          <h4>Local Lingua</h4>
-          <code class="oss-path">edge-developer-kit-reference-scripts/samples/ai/local-lingua</code>
-          <p>Offline voice translation and sentiment analysis in 15+ languages. No cloud: speech-to-text, translation, text sentiment, voice-tone emotion and text-to-speech all run locally on Intel CPU, GPU and NPU.</p>
-          <div class="meta"><span>#Whisper</span><span>#NLLB-200</span><span>#OpenVINO</span><span>#NPU</span><span>#FastAPI</span><span>#Docker</span></div>
-          <span class="oss-link">View on GitHub ↗</span>
-        </a>
-        <a class="card oss tilt" href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" target="_blank" rel="noopener">
-          <div class="oss-top"><span class="oss-ico">🧱</span><span class="oss-tag">Infrastructure</span></div>
-          <h4>Edge Node Infrastructure Blueprint</h4>
-          <code class="oss-path">open-edge-platform/edge-node-infrastructure-blueprint</code>
-          <p>Turns edge hardware into a cloud-native platform: builds bootable install media, provisions edge nodes, and enables GPU, NPU and SR-IOV acceleration for containerised AI and real-time workloads.</p>
-          <div class="meta"><span>#Edge</span><span>#Provisioning</span><span>#CloudNative</span><span>#GPU</span><span>#NPU</span><span>#SR-IOV</span></div>
-          <span class="oss-link">View on GitHub ↗</span>
-        </a>
-        <div class="card oss locked" aria-label="Upcoming project, not yet public">
-          <div class="oss-top"><span class="oss-ico">🔒</span><span class="oss-tag soon">Coming soon</span></div>
-          <h4 class="redacted" data-text="Classified Project">Classified Project</h4>
-          <code class="oss-path">open-edge-platform/<span class="redacted" data-text="??????????">??????????</span></code>
-          <p>Currently building something new for Intel hardware. It's under wraps for now, and it will be open-sourced.</p>
-          <div class="bars" aria-hidden="true"><i></i><i></i><i></i></div>
-          <span class="oss-link muted">Decrypting… check back soon</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="reveal">
-      <h3 class="section-title"><span>05.</span> Side Projects</h3>
-      <div id="project-grid" class="project-grid"></div>
-    </section>
-
     <section id="terminal" class="reveal">
-      <h3 class="section-title"><span>06.</span> Interactive Terminal</h3>
+      <h3 class="section-title"><span>07.</span> Interactive Terminal</h3>
       <p class="muted">Poke around. Type <code>help</code> to get started.</p>
       <div class="term" id="term">
         <div class="term-bar"><i></i><i></i><i></i><span>sudipta@portfolio: ~</span></div>
@@ -194,24 +237,6 @@
           <label for="term-in" class="prompt">sudipta@portfolio:~$</label>
           <input id="term-in" spellcheck="false" autocapitalize="off" aria-label="Terminal command">
         </form>
-      </div>
-    </section>
-
-    <section id="game" class="reveal">
-      <h3 class="section-title"><span>07.</span> Bug Squash</h3>
-      <p class="muted">Production is on fire. Squash the 🐛 bugs, but don't touch the ✅ features. You have 30 seconds.</p>
-      <div class="game-wrap">
-        <div class="game-hud">
-          <span>Score <b id="g-score">0</b></span>
-          <span>Time <b id="g-time">30</b>s</span>
-          <span>Best <b id="g-best">0</b></span>
-        </div>
-        <canvas id="game-canvas" width="800" height="400" aria-label="Bug squash game"></canvas>
-        <div class="game-overlay" id="g-overlay">
-          <h4 id="g-title">Ready to debug?</h4>
-          <p id="g-msg">Click or tap bugs to squash them.</p>
-          <button class="btn primary" id="g-start">Start</button>
-        </div>
       </div>
     </section>
 
@@ -241,45 +266,20 @@
       </div>
     </section>
 
-    <section id="resume" class="reveal">
-      <h3 class="section-title"><span>09.</span> Experience</h3>
-      <div class="resume">
-        <div class="timeline">
-          <div class="tl-item current">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>Intel</h4><span class="badge">Current</span></div>
-            <div class="phases">
-              <div class="phase next"><b>Next</b><div><h5>🔒 Under wraps</h5><p>A new project for Intel hardware, to be open-sourced.</p></div></div>
-              <div class="phase now"><b>Now</b><div><h5>SDKs &amp; edge AI for Intel hardware</h5><p>The drone SDK in the <a href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" target="_blank" rel="noopener">Federal &amp; Aerospace AI Suite</a>, and <a href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" target="_blank" rel="noopener">Local Lingua</a>, an offline translation and sentiment app running on CPU, GPU and NPU.</p></div></div>
-              <div class="phase"><b>Then</b><div><h5><a href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" target="_blank" rel="noopener">Edge Node Infrastructure Blueprint</a></h5><p>Provisioning edge nodes with GPU, NPU and SR-IOV acceleration for cloud-native workloads.</p></div></div>
-              <div class="phase"><b>Started</b><div><h5><a href="https://github.com/open-edge-platform/edge-manageability-framework" target="_blank" rel="noopener">Edge Manageability Framework</a></h5><p>Worked on the framework for managing edge infrastructure at scale.</p></div></div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>State Bank of India</h4><span class="role">Application Developer</span></div>
-            <p>Developed scalable applications and handled backend systems.</p>
-          </div>
-          <div class="tl-item">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>Food delivery startup</h4><span class="role">College venture</span></div>
-            <p>Started and ran an end-to-end food delivery service for students on campus, from ordering to the doorstep.</p>
-          </div>
-          <div class="tl-item">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>Bootstrapped projects</h4><span class="role">Throughout my career</span></div>
-            <p>Taking ideas from zero to one: <a href="https://trip.mynna.chat" target="_blank" rel="noopener">Mynna</a> (AI trip planner, @OxomiAi), <a href="https://github.com/sbrous-org/nostalgia-bytes" target="_blank" rel="noopener">nostalgia-bytes</a> (C++ games, @sbrous-org), a POC-to-production workspace, and a <a href="https://github.com/xudipta/cookbook" target="_blank" rel="noopener">CI-validated cookbook</a>.</p>
-          </div>
+    <section id="game" class="reveal">
+      <h3 class="section-title"><span>09.</span> Bug Squash</h3>
+      <p class="muted">Production is on fire. Squash the 🐛 bugs, but don't touch the ✅ features. You have 30 seconds.</p>
+      <div class="game-wrap">
+        <div class="game-hud">
+          <span>Score <b id="g-score">0</b></span>
+          <span>Time <b id="g-time">30</b>s</span>
+          <span>Best <b id="g-best">0</b></span>
         </div>
-        <div class="resume-cta card">
-          <div class="edu"><span class="ico">🎓</span><div><h4>M.Tech</h4><p>NIT Durgapur</p></div></div>
-          <div class="strengths">
-            <span>Edge &amp; infrastructure</span><span>SDKs</span><span>Backends at scale</span><span>System design</span><span>Go · Python · Java · C++</span><span>Kubernetes</span>
-          </div>
-          <h4>Want the full picture?</h4>
-          <p>Grab my resume, or reach out on GitHub.</p>
-          <a class="btn primary" id="resume-btn" href="resume.pdf" download hidden>Download resume (PDF)</a>
-          <a class="btn" href="https://github.com/xudipta" target="_blank" rel="noopener">github.com/xudipta ↗</a>
+        <canvas id="game-canvas" width="800" height="400" aria-label="Bug squash game"></canvas>
+        <div class="game-overlay" id="g-overlay">
+          <h4 id="g-title">Ready to debug?</h4>
+          <p id="g-msg">Click or tap bugs to squash them.</p>
+          <button class="btn primary" id="g-start">Start</button>
         </div>
       </div>
     </section>
