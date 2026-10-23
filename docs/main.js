@@ -246,6 +246,7 @@
         "  <span class='hl'>game</span>        squash some bugs",
         "  <span class='hl'>puzzle</span>      a logic puzzle",
         "  <span class='hl'>motto</span>       how I solve problems",
+        "  <span class='hl'>quote</span>       Nietzsche, Dostoevsky, Kafka & co.",
         "  <span class='hl'>kubectl</span>     try: kubectl get pods",
         "  <span class='hl'>github</span>      open my GitHub",
         "  <span class='hl'>clear</span>       clear the screen",
@@ -282,6 +283,7 @@
       echo: (args) => esc(args.join(" ")),
       exit: () => "There is no escape. Try <span class='hl'>game</span> instead.",
       puzzle: () => { location.hash = "#solver"; return "Opening the Logic Lab... turn all the lights off."; },
+      quote: () => { const [q, a] = quotes[Math.floor(Math.random() * quotes.length)]; return `“${q}”\n  <span class='hl'>— ${a}</span>`; },
       motto: () => "Understand → Break it down → Build → Break it (on purpose) → Fix → Repeat.",
       clear: () => { body.innerHTML = ""; return null; },
     };
@@ -489,16 +491,26 @@
     ["First, solve the problem. Then, write the code.", "John Johnson"],
     ["The only way to go fast is to go well.", "Robert C. Martin"],
     ["Order is the shape upon which beauty depends.", "Pearl S. Buck"],
+    ["One must still have chaos in oneself to be able to give birth to a dancing star.", "Friedrich Nietzsche"],
+    ["He who has a why to live can bear almost any how.", "Friedrich Nietzsche"],
+    ["The mystery of human existence lies not in just staying alive, but in finding something to live for.", "Fyodor Dostoevsky"],
+    ["To go wrong in one's own way is better than to go right in someone else's.", "Fyodor Dostoevsky"],
+    ["A book must be the axe for the frozen sea within us.", "Franz Kafka"],
+    ["From a certain point onward there is no longer any turning back. That is the point that must be reached.", "Franz Kafka"],
   ];
   function initQuotes() {
     const fig = $(".quote"), text = $("#quote-text"), by = $("#quote-by");
-    let i = Math.floor(Math.random() * quotes.length);
+    const favourites = ["Friedrich Nietzsche", "Fyodor Dostoevsky", "Franz Kafka"];
+    const deck = quotes.flatMap((q) => (favourites.includes(q[1]) ? [q, q] : [q]))
+      .sort(() => Math.random() - 0.5)
+      .filter((q, k, a) => k === 0 || q !== a[k - 1]);
+    let i = 0;
     const show = () => {
       fig.classList.remove("show");
       setTimeout(() => {
-        [text.textContent, by.textContent] = [`“${quotes[i][0]}”`, quotes[i][1]];
+        [text.textContent, by.textContent] = [`“${deck[i][0]}”`, deck[i][1]];
         fig.classList.add("show");
-        i = (i + 1) % quotes.length;
+        i = (i + 1) % deck.length;
       }, reducedMotion ? 0 : 900);
     };
     show();

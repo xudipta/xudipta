@@ -54,6 +54,15 @@ Give me a bug, a puzzle or a system that "just doesn't scale", and I'm hooked. T
 
 ---
 
+### 📚 Words I Live By
+> *“One must still have chaos in oneself to be able to give birth to a dancing star.”* (Friedrich Nietzsche)
+>
+> *“To go wrong in one's own way is better than to go right in someone else's.”* (Fyodor Dostoevsky)
+>
+> *“A book must be the axe for the frozen sea within us.”* (Franz Kafka)
+
+---
+
 ### 🎯 What I’m About
 - Writing code that doesn’t crash... eventually.
 - Designing systems from scratch, then watching them evolve (and sometimes explode).
