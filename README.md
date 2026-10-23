@@ -4,7 +4,7 @@
 > 🧠 Known to stare at bugs longer than most people stare at sunsets.  
 > 🔁 I don’t quit until the problem gives up first. Ask my laptop.
 
-🌐 **Portfolio:** [xudipta.github.io/xudipta](https://xudipta.github.io/xudipta/) (interactive terminal, a bug-squashing mini-game and my resume)
+🌐 **Portfolio:** [xudipta.github.io/xudipta](https://xudipta.github.io/xudipta/) (a 3D particle universe, a Kubernetes chaos-monkey game, an interactive terminal, logic puzzles and my experience)
 
 I work across the stack, from infrastructure and cloud automation down to systems code, and I like designing things end to end: high-level architecture, low-level class design, and the scripts that keep it all running.
 

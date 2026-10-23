@@ -43,8 +43,10 @@
       <a href="#projects">projects</a>
       <a href="#terminal">terminal</a>
       <a href="#game">play</a>
+      <a href="#k8s">chaos</a>
       <a href="#resume">experience</a>
     </nav>
+    <button class="palette-btn" id="palette-open" type="button" aria-label="Open command palette"><span>⌕</span><kbd>Ctrl K</kbd></button>
   </header>
 
   <main id="top">
@@ -211,8 +213,34 @@
       </div>
     </section>
 
+    <section id="k8s" class="reveal">
+      <h3 class="section-title"><span>08.</span> Chaos Monkey</h3>
+      <p class="muted">A tiny Kubernetes cluster that heals itself. Be the chaos monkey 🐒: click pods to kill them, take a whole node down, or spike the traffic, then watch the controllers put it all back. How low can you push availability before Kubernetes heals it?</p>
+      <div class="card k8s-card">
+        <div class="k8s-bar">
+          <div class="k8s-stats">
+            <div><small>Availability</small><b id="k8s-avail" class="good">100%</b></div>
+            <div><small>Pods running</small><b id="k8s-running">9/9</b></div>
+            <div><small>Chaos dealt</small><b id="k8s-kills">0</b></div>
+            <div><small>Self-healed</small><b id="k8s-healed">0</b></div>
+            <div><small>Lowest you caused</small><b id="k8s-min">100%</b></div>
+          </div>
+          <canvas id="k8s-spark" aria-hidden="true"></canvas>
+        </div>
+        <div class="k8s-actions">
+          <button class="btn small-btn primary" id="k8s-chaos" type="button">🐒 Unleash chaos</button>
+          <button class="btn small-btn" id="k8s-spike" type="button">⚡ Traffic spike</button>
+          <button class="btn small-btn" id="k8s-reset" type="button">↺ Reset</button>
+          <span class="k8s-legend"><i class="web"></i>web <i class="api"></i>api <i class="cache"></i>cache</span>
+        </div>
+        <div class="k-pending-wrap"><small>Pending · waiting for a node</small><div id="k8s-pending" class="k-pods"></div></div>
+        <div id="k8s-nodes" class="k-nodes"></div>
+        <div class="k-log-wrap"><small>$ kubectl get events --watch</small><pre id="k8s-log" class="k-log"></pre></div>
+      </div>
+    </section>
+
     <section id="resume" class="reveal">
-      <h3 class="section-title"><span>08.</span> Experience</h3>
+      <h3 class="section-title"><span>09.</span> Experience</h3>
       <div class="resume">
         <div class="timeline">
           <div class="tl-item current">
@@ -263,5 +291,7 @@
   <script src="scene.js"></script>
   <script src="main.js"></script>
   <script src="orbit.js"></script>
+  <script src="chaos.js"></script>
+  <script src="palette.js"></script>
 </body>
 </html>
