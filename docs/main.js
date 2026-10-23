@@ -8,7 +8,7 @@
   const GITHUB_USER = "xudipta";
 
   const roles = [
-    "builder of SDKs @ Intel",
+    "software engineer @ Intel",
     "cloud & infra engineer",
     "Kubernetes wrangler",
     "system designer (HLD + LLD)",
