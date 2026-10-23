@@ -4,6 +4,8 @@
 > 🧠 Known to stare at bugs longer than most people stare at sunsets.  
 > 🔁 I don’t quit until the problem gives up first. Ask my laptop.
 
+🌐 **Portfolio:** [xudipta.github.io/xudipta](https://xudipta.github.io/xudipta/) (interactive terminal, a bug-squashing mini-game and my resume)
+
 I work across the stack, from infrastructure and cloud automation down to systems code, and I like designing things end to end: high-level architecture, low-level class design, and the scripts that keep it all running.
 
 ---
@@ -46,4 +48,5 @@ I work across the stack, from infrastructure and cloud automation down to system
 ---
 
 ### 📫 Let's Connect
+[![Portfolio](https://img.shields.io/badge/Portfolio-xudipta.github.io-22d3ee?logo=googlechrome&logoColor=white)](https://xudipta.github.io/xudipta/)
 [![GitHub](https://img.shields.io/badge/GitHub-xudipta-181717?logo=github)](https://github.com/xudipta)
