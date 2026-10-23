@@ -8,7 +8,7 @@
   const GITHUB_USER = "xudipta";
 
   const roles = [
-    "cloud & infrastructure engineer",
+    "cloud & infra engineer",
     "Kubernetes wrangler",
     "system designer (HLD + LLD)",
     "AI product builder",
@@ -38,6 +38,7 @@
 
   // ---------- Background: animated "cluster" network ----------
   function initBackground() {
+    if (document.documentElement.classList.contains("has-3d")) return; // scene.js is running
     const canvas = $("#bg");
     const ctx = canvas.getContext("2d");
     let w, h, nodes, packets;
@@ -480,6 +481,58 @@
     newPuzzle();
   }
 
+  // ---------- Philosophical quotes drifting in the background ----------
+  const quotes = [
+    ["Simplicity is prerequisite for reliability.", "Edsger W. Dijkstra"],
+    ["The obstacle is the way.", "Marcus Aurelius"],
+    ["What I cannot create, I do not understand.", "Richard Feynman"],
+    ["First, solve the problem. Then, write the code.", "John Johnson"],
+    ["The only way to go fast is to go well.", "Robert C. Martin"],
+    ["Order is the shape upon which beauty depends.", "Pearl S. Buck"],
+  ];
+  function initQuotes() {
+    const fig = $(".quote"), text = $("#quote-text"), by = $("#quote-by");
+    let i = Math.floor(Math.random() * quotes.length);
+    const show = () => {
+      fig.classList.remove("show");
+      setTimeout(() => {
+        [text.textContent, by.textContent] = [`“${quotes[i][0]}”`, quotes[i][1]];
+        fig.classList.add("show");
+        i = (i + 1) % quotes.length;
+      }, reducedMotion ? 0 : 900);
+    };
+    show();
+    if (!reducedMotion) setInterval(show, 9000);
+  }
+
+  // ---------- Cursor glow ----------
+  function initCursorGlow() {
+    const glow = $(".cursor-glow");
+    if (reducedMotion || !window.matchMedia("(hover: hover)").matches) return;
+    let x = 0, y = 0, gx = 0, gy = 0;
+    window.addEventListener("pointermove", (e) => { x = e.clientX; y = e.clientY; glow.classList.add("on"); }, { passive: true });
+    document.addEventListener("pointerleave", () => glow.classList.remove("on"));
+    (function follow() {
+      gx += (x - gx) * 0.15; gy += (y - gy) * 0.15;
+      glow.style.transform = `translate(${gx}px, ${gy}px)`;
+      requestAnimationFrame(follow);
+    })();
+  }
+
+  // ---------- Highlight the nav link of the section in view ----------
+  function initNavSpy() {
+    const links = new Map([...document.querySelectorAll(".nav nav a")].map((a) => [a.getAttribute("href").slice(1), a]));
+    const io = new IntersectionObserver((entries) => {
+      for (const en of entries) {
+        if (!en.isIntersecting) continue;
+        links.forEach((a) => a.classList.remove("active"));
+        const link = links.get(en.target.id);
+        if (link) link.classList.add("active");
+      }
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    document.querySelectorAll("main section[id]").forEach((s) => io.observe(s));
+  }
+
   // ---------- Konami code easter egg ----------
   function initKonami() {
     const code = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
@@ -516,4 +569,7 @@
   initLoop();
   initLightsOut();
   initKonami();
+  initQuotes();
+  initCursorGlow();
+  initNavSpy();
 })();
