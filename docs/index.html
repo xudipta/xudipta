@@ -115,9 +115,18 @@
           </div>
         </div>
       </div>
-      <div class="card activity">
-        <h4>📈 Consistency, visualised: my GitHub activity</h4>
-        <img src="https://ghchart.rshah.org/22d3ee/xudipta" alt="xudipta's GitHub contribution graph over the last year" loading="lazy" onerror="this.closest('.activity').hidden = true">
+      <div class="card activity" id="activity">
+        <div class="orbit-wrap">
+          <canvas id="orbit" role="img" aria-label="GitHub contributions over the last year"></canvas>
+          <div class="orbit-copy">
+            <p class="kicker">// consistency, visualised</p>
+            <h3>A year of showing up</h3>
+            <p>Every dot is a day of my GitHub activity over the last year. Each ring is a weekday, from Sunday on the inside to Saturday on the outside. Brighter dots mean more contributions, and the amber hand marks today.</p>
+            <div class="pillrow" id="orbit-pills"><span class="pill">loading live data…</span></div>
+            <blockquote>“From a certain point onward there is no longer any turning back. That is the point that must be reached.”<span>— Franz Kafka</span></blockquote>
+          </div>
+        </div>
+        <img class="activity-fallback" hidden src="https://ghchart.rshah.org/22d3ee/xudipta" alt="xudipta's GitHub contribution graph over the last year" loading="lazy">
       </div>
     </section>
 
@@ -190,5 +199,6 @@
 
   <script src="scene.js"></script>
   <script src="main.js"></script>
+  <script src="orbit.js"></script>
 </body>
 </html>
