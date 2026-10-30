@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261030">
 </head>
 <body>
   <div class="boot" aria-hidden="true">
@@ -288,10 +288,11 @@
     <p>Hand-built with HTML, CSS, JS &amp; raw WebGL · hosted on GitHub Pages · <span class="muted">psst… try the Konami code</span></p>
   </footer>
 
-  <script src="scene.js"></script>
-  <script src="main.js"></script>
-  <script src="orbit.js"></script>
-  <script src="chaos.js"></script>
-  <script src="palette.js"></script>
+  <!-- Bump ?v= whenever CSS or JS changes, so browsers fetch the new files instead of a cached copy. -->
+  <script src="scene.js?v=20261030"></script>
+  <script src="main.js?v=20261030"></script>
+  <script src="orbit.js?v=20261030"></script>
+  <script src="chaos.js?v=20261030"></script>
+  <script src="palette.js?v=20261030"></script>
 </body>
 </html>
