@@ -4,9 +4,13 @@
 
   const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
   const go = (id) => () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  const click = (id, sel) => () => { go(id)(); setTimeout(() => document.querySelector(sel)?.click(), 500); };
+  // Play Zone panels are tabs, so open the tab instead of scrolling to a hidden element.
+  const play = (id, sel) => () => {
+    window.playZone?.open(id);
+    if (sel) setTimeout(() => document.querySelector(sel)?.click(), 500);
+  };
   const term = (cmd) => () => {
-    go("terminal")();
+    play("terminal")();
     setTimeout(() => {
       const input = document.getElementById("term-in");
       input.value = cmd;
@@ -25,9 +29,10 @@
     ["Go to", "Tech Playground", "🛠️", go("skills")],
     ["Go to", "Side Projects", "📁", go("projects")],
     ["Go to", "Problem Solver at Heart", "🧩", go("solver")],
-    ["Go to", "Interactive Terminal", "⌨️", go("terminal")],
-    ["Play", "Chaos Monkey: break the Kubernetes cluster", "🐒", click("k8s", "#k8s-chaos")],
-    ["Play", "Bug Squash", "🐛", click("game", "#g-start")],
+    ["Go to", "Play Zone", "🎮", play("k8s")],
+    ["Play", "Chaos Monkey: break the Kubernetes cluster", "🐒", play("k8s", "#k8s-chaos")],
+    ["Play", "Interactive terminal", "⌨️", play("terminal")],
+    ["Play", "Bug Squash", "🐛", play("game", "#g-start")],
     ["Play", "Lights Out logic puzzle", "💡", go("solver")],
     ["Run", "kubectl get pods", "☸️", term("kubectl get pods")],
     ["Run", "experience", "💼", term("experience")],
@@ -69,7 +74,7 @@
   function show() {
     lastFocus = document.activeElement;
     el.hidden = false; input.value = ""; active = 0; render();
-    requestAnimationFrame(() => input.focus());
+    input.focus(); // synchronously, so keys typed right after Ctrl+K land in the search box
   }
   function hide() { el.hidden = true; lastFocus?.focus?.({ preventScroll: true }); }
   function choose(i) { const it = shown[i]; if (!it) return; hide(); it.run(); }

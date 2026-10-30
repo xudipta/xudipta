@@ -89,7 +89,7 @@
   const NETWORK = 1;
 
   // Section id -> shape index.
-  const stageFor = { home: 0, about: 0, resume: 2, oss: 2, skills: 2, projects: 2, solver: 1, terminal: 3, k8s: 3, game: 3 };
+  const stageFor = { home: 0, about: 0, resume: 2, oss: 2, skills: 2, projects: 2, solver: 1, play: 3 };
   const sections = Object.keys(stageFor).map((id) => document.getElementById(id)).filter(Boolean);
 
   // ---------- Particle state ----------

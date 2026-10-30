@@ -406,8 +406,8 @@
         ? "# Hey there, I'm Sudipta 🚀\nWriting code that doesn't crash... eventually."
         : "cat: missing or unknown file. Try: cat README.md",
       resume: () => { location.hash = "#resume"; return "Opening experience..."; },
-      chaos: () => { location.hash = "#k8s"; return "Releasing the chaos monkey 🐒..."; },
-      game: () => { location.hash = "#game"; return "Loading bug squash... good luck."; },
+      chaos: () => { setTimeout(() => window.playZone.open("k8s"), 400); return "Releasing the chaos monkey 🐒..."; },
+      game: () => { setTimeout(() => window.playZone.open("game"), 400); return "Loading bug squash... good luck."; },
       github: () => { window.open(`https://github.com/${GITHUB_USER}`, "_blank", "noopener"); return "Opening github.com/" + GITHUB_USER; },
       kubectl: (args) => {
         if (args.join(" ") === "get pods") {
@@ -697,6 +697,45 @@
     document.querySelectorAll("main section[id]").forEach((s) => io.observe(s));
   }
 
+  // ---------- Play Zone: Chaos Monkey, Terminal and Bug Squash as tabs ----------
+  // #k8s, #terminal and #game still work as links (nav, hero, palette, old bookmarks): they open their tab.
+  function initPlayZone() {
+    const section = $("#play");
+    const tabs = [...section.querySelectorAll(".play-tab")];
+    const select = (id) => {
+      for (const t of tabs) {
+        const on = t.getAttribute("aria-controls") === id;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      }
+    };
+    const open = (id) => {
+      select(id);
+      section.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+    };
+    window.playZone = { open };
+
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => select(t.getAttribute("aria-controls")));
+      t.addEventListener("keydown", (e) => {
+        const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        if (!step) return;
+        const next = tabs[(i + step + tabs.length) % tabs.length];
+        select(next.getAttribute("aria-controls"));
+        next.focus();
+        e.preventDefault();
+      });
+    });
+
+    const fromHash = () => {
+      const id = location.hash.slice(1);
+      if (tabs.some((t) => t.getAttribute("aria-controls") === id)) open(id);
+    };
+    window.addEventListener("hashchange", fromHash);
+    fromHash();
+  }
+
   // ---------- Konami code easter egg ----------
   function initKonami() {
     const code = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
@@ -733,6 +772,7 @@
   initLoop();
   initLightsOut();
   initKonami();
+  initPlayZone();
   initQuotes();
   initCursorGlow();
   initNavSpy();
