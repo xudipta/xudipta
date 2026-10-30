@@ -33,6 +33,8 @@
     dsa: ["dsaRepo", "https://github.com/xudipta/dsaRepo"],
     spring: ["springbootCRUD", "https://github.com/xudipta/springbootCRUD"],
     flutter: ["paint_flutter", "https://github.com/xudipta/paint_flutter"],
+    flute: ["Flute Mastery Journey", "https://github.com/xudipta/Flute-Mastery-Journey"],
+    brain: ["Second Brain", "https://github.com/xudipta/second-brain-app"],
     site: ["this site", null],
   };
 
@@ -52,9 +54,10 @@
       items: [["RAG", "mynna"], ["LLM pipelines", "mynna"], ["Pluggable small models", "mynna"], ["Prompt design", "mynna"], ["Hybrid search", "mynna"],
         ["Agent Skills", "cookbook"], ["Model Context Protocol (MCP)", "cookbook"]] },
     { id: "langs", icon: "💻", title: "Languages", blurb: "Picking the right tool, not the favourite one.",
-      items: [["Go"], ["Python", "lingua", "mynna"], ["Java", "spring", "lld"], ["C++", "games", "dsa"], ["JavaScript", "site"], ["SQL", "mynna"], ["Shell", "cookbook"], ["PowerShell"]] },
+      items: [["Go"], ["Python", "lingua", "mynna"], ["Java", "spring", "lld"], ["C++", "games", "dsa"], ["JavaScript", "site", "flute", "brain"], ["SQL", "mynna"], ["Shell", "cookbook"], ["PowerShell"]] },
     { id: "frontend", icon: "🎨", title: "Frontend, Graphics & Games", blurb: "Because shipping includes the part people see.",
-      items: [["WebGL", "site"], ["Canvas & animation", "site"], ["HTML & CSS", "site"], ["Flutter", "flutter"], ["Game development", "games"]] },
+      items: [["WebGL", "site"], ["Canvas & animation", "site", "flute"], ["HTML & CSS", "site"], ["Web Audio", "flute"], ["PWA & offline-first", "flute", "brain"],
+        ["Web Crypto", "brain"], ["Flutter", "flutter"], ["Game development", "games"]] },
     { id: "craft", icon: "📐", title: "Engineering Craft", blurb: "How I think before I type.",
       items: [["System design (HLD)"], ["Low-level design (LLD)", "lld"], ["Design patterns", "lld"], ["Data structures & algorithms", "dsa"],
         ["Architecture decision records", "mynna"], ["POC → production", "mynna"], ["Testing in CI", "cookbook"]] },
@@ -66,6 +69,12 @@
     { name: "Mynna", org: "OxomiAi", url: "https://trip.mynna.chat", linkLabel: "live ↗", icon: "🐦",
       desc: "Shared-session trip planner for Northeast India. Friends plan together in one live chat with Mynna, an AI bot grounded in a curated knowledge base, which builds a shared, live itinerary.",
       tags: ["Python", "FastAPI", "WebSockets", "PostgreSQL", "pgvector", "RAG", "LLM", "Docker"] },
+    { name: "Flute Mastery Journey", repo: `${GITHUB_USER}/Flute-Mastery-Journey`, url: "https://xudipta.github.io/Flute-Mastery-Journey/", linkLabel: "live ↗", icon: "🎶",
+      desc: "An interactive guide to the Indian classical bansuri, from first sur to concert-stage raga: a timed daily riyaaz routine, a microphone pitch tuner, synthesised tanpura and tabla, a tap-to-hear finger chart and animated demos for 16 ragas. Installable and works offline.",
+      tags: ["JavaScript", "Web Audio", "Pitch detection", "PWA", "Offline-first", "Canvas"] },
+    { name: "Second Brain", repo: `${GITHUB_USER}/second-brain-app`, icon: "🧠",
+      desc: "A private capture app for my personal knowledge notebook. It interviews you one question at a time using proven frameworks such as Getting Things Done, never rewrites your words, encrypts everything in the browser and exports clean Markdown.",
+      tags: ["JavaScript", "PWA", "Web Crypto", "AES-256-GCM", "Offline-first", "Markdown"] },
     { name: "nostalgia-bytes", org: "sbrous-org", repo: "sbrous-org/nostalgia-bytes", icon: "🎮",
       desc: "Classic games built in C++: Serpente (Snake), Traffigo (car race), Egatho (egg basket) and Broppy (Flappy Bird), with Make and Windows build scripts.",
       tags: ["C++", "Game Dev", "Make"] },
@@ -174,7 +183,7 @@
 
   // ---------- Skills & projects ----------
   function renderSkills() {
-    const root = $("#skill-groups"), tabs = $("#skill-tabs");
+    const root = $("#skill-groups");
     const total = skills.reduce((n, g) => n + g.items.length, 0);
     const stat = document.querySelector("[data-count-skills]");
     if (stat) stat.dataset.count = total;
@@ -183,16 +192,11 @@
     tip.className = "skill-tip";
     document.body.appendChild(tip);
 
-    tabs.innerHTML = [`<button type="button" class="tab active" data-f="all">All <span>${total}</span></button>`]
-      .concat(skills.map((g) => `<button type="button" class="tab" data-f="${g.id}">${g.icon} ${g.title} <span>${g.items.length}</span></button>`)).join("");
 
     let delay = 0;
-    for (const g of skills) {
-      const card = document.createElement("div");
-      card.className = "card skill-card tilt";
-      card.dataset.group = g.id;
-      card.innerHTML = `<div class="skill-head"><span class="ico">${g.icon}</span><h4>${g.title}</h4><span class="count">${g.items.length}</span></div><p>${g.blurb}</p><div class="chips"></div>`;
-      const chips = card.querySelector(".chips");
+    const chipsFor = (g) => {
+      const chips = document.createElement("div");
+      chips.className = "chips";
       for (const [name, ...refs] of g.items) {
         const used = refs.map((r) => proof[r]).filter(Boolean);
         const link = used.find(([, url]) => url);
@@ -216,20 +220,72 @@
         });
         chips.appendChild(c);
       }
-      root.appendChild(card);
-    }
+      return chips;
+    };
+    const preview = (g) => {
+      const names = g.items.slice(0, 3).map(([n]) => n).join(" · ");
+      return g.items.length > 3 ? `${names} <b>+${g.items.length - 3}</b>` : names;
+    };
+
+    // Phones: one row per category that expands in place, so the skills open right where you tapped.
+    const renderAccordion = () => {
+      skills.forEach((g, i) => {
+        const row = document.createElement("div");
+        row.className = "skill-row card";
+        row.innerHTML = `<button type="button" class="skill-row-head" aria-expanded="false" aria-controls="sk-${g.id}">
+            <span class="ico">${g.icon}</span><span class="skill-row-title"><b>${g.title}</b><small>${preview(g)}</small></span>
+            <span class="count">${g.items.length}</span><span class="chev" aria-hidden="true">⌄</span></button>
+          <div class="skill-row-body" id="sk-${g.id}" role="region"><div><p>${g.blurb}</p></div></div>`;
+        row.querySelector(".skill-row-body > div").appendChild(chipsFor(g));
+        const head = row.querySelector(".skill-row-head");
+        head.addEventListener("click", () => {
+          const open = head.getAttribute("aria-expanded") !== "true";
+          head.setAttribute("aria-expanded", String(open));
+          row.classList.toggle("open", open);
+        });
+        root.appendChild(row);
+        if (i === 0) head.click();
+      });
+    };
+
+    // Wider screens: compact tiles, with the selected category's skills in a panel below.
+    const renderTiles = () => {
+      const grid = document.createElement("div");
+      grid.className = "skill-tiles";
+      grid.setAttribute("role", "tablist");
+      const drawer = document.createElement("div");
+      drawer.className = "skill-drawer card";
+      drawer.setAttribute("role", "tabpanel");
+      const select = (g, tile) => {
+        grid.querySelectorAll(".skill-tile").forEach((t) => t.setAttribute("aria-selected", String(t === tile)));
+        drawer.innerHTML = `<div class="skill-head"><span class="ico">${g.icon}</span><h4>${g.title}</h4><span class="count">${g.items.length}</span></div><p>${g.blurb}</p>`;
+        drawer.appendChild(chipsFor(g));
+        drawer.classList.remove("swap"); void drawer.offsetWidth; drawer.classList.add("swap");
+      };
+      skills.forEach((g, i) => {
+        const tile = document.createElement("button");
+        tile.type = "button";
+        tile.className = "skill-tile card";
+        tile.setAttribute("role", "tab");
+        tile.innerHTML = `<span class="ico">${g.icon}</span><b>${g.title}</b><small>${preview(g)}</small><span class="count">${g.items.length}</span>`;
+        tile.addEventListener("click", () => select(g, tile));
+        grid.appendChild(tile);
+        if (i === 0) select(g, tile);
+      });
+      root.append(grid, drawer);
+    };
+
+    const narrow = window.matchMedia("(max-width: 800px)");
+    const layout = () => {
+      root.replaceChildren();
+      root.className = `skill-groups ${narrow.matches ? "accordion" : "tiles"}`;
+      (narrow.matches ? renderAccordion : renderTiles)();
+    };
+    layout();
+    narrow.addEventListener("change", layout);
 
     root.insertAdjacentHTML("afterend", `<div class="exploring"><span class="pulse"></span><b>Currently exploring</b>${exploring.map((e) => `<span>${e}</span>`).join("")}</div>`);
 
-    tabs.addEventListener("click", (e) => {
-      const t = e.target.closest(".tab");
-      if (!t) return;
-      tabs.querySelectorAll(".tab").forEach((b) => b.classList.toggle("active", b === t));
-      root.querySelectorAll(".skill-card").forEach((card) => {
-        card.hidden = t.dataset.f !== "all" && card.dataset.group !== t.dataset.f;
-      });
-      root.classList.toggle("single", t.dataset.f !== "all");
-    });
     window.addEventListener("scroll", () => tip.classList.remove("on"), { passive: true });
   }
 
@@ -258,7 +314,7 @@
         .then((r) => (r.ok ? r.json() : null))
         .then((repo) => {
           const el = document.querySelector(`.stars[data-repo="${p.repo}"]`);
-          if (repo && el && repo.stargazers_count > 0) el.textContent = `★ ${repo.stargazers_count}`;
+          if (repo && el && repo.stargazers_count > 0) el.textContent = [el.textContent, `★ ${repo.stargazers_count}`].filter(Boolean).join(" · ");
         })
         .catch(() => {});
     }

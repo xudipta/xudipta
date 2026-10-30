@@ -50,7 +50,7 @@ I'm a software engineer at **Intel**, building SDKs and edge AI for Intel hardwa
 **🗄️ Backend & Data:** `FastAPI` • `Spring Boot` • `REST` • `WebSockets` • `PostgreSQL` • `pgvector` • `SQLite`  
 **🤖 AI & LLM Apps:** `RAG` • `LLM pipelines` • `Hybrid search` • `Prompt design` • `Agent Skills` • `MCP`  
 **💻 Languages:** `Go` • `Python` • `Java` • `C++` • `JavaScript` • `SQL` • `Shell` • `PowerShell`  
-**🎨 Frontend & Games:** `WebGL` • `Canvas` • `HTML & CSS` • `Flutter` • `Game development`  
+**🎨 Frontend & Games:** `WebGL` • `Canvas` • `HTML & CSS` • `Web Audio` • `PWA & offline-first` • `Web Crypto` • `Flutter` • `Game development`  
 **📐 Engineering Craft:** `HLD` • `LLD` • `Design patterns` • `DSA` • `ADRs` • `POC → production`
 
 ---
@@ -59,6 +59,8 @@ I'm a software engineer at **Intel**, building SDKs and edge AI for Intel hardwa
 | Project | What it is | Stack |
 |---|---|---|
 | [**🐦 Mynna**](https://trip.mynna.chat) · [@OxomiAi](https://github.com/OxomiAi) | Shared-session trip planner for Northeast India. Friends plan together in one live chat with Mynna, an AI bot grounded in a curated knowledge base, which builds a shared, live itinerary. | `Python` `FastAPI` `WebSockets` `PostgreSQL` `pgvector` `RAG` `LLM` `Docker` |
+| [**🎶 Flute Mastery Journey**](https://xudipta.github.io/Flute-Mastery-Journey/) | An interactive guide to the Indian classical bansuri: a timed daily riyaaz routine, a microphone pitch tuner, synthesised tanpura and tabla, a tap-to-hear finger chart and animated demos for 16 ragas. Installable and works offline. | `JavaScript` `Web Audio` `Pitch detection` `PWA` |
+| [**🧠 Second Brain**](https://github.com/xudipta/second-brain-app) | A private capture app for my personal knowledge notebook. It interviews you one question at a time using proven frameworks, never rewrites your words, encrypts everything in the browser and exports clean Markdown. | `JavaScript` `PWA` `Web Crypto` `AES-256-GCM` |
 | [**🎮 nostalgia-bytes**](https://github.com/sbrous-org/nostalgia-bytes) · [@sbrous-org](https://github.com/sbrous-org) | Classic games built in C++: Serpente (Snake), Traffigo (car race), Egatho (egg basket) and Broppy (Flappy Bird). | `C++` `Game Dev` `Make` |
 | [**📖 cookbook**](https://github.com/xudipta/cookbook) | CI-validated notes on Kubernetes, Docker, Linux, Terraform, CI/CD, Agent Skills and MCP. Every note ships with a runnable, automatically checked example. | `Python` `Shell` `GitHub Actions` |
 
