@@ -72,7 +72,7 @@
     { name: "Flute Mastery Journey", repo: `${GITHUB_USER}/Flute-Mastery-Journey`, url: "https://xudipta.github.io/Flute-Mastery-Journey/", linkLabel: "live ↗", icon: "🎶",
       desc: "An interactive guide to the Indian classical bansuri, from first sur to concert-stage raga: a timed daily riyaaz routine, a microphone pitch tuner, synthesised tanpura and tabla, a tap-to-hear finger chart and animated demos for 16 ragas. Installable and works offline.",
       tags: ["JavaScript", "Web Audio", "Pitch detection", "PWA", "Offline-first", "Canvas"] },
-    { name: "Second Brain", repo: `${GITHUB_USER}/second-brain-app`, icon: "🧠",
+    { name: "Second Brain", repo: `${GITHUB_USER}/second-brain-app`, url: "https://xudipta.github.io/second-brain-app/", linkLabel: "live ↗", icon: "🧠",
       desc: "A private capture app for my personal knowledge notebook. It interviews you one question at a time using proven frameworks such as Getting Things Done, never rewrites your words, encrypts everything in the browser and exports clean Markdown.",
       tags: ["JavaScript", "PWA", "Web Crypto", "AES-256-GCM", "Offline-first", "Markdown"] },
     { name: "nostalgia-bytes", org: "sbrous-org", repo: "sbrous-org/nostalgia-bytes", icon: "🎮",
