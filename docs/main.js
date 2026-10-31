@@ -648,7 +648,6 @@
     ["The mystery of human existence lies not in just staying alive, but in finding something to live for.", "Fyodor Dostoevsky"],
     ["To go wrong in one's own way is better than to go right in someone else's.", "Fyodor Dostoevsky"],
     ["A book must be the axe for the frozen sea within us.", "Franz Kafka"],
-    ["From a certain point onward there is no longer any turning back. That is the point that must be reached.", "Franz Kafka"],
   ];
   function initQuotes() {
     const fig = $(".quote"), text = $("#quote-text"), by = $("#quote-by");
@@ -710,9 +709,12 @@
         document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
       }
     };
-    const open = (id) => {
+    const open = (id, instant) => {
       select(id);
-      section.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+      // Use layout offsets, not getBoundingClientRect: the section may still be mid fade-in (translated down 30px).
+      let y = 0;
+      for (let e = section; e; e = e.offsetParent) y += e.offsetTop;
+      window.scrollTo({ top: y, behavior: instant || reducedMotion ? "instant" : "smooth" });
     };
     window.playZone = { open };
 
@@ -728,21 +730,42 @@
       });
     });
 
-    const fromHash = () => {
-      const id = location.hash.slice(1);
-      if (tabs.some((t) => t.getAttribute("aria-controls") === id)) open(id);
+    const isTab = (id) => tabs.some((t) => t.getAttribute("aria-controls") === id);
+    const current = () => tabs.find((t) => t.getAttribute("aria-selected") === "true").getAttribute("aria-controls");
+    // #play scrolls to the section and keeps whichever tab is open; #game, #k8s and #terminal open that tab.
+    const target = (id) => (id === "play" ? current() : isTab(id) ? id : null);
+    const fromHash = (instant) => {
+      const id = target(location.hash.slice(1));
+      if (id) open(id, instant === true);
     };
-    window.addEventListener("hashchange", fromHash);
+    window.addEventListener("hashchange", () => fromHash());
     // A link to the hash already in the address bar fires no hashchange, so handle the click itself.
     document.addEventListener("click", (e) => {
       const a = e.target.closest && e.target.closest('a[href^="#"]');
-      const id = a && a.getAttribute("href").slice(1);
-      if (!id || !tabs.some((t) => t.getAttribute("aria-controls") === id)) return;
+      const hash = a && a.getAttribute("href").slice(1);
+      const id = hash && target(hash);
+      if (!id) return;
       e.preventDefault();
-      history.replaceState(null, "", "#" + id);
+      history.replaceState(null, "", "#" + hash);
       open(id);
     });
-    fromHash();
+    // A deep link (e.g. /#game): show the right tab now, then jump there once fonts and images have loaded and the
+    // browser has done its own fragment scroll, so the page can no longer shift under us.
+    const id = target(location.hash.slice(1));
+    if (id) {
+      select(id);
+      const land = () => requestAnimationFrame(() => fromHash(true));
+      if (document.readyState === "complete") land(); else window.addEventListener("load", land, { once: true });
+      // Late layout changes (e.g. the activity card hiding when its data source is down) would leave the visitor
+      // off target. Re-land on resizes for a few seconds, until they start scrolling or interacting themselves.
+      if ("ResizeObserver" in window) {
+        const ro = new ResizeObserver(() => land());
+        const stop = () => { ro.disconnect(); ["wheel", "touchstart", "keydown", "pointerdown"].forEach((t) => window.removeEventListener(t, stop)); };
+        ["wheel", "touchstart", "keydown", "pointerdown"].forEach((t) => window.addEventListener(t, stop, { passive: true }));
+        ro.observe(document.querySelector("main"));
+        setTimeout(stop, 5000);
+      }
+    }
   }
 
   // ---------- Konami code easter egg ----------
