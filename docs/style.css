@@ -183,7 +183,7 @@ h1 { font-size: clamp(2.6rem, 7.5vw, 5rem); line-height: 1.02; margin: 1rem 0 0.
 .activity-fallback { display: block; width: 100%; filter: drop-shadow(0 0 6px rgba(34, 211, 238, .15)); }
 .activity-fallback[hidden], .orbit-wrap[hidden] { display: none; }
 .orbit-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
-#orbit { width: 100%; max-width: 520px; aspect-ratio: 1; display: block; margin: 0 auto; touch-action: manipulation; }
+#orbit { width: 100%; max-width: min(520px, 62vh); aspect-ratio: 1; display: block; margin: 0 auto; touch-action: manipulation; }
 .kicker { font: 500 0.8rem var(--mono); color: var(--accent); margin: 0 0 0.4rem; }
 .orbit-copy h3 { font-size: 1.6rem; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
 .orbit-copy > p:not(.kicker) { color: var(--muted); margin: 0 0 1rem; }
@@ -430,7 +430,9 @@ footer { position: relative; background: rgba(5, 6, 13, 0.6); backdrop-filter: b
 .skill-row-head .ico { font-size: 1.4rem; }
 .skill-row-title { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .skill-row-title b { font-size: 1rem; transition: color .2s; }
-.skill-row-title small, .skill-tile small { font: 0.76rem var(--mono); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.skill-row-title small, .skill-tile small { display: flex; gap: 0.4rem; min-width: 0; font: 0.76rem var(--mono); color: var(--muted); white-space: nowrap; }
+.skill-row-title small .pv, .skill-tile small .pv { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.skill-row-title small b, .skill-tile small b { flex: none; }
 .skill-row-title small b, .skill-tile small b { color: var(--accent-2); font-weight: 600; }
 .skill-row .count, .skill-tile .count, .skill-drawer .count { font: 600 0.72rem var(--mono); color: var(--accent-2); border: 1px solid rgba(167, 139, 250, .35); border-radius: 999px; padding: 0.05rem 0.5rem; }
 .chev { color: var(--muted); font-size: 1.1rem; transition: transform .3s; }
