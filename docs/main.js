@@ -733,6 +733,15 @@
       if (tabs.some((t) => t.getAttribute("aria-controls") === id)) open(id);
     };
     window.addEventListener("hashchange", fromHash);
+    // A link to the hash already in the address bar fires no hashchange, so handle the click itself.
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest && e.target.closest('a[href^="#"]');
+      const id = a && a.getAttribute("href").slice(1);
+      if (!id || !tabs.some((t) => t.getAttribute("aria-controls") === id)) return;
+      e.preventDefault();
+      history.replaceState(null, "", "#" + id);
+      open(id);
+    });
     fromHash();
   }
 
