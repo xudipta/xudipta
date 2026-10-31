@@ -172,11 +172,12 @@
   // ---------- Count-up stats ----------
   function countUp(el) {
     const target = +el.dataset.count;
-    if (reducedMotion) { el.textContent = target; return; }
+    const suffix = el.dataset.suffix || "";
+    if (reducedMotion) { el.textContent = target + suffix; return; }
     const start = performance.now();
     (function step(now) {
       const p = Math.min((now - start) / 1200, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + (p === 1 ? suffix : "");
       if (p < 1) requestAnimationFrame(step);
     })(start);
   }
@@ -375,6 +376,7 @@
         "Available commands:",
         "  <span class='hl'>about</span>       who is this person?",
         "  <span class='hl'>experience</span>  where I've worked",
+        "  <span class='hl'>contact</span>     email and LinkedIn",
         "  <span class='hl'>oss</span>         open-source projects",
         "  <span class='hl'>skills</span>      the tech playground",
         "  <span class='hl'>projects</span>    things I've built",
@@ -390,13 +392,20 @@
       ].join("\n"),
       about: () => "Sudipta: engineer at Intel, full-time code wrangler, part-time philosopher.\nM.Tech, NIT Durgapur. Doesn't quit until the problem gives up first.",
       experience: () => [
-        "<span class='hl'>Intel</span> (current)",
+        "<span class='hl'>Intel</span>  Software Engineer, Cloud Software Development   Aug 2024 – now",
         "  ▸ now      drone SDK (Federal & Aerospace AI Suite), Local Lingua",
         "  ▸ then     Edge Node Infrastructure Blueprint",
         "  ▸ started  Edge Manageability Framework (edge orchestrator)",
-        "<span class='hl'>State Bank of India</span>: application developer, scalable apps & backends",
-        "<span class='hl'>Food delivery startup</span>: end-to-end campus delivery, college venture",
-        "<span class='hl'>Education</span>: M.Tech, NIT Durgapur",
+        "<span class='hl'>State Bank of India</span>  SDE (Assistant Manager, Systems)   Dec 2021 – Jul 2024",
+        "<span class='hl'>Intel</span>  Graduate Technical Intern, IPsec in the IPU   May 2021 – Nov 2021",
+        "<span class='hl'>Mantra Associates</span>  Software Developer   Aug 2018 – Sep 2020",
+        "<span class='hl'>Vooid Technology</span>  Application Developer (part-time)   Feb 2017 – Jul 2017",
+        "<span class='hl'>Education</span>  M.Tech, NIT Durgapur",
+      ].join("\n"),
+      contact: () => [
+        `✉️  <a href="mailto:nathsudipta7@gmail.com">nathsudipta7@gmail.com</a>`,
+        `💼  <a href="https://www.linkedin.com/in/sudipta-nath-412833136/" target="_blank" rel="noopener">linkedin.com/in/sudipta-nath-412833136</a>`,
+        `🐙  <a href="https://github.com/xudipta" target="_blank" rel="noopener">github.com/xudipta</a>`,
       ].join("\n"),
       whoami: () => "sudipta",
       skills: () => skills.map((g) => `${g.icon} <span class='hl'>${g.title}</span>: ${g.items.map(([n]) => n).join(", ")}`).join("\n"),
