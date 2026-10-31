@@ -44,6 +44,8 @@
     ["Open", "Edge Node Infrastructure Blueprint", "🧱", open(`${OEP}/edge-node-infrastructure-blueprint`)],
     ["Open", "Mynna (live)", "🐦", open("https://trip.mynna.chat")],
     ["Open", "GitHub profile", "🐙", open("https://github.com/xudipta")],
+    ["Contact", "Email Sudipta", "✉️", () => { location.href = "mailto:nathsudipta7@gmail.com"; }],
+    ["Contact", "LinkedIn", "💼", open("https://www.linkedin.com/in/sudipta-nath-412833136/")],
   ].map(([group, label, icon, run]) => ({ group, label, icon, run }));
 
   const el = document.createElement("div");

@@ -11,11 +11,14 @@ I'm a software engineer at **Intel**, building SDKs and edge AI for Intel hardwa
 ---
 
 ### 💼 Experience
-- **Intel** *(current)*
+- **Intel** · Software Engineer, Cloud Software Development · *Aug 2024 – Present*
   - **Now:** SDKs and edge AI for Intel hardware: the drone SDK in the [Federal & Aerospace AI Suite](https://github.com/open-edge-platform/federal-and-aerospace-ai-suite) and [Local Lingua](https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua)
   - **Then:** [Edge Node Infrastructure Blueprint](https://github.com/open-edge-platform/edge-node-infrastructure-blueprint)
   - **Started on:** [Edge Manageability Framework](https://github.com/open-edge-platform/edge-manageability-framework), an edge orchestrator for onboarding nodes, provisioning OS and creating clusters
-- **State Bank of India**: application developer, building scalable applications and handling backends
+- **State Bank of India** · SDE (Assistant Manager, Systems) · *Dec 2021 – Jul 2024*: loan lifecycle management applications for corporate and SME loans
+- **Intel** · Graduate Technical Intern · *May 2021 – Nov 2021*: IPsec channel encryption within Intel's IPU
+- **Mantra Associates** · Software Developer · *Aug 2018 – Sep 2020*: trained faculty from 30+ universities and colleges with the E&ICT Academy, IIT Guwahati
+- **Vooid Technology** · Application Developer (part-time) · *Feb 2017 – Jul 2017*: an e-commerce Android app
 - **Food delivery startup** *(college)*: an end-to-end food delivery service for students on campus
 - **Bootstrapped projects** throughout my career, from zero to one
 
@@ -103,4 +106,6 @@ Give me a bug, a puzzle or a system that "just doesn't scale", and I'm hooked. T
 
 ### 📫 Let's Connect
 [![Portfolio](https://img.shields.io/badge/Portfolio-xudipta.github.io-22d3ee?logo=googlechrome&logoColor=white)](https://xudipta.github.io/xudipta/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Sudipta_Nath-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sudipta-nath-412833136/)
+[![Email](https://img.shields.io/badge/Email-nathsudipta7%40gmail.com-EA4335?logo=gmail&logoColor=white)](mailto:nathsudipta7@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-xudipta-181717?logo=github)](https://github.com/xudipta)

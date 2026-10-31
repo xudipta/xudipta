@@ -4,6 +4,9 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = (sel) => document.querySelector(sel);
 
+  // Line icon from the SVG sprite in index.html (the terminal keeps the emoji in `icon`).
+  const icon = (name, cls = "ico") => `<span class="${cls} ibox"><svg aria-hidden="true"><use href="#i-${name}"/></svg></span>`;
+
   // ---------- Content (edit here) ----------
   const GITHUB_USER = "xudipta";
 
@@ -39,26 +42,26 @@
   };
 
   const skills = [
-    { id: "edge-ai", icon: "🧠", title: "Edge AI & Acceleration", blurb: "Running real models locally on Intel CPU, GPU and NPU. No cloud required.",
+    { id: "edge-ai", icon: "🧠", ic: "chip", title: "Edge AI & Acceleration", blurb: "Running real models locally on Intel CPU, GPU and NPU. No cloud required.",
       items: [["OpenVINO", "lingua", "fedaero"], ["Intel NPU", "lingua"], ["Intel iGPU", "lingua", "enib"], ["DL Streamer", "fedaero"], ["YOLO object detection", "fedaero"],
         ["Whisper speech-to-text", "lingua"], ["NLLB-200 translation", "lingua"], ["Sentiment & voice emotion", "lingua"], ["Text-to-speech", "lingua"]] },
-    { id: "drones", icon: "🛸", title: "Drones & Aerospace", blurb: "SDKs and AI for UAVs and aerospace edge deployments.",
+    { id: "drones", icon: "🛸", ic: "drone", title: "Drones & Aerospace", blurb: "SDKs and AI for UAVs and aerospace edge deployments.",
       items: [["Drone / UAV SDKs", "fedaero"], ["MAVLink telemetry", "fedaero"], ["Video analytics pipelines", "fedaero"], ["RTSP streaming", "fedaero"]] },
-    { id: "infra", icon: "☸️", title: "Edge & Cloud Infrastructure", blurb: "From bare-metal edge nodes to Kubernetes clusters.",
+    { id: "infra", icon: "☸️", ic: "servers", title: "Edge & Cloud Infrastructure", blurb: "From bare-metal edge nodes to Kubernetes clusters.",
       items: [["Kubernetes", "emf", "cookbook"], ["Helm", "cookbook"], ["Docker", "lingua", "mynna", "cookbook"], ["Edge node provisioning", "emf", "enib"], ["Edge fleet management", "emf"],
         ["SR-IOV", "enib"], ["GPU / NPU enablement", "enib"], ["Terraform", "cookbook"], ["AWS"], ["Linux", "cookbook"], ["Networking"], ["CI/CD & GitHub Actions", "cookbook"]] },
-    { id: "backend", icon: "🗄️", title: "Backend & Data", blurb: "Scalable services, from banking backends to real-time apps.",
+    { id: "backend", icon: "🗄️", ic: "database", title: "Backend & Data", blurb: "Scalable services, from banking backends to real-time apps.",
       items: [["Scalable backends", "sbi"], ["FastAPI", "mynna", "lingua"], ["Spring Boot", "spring"], ["REST APIs", "lingua", "spring"], ["WebSockets", "mynna"],
         ["PostgreSQL", "mynna"], ["pgvector", "mynna"], ["SQLite", "lingua"], ["LISTEN/NOTIFY fan-out", "mynna"]] },
-    { id: "ai-apps", icon: "🤖", title: "AI & LLM Apps", blurb: "Grounded, cheap and swappable: LLM products that actually ship.",
+    { id: "ai-apps", icon: "🤖", ic: "sparkles", title: "AI & LLM Apps", blurb: "Grounded, cheap and swappable: LLM products that actually ship.",
       items: [["RAG", "mynna"], ["LLM pipelines", "mynna"], ["Pluggable small models", "mynna"], ["Prompt design", "mynna"], ["Hybrid search", "mynna"],
         ["Agent Skills", "cookbook"], ["Model Context Protocol (MCP)", "cookbook"]] },
-    { id: "langs", icon: "💻", title: "Languages", blurb: "Picking the right tool, not the favourite one.",
+    { id: "langs", icon: "💻", ic: "code", title: "Languages", blurb: "Picking the right tool, not the favourite one.",
       items: [["Go"], ["Python", "lingua", "mynna"], ["Java", "spring", "lld"], ["C++", "games", "dsa"], ["JavaScript", "site", "flute", "brain"], ["SQL", "mynna"], ["Shell", "cookbook"], ["PowerShell"]] },
-    { id: "frontend", icon: "🎨", title: "Frontend, Graphics & Games", blurb: "Because shipping includes the part people see.",
+    { id: "frontend", icon: "🎨", ic: "window", title: "Frontend, Graphics & Games", blurb: "Because shipping includes the part people see.",
       items: [["WebGL", "site"], ["Canvas & animation", "site", "flute"], ["HTML & CSS", "site"], ["Web Audio", "flute"], ["PWA & offline-first", "flute", "brain"],
         ["Web Crypto", "brain"], ["Flutter", "flutter"], ["Game development", "games"]] },
-    { id: "craft", icon: "📐", title: "Engineering Craft", blurb: "How I think before I type.",
+    { id: "craft", icon: "📐", ic: "compass", title: "Engineering Craft", blurb: "How I think before I type.",
       items: [["System design (HLD)"], ["Low-level design (LLD)", "lld"], ["Design patterns", "lld"], ["Data structures & algorithms", "dsa"],
         ["Architecture decision records", "mynna"], ["POC → production", "mynna"], ["Testing in CI", "cookbook"]] },
   ];
@@ -66,19 +69,19 @@
 
   // `repo` is the public GitHub repo (used for live star counts); `url` overrides the link.
   const projects = [
-    { name: "Mynna", org: "OxomiAi", url: "https://trip.mynna.chat", linkLabel: "live ↗", icon: "🐦",
+    { name: "Mynna", org: "OxomiAi", url: "https://trip.mynna.chat", linkLabel: "live ↗", icon: "🐦", ic: "map",
       desc: "Shared-session trip planner for Northeast India. Friends plan together in one live chat with Mynna, an AI bot grounded in a curated knowledge base, which builds a shared, live itinerary.",
       tags: ["Python", "FastAPI", "WebSockets", "PostgreSQL", "pgvector", "RAG", "LLM", "Docker"] },
-    { name: "Flute Mastery Journey", repo: `${GITHUB_USER}/Flute-Mastery-Journey`, url: "https://xudipta.github.io/Flute-Mastery-Journey/", linkLabel: "live ↗", icon: "🎶",
+    { name: "Flute Mastery Journey", repo: `${GITHUB_USER}/Flute-Mastery-Journey`, url: "https://xudipta.github.io/Flute-Mastery-Journey/", linkLabel: "live ↗", icon: "🎶", ic: "music",
       desc: "An interactive guide to the Indian classical bansuri, from first sur to concert-stage raga: a timed daily riyaaz routine, a microphone pitch tuner, synthesised tanpura and tabla, a tap-to-hear finger chart and animated demos for 16 ragas. Installable and works offline.",
       tags: ["JavaScript", "Web Audio", "Pitch detection", "PWA", "Offline-first", "Canvas"] },
-    { name: "Second Brain", repo: `${GITHUB_USER}/second-brain-app`, url: "https://xudipta.github.io/second-brain-app/", linkLabel: "live ↗", icon: "🧠",
+    { name: "Second Brain", repo: `${GITHUB_USER}/second-brain-app`, url: "https://xudipta.github.io/second-brain-app/", linkLabel: "live ↗", icon: "🧠", ic: "notebook",
       desc: "A private capture app for my personal knowledge notebook. It interviews you one question at a time using proven frameworks such as Getting Things Done, never rewrites your words, encrypts everything in the browser and exports clean Markdown.",
       tags: ["JavaScript", "PWA", "Web Crypto", "AES-256-GCM", "Offline-first", "Markdown"] },
-    { name: "nostalgia-bytes", org: "sbrous-org", repo: "sbrous-org/nostalgia-bytes", icon: "🎮",
+    { name: "nostalgia-bytes", org: "sbrous-org", repo: "sbrous-org/nostalgia-bytes", icon: "🎮", ic: "gamepad",
       desc: "Classic games built in C++: Serpente (Snake), Traffigo (car race), Egatho (egg basket) and Broppy (Flappy Bird), with Make and Windows build scripts.",
       tags: ["C++", "Game Dev", "Make"] },
-    { name: "cookbook", repo: `${GITHUB_USER}/cookbook`, icon: "📖",
+    { name: "cookbook", repo: `${GITHUB_USER}/cookbook`, icon: "📖", ic: "book",
       desc: "CI-validated notes on Kubernetes, Docker, Linux, Terraform, CI/CD, Agent Skills and MCP. Every note ships with a runnable, automatically checked example.",
       tags: ["Python", "Shell", "GitHub Actions"] },
   ];
@@ -172,11 +175,12 @@
   // ---------- Count-up stats ----------
   function countUp(el) {
     const target = +el.dataset.count;
-    if (reducedMotion) { el.textContent = target; return; }
+    const suffix = el.dataset.suffix || "";
+    if (reducedMotion) { el.textContent = target + suffix; return; }
     const start = performance.now();
     (function step(now) {
       const p = Math.min((now - start) / 1200, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + (p === 1 ? suffix : "");
       if (p < 1) requestAnimationFrame(step);
     })(start);
   }
@@ -233,7 +237,7 @@
         const row = document.createElement("div");
         row.className = "skill-row card";
         row.innerHTML = `<button type="button" class="skill-row-head" aria-expanded="false" aria-controls="sk-${g.id}">
-            <span class="ico">${g.icon}</span><span class="skill-row-title"><b>${g.title}</b><small>${preview(g)}</small></span>
+            ${icon(g.ic)}<span class="skill-row-title"><b>${g.title}</b><small>${preview(g)}</small></span>
             <span class="count">${g.items.length}</span><span class="chev" aria-hidden="true">⌄</span></button>
           <div class="skill-row-body" id="sk-${g.id}" role="region"><div><p>${g.blurb}</p></div></div>`;
         row.querySelector(".skill-row-body > div").appendChild(chipsFor(g));
@@ -258,7 +262,7 @@
       drawer.setAttribute("role", "tabpanel");
       const select = (g, tile) => {
         grid.querySelectorAll(".skill-tile").forEach((t) => t.setAttribute("aria-selected", String(t === tile)));
-        drawer.innerHTML = `<div class="skill-head"><span class="ico">${g.icon}</span><h4>${g.title}</h4><span class="count">${g.items.length}</span></div><p>${g.blurb}</p>`;
+        drawer.innerHTML = `<div class="skill-head">${icon(g.ic)}<h4>${g.title}</h4><span class="count">${g.items.length}</span></div><p>${g.blurb}</p>`;
         drawer.appendChild(chipsFor(g));
         drawer.classList.remove("swap"); void drawer.offsetWidth; drawer.classList.add("swap");
       };
@@ -267,7 +271,7 @@
         tile.type = "button";
         tile.className = "skill-tile card";
         tile.setAttribute("role", "tab");
-        tile.innerHTML = `<span class="ico">${g.icon}</span><b>${g.title}</b><small>${preview(g)}</small><span class="count">${g.items.length}</span>`;
+        tile.innerHTML = `${icon(g.ic)}<b>${g.title}</b><small>${preview(g)}</small><span class="count">${g.items.length}</span>`;
         tile.addEventListener("click", () => select(g, tile));
         grid.appendChild(tile);
         if (i === 0) select(g, tile);
@@ -297,7 +301,7 @@
       a.href = p.url || `https://github.com/${p.repo}`;
       a.target = "_blank"; a.rel = "noopener";
       a.innerHTML = `
-        <div class="top"><h4>${p.icon} ${p.name}</h4><span class="stars" data-repo="${p.repo || ""}">${p.linkLabel || ""}</span></div>
+        <div class="top"><h4 class="with-ic">${icon(p.ic, "ico sm")}${p.name}</h4><span class="stars" data-repo="${p.repo || ""}">${p.linkLabel || ""}</span></div>
         ${p.org ? `<span class="org">@${p.org}</span>` : ""}
         <p>${p.desc}</p>
         <div class="meta">${p.tags.map((t) => `<span>#${t}</span>`).join("")}</div>`;
@@ -375,6 +379,7 @@
         "Available commands:",
         "  <span class='hl'>about</span>       who is this person?",
         "  <span class='hl'>experience</span>  where I've worked",
+        "  <span class='hl'>contact</span>     email and LinkedIn",
         "  <span class='hl'>oss</span>         open-source projects",
         "  <span class='hl'>skills</span>      the tech playground",
         "  <span class='hl'>projects</span>    things I've built",
@@ -390,13 +395,20 @@
       ].join("\n"),
       about: () => "Sudipta: engineer at Intel, full-time code wrangler, part-time philosopher.\nM.Tech, NIT Durgapur. Doesn't quit until the problem gives up first.",
       experience: () => [
-        "<span class='hl'>Intel</span> (current)",
+        "<span class='hl'>Intel</span>  Software Engineer, Cloud Software Development   Aug 2024 – now",
         "  ▸ now      drone SDK (Federal & Aerospace AI Suite), Local Lingua",
         "  ▸ then     Edge Node Infrastructure Blueprint",
         "  ▸ started  Edge Manageability Framework (edge orchestrator)",
-        "<span class='hl'>State Bank of India</span>: application developer, scalable apps & backends",
-        "<span class='hl'>Food delivery startup</span>: end-to-end campus delivery, college venture",
-        "<span class='hl'>Education</span>: M.Tech, NIT Durgapur",
+        "<span class='hl'>State Bank of India</span>  SDE (Assistant Manager, Systems)   Dec 2021 – Jul 2024",
+        "<span class='hl'>Intel</span>  Graduate Technical Intern, IPsec in the IPU   May 2021 – Nov 2021",
+        "<span class='hl'>Mantra Associates</span>  Software Developer   Aug 2018 – Sep 2020",
+        "<span class='hl'>Vooid Technology</span>  Application Developer (part-time)   Feb 2017 – Jul 2017",
+        "<span class='hl'>Education</span>  M.Tech, NIT Durgapur",
+      ].join("\n"),
+      contact: () => [
+        `✉️  <a href="mailto:nathsudipta7@gmail.com">nathsudipta7@gmail.com</a>`,
+        `💼  <a href="https://www.linkedin.com/in/sudipta-nath-412833136/" target="_blank" rel="noopener">linkedin.com/in/sudipta-nath-412833136</a>`,
+        `🐙  <a href="https://github.com/xudipta" target="_blank" rel="noopener">github.com/xudipta</a>`,
       ].join("\n"),
       whoami: () => "sudipta",
       skills: () => skills.map((g) => `${g.icon} <span class='hl'>${g.title}</span>: ${g.items.map(([n]) => n).join(", ")}`).join("\n"),
@@ -637,17 +649,10 @@
 
   // ---------- Philosophical quotes drifting in the background ----------
   const quotes = [
-    ["Simplicity is prerequisite for reliability.", "Edsger W. Dijkstra"],
-    ["The obstacle is the way.", "Marcus Aurelius"],
-    ["What I cannot create, I do not understand.", "Richard Feynman"],
-    ["First, solve the problem. Then, write the code.", "John Johnson"],
-    ["The only way to go fast is to go well.", "Robert C. Martin"],
-    ["Order is the shape upon which beauty depends.", "Pearl S. Buck"],
     ["One must still have chaos in oneself to be able to give birth to a dancing star.", "Friedrich Nietzsche"],
-    ["He who has a why to live can bear almost any how.", "Friedrich Nietzsche"],
-    ["The mystery of human existence lies not in just staying alive, but in finding something to live for.", "Fyodor Dostoevsky"],
     ["To go wrong in one's own way is better than to go right in someone else's.", "Fyodor Dostoevsky"],
     ["A book must be the axe for the frozen sea within us.", "Franz Kafka"],
+    ["Simplicity is prerequisite for reliability.", "Edsger W. Dijkstra"],
   ];
   function initQuotes() {
     const fig = $(".quote"), text = $("#quote-text"), by = $("#quote-by");

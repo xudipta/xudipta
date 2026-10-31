@@ -42,12 +42,12 @@ code { font-family: var(--mono); color: var(--accent); }
 /* Boot intro: pure CSS, so it always clears even if JS fails */
 .boot {
   position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; background: var(--bg);
-  animation: bootOut .6s ease 1.7s forwards; pointer-events: none;
+  animation: bootOut .35s ease .75s forwards; pointer-events: none;
 }
 .boot pre { font: 500 0.95rem var(--mono); color: var(--muted); margin: 0; }
-.boot span { display: block; opacity: 0; animation: bootLine .3s ease forwards; }
-.boot span:nth-child(1) { animation-delay: .1s; } .boot span:nth-child(2) { animation-delay: .45s; }
-.boot span:nth-child(3) { animation-delay: .8s; } .boot span:nth-child(4) { animation-delay: 1.15s; color: var(--accent); }
+.boot span { display: block; opacity: 0; animation: bootLine .2s ease forwards; }
+.boot span:nth-child(1) { animation-delay: .05s; } .boot span:nth-child(2) { animation-delay: .2s; }
+.boot span:nth-child(3) { animation-delay: .35s; } .boot span:nth-child(4) { animation-delay: .5s; color: var(--accent); }
 @keyframes bootLine { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
 @keyframes bootOut { to { opacity: 0; visibility: hidden; } }
 
@@ -474,4 +474,32 @@ footer { position: relative; background: rgba(5, 6, 13, 0.6); backdrop-filter: b
   .play-tab { flex-direction: column; text-align: center; gap: 0.2rem; padding: 0.6rem 0.4rem; }
   .play-tab small { display: none; }
   .play-tab b { font-size: 0.82rem; }
+}
+
+/* Experience dates and contact */
+.tl-meta { margin: -0.1rem 0 0.45rem; font: 500 0.78rem var(--mono); color: var(--muted); }
+.tl-head .badge { margin-left: auto; }
+.contact-line { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: -1.4rem 0 2rem; font: 500 0.85rem var(--mono); color: var(--muted); }
+.contact-line a { color: var(--muted); border-bottom: 1px dashed rgba(148, 163, 184, .35); transition: color .2s, border-color .2s; }
+.contact-line a:hover { color: var(--accent); border-color: var(--accent); }
+.footer-links { display: flex; justify-content: center; gap: 1.4rem; font: 500 0.85rem var(--mono); margin: 0 0 0.8rem; }
+
+/* Line icons (SVG sprite) replacing emoji in professional content */
+.ibox {
+  display: inline-grid; place-items: center; flex: none; width: 2.5rem; height: 2.5rem; border-radius: 12px; color: var(--accent);
+  background: linear-gradient(135deg, rgba(34, 211, 238, .14), rgba(167, 139, 250, .1)); border: 1px solid rgba(34, 211, 238, .28);
+}
+.ibox svg { width: 55%; height: 55%; }
+.ibox.sm { width: 1.75rem; height: 1.75rem; border-radius: 8px; }
+.skill-tile .ibox, .skill-row-head .ibox, .play-tab .ibox { width: 2.15rem; height: 2.15rem; border-radius: 10px; }
+.trait .ibox { width: 2.25rem; height: 2.25rem; }
+.play-tab[aria-selected="true"] .ibox { color: #05060d; background: var(--accent); border-color: var(--accent); }
+.with-ic { display: flex; align-items: center; gap: 0.55rem; }
+.btn-ic { display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-ic svg { width: 1.15em; height: 1.15em; }
+/* SN monogram in the nav */
+.logo { display: inline-flex; align-items: center; gap: 0.6rem; }
+.mono-mark {
+  display: inline-grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 8px; font: 800 0.78rem var(--sans); letter-spacing: -0.02em;
+  color: #05060d; background: linear-gradient(135deg, var(--accent), var(--accent-2));
 }
