@@ -38,7 +38,7 @@ I'm a software engineer at **Intel**, building SDKs and edge AI for Intel hardwa
 - **☸️ Edge & Cloud Infrastructure:** edge node provisioning and fleet management, Kubernetes, Docker, Helm, Terraform, AWS and the CI/CD that ties them together.
 - **🗄️ Backends at Scale:** scalable applications and backends, from banking systems at State Bank of India to real-time apps.
 - **🧠 AI Products:** LLM apps with retrieval-augmented generation (RAG), real-time collaboration and pluggable models, plus Agent Skills and the Model Context Protocol (MCP).
-- **🏗️ System Design:** HLD and LLD, designing systems from scratch and watching them evolve (and sometimes explode).
+- **🏗️ System Design:** HLD and LLD, from whiteboard boxes to class diagrams.
 - **🎮 Game Development:** classic arcade games in C++.
 
 ---
