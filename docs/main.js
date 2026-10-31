@@ -228,7 +228,8 @@
     };
     const preview = (g) => {
       const names = g.items.slice(0, 3).map(([n]) => n).join(" · ");
-      return g.items.length > 3 ? `${names} <b>+${g.items.length - 3}</b>` : names;
+      // The names may be truncated with an ellipsis; the "+N" count sits outside them so it always shows.
+      return `<span class="pv">${names}</span>` + (g.items.length > 3 ? `<b>+${g.items.length - 3}</b>` : "");
     };
 
     // Phones: one row per category that expands in place, so the skills open right where you tapped.
