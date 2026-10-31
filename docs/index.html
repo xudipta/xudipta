@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-  <link rel="stylesheet" href="style.css?v=20261031">
+  <link rel="stylesheet" href="style.css?v=20261101">
 </head>
 <body>
   <div class="boot" aria-hidden="true">
@@ -225,13 +225,29 @@
 
     <section id="play" class="reveal">
       <h3 class="section-title"><span>07.</span> Play Zone</h3>
-      <p class="muted play-intro">Three small toys that say a lot about how I think: break a self-healing cluster, poke around a terminal, or fight a production fire.</p>
+      <p class="muted play-intro">Three small toys that say a lot about how I think: fight a production fire, break a self-healing cluster, or poke around a terminal.</p>
       <div class="play-tabs" role="tablist" aria-label="Play Zone">
-        <button type="button" role="tab" class="play-tab" id="tab-k8s" aria-controls="k8s" aria-selected="true"><span class="ico">🐒</span><span><b>Chaos Monkey</b><small>Break my Kubernetes cluster</small></span></button>
+        <button type="button" role="tab" class="play-tab" id="tab-game" aria-controls="game" aria-selected="true"><span class="ico">🐛</span><span><b>Bug Squash</b><small>30 seconds, production on fire</small></span></button>
+        <button type="button" role="tab" class="play-tab" id="tab-k8s" aria-controls="k8s" aria-selected="false" tabindex="-1"><span class="ico">🐒</span><span><b>Chaos Monkey</b><small>Break my Kubernetes cluster</small></span></button>
         <button type="button" role="tab" class="play-tab" id="tab-terminal" aria-controls="terminal" aria-selected="false" tabindex="-1"><span class="ico">⌨️</span><span><b>Terminal</b><small>Poke around my shell</small></span></button>
-        <button type="button" role="tab" class="play-tab" id="tab-game" aria-controls="game" aria-selected="false" tabindex="-1"><span class="ico">🐛</span><span><b>Bug Squash</b><small>30 seconds, production on fire</small></span></button>
       </div>
-      <div class="play-panel" id="k8s" role="tabpanel" aria-labelledby="tab-k8s">
+      <div class="play-panel" id="game" role="tabpanel" aria-labelledby="tab-game">
+        <p class="muted">Production is on fire. Squash the 🐛 bugs, but don't touch the ✅ features. You have 30 seconds.</p>
+        <div class="game-wrap">
+          <div class="game-hud">
+            <span>Score <b id="g-score">0</b></span>
+            <span>Time <b id="g-time">30</b>s</span>
+            <span>Best <b id="g-best">0</b></span>
+          </div>
+          <canvas id="game-canvas" width="800" height="400" aria-label="Bug squash game"></canvas>
+          <div class="game-overlay" id="g-overlay">
+            <h4 id="g-title">Ready to debug?</h4>
+            <p id="g-msg">Click or tap bugs to squash them.</p>
+            <button class="btn primary" id="g-start">Start</button>
+          </div>
+        </div>
+      </div>
+      <div class="play-panel" id="k8s" role="tabpanel" aria-labelledby="tab-k8s" hidden>
         <p class="muted">A tiny Kubernetes cluster that heals itself. Be the chaos monkey 🐒: click pods to kill them, take a whole node down, or spike the traffic, then watch the controllers put it all back. How low can you push availability before Kubernetes heals it?</p>
         <div class="card k8s-card">
           <div class="k8s-bar">
@@ -266,22 +282,6 @@
           </form>
         </div>
       </div>
-      <div class="play-panel" id="game" role="tabpanel" aria-labelledby="tab-game" hidden>
-        <p class="muted">Production is on fire. Squash the 🐛 bugs, but don't touch the ✅ features. You have 30 seconds.</p>
-        <div class="game-wrap">
-          <div class="game-hud">
-            <span>Score <b id="g-score">0</b></span>
-            <span>Time <b id="g-time">30</b>s</span>
-            <span>Best <b id="g-best">0</b></span>
-          </div>
-          <canvas id="game-canvas" width="800" height="400" aria-label="Bug squash game"></canvas>
-          <div class="game-overlay" id="g-overlay">
-            <h4 id="g-title">Ready to debug?</h4>
-            <p id="g-msg">Click or tap bugs to squash them.</p>
-            <button class="btn primary" id="g-start">Start</button>
-            </div>
-      </div>
-      </div>
     </section>
   </main>
 
@@ -291,10 +291,10 @@
   </footer>
 
   <!-- Bump ?v= whenever CSS or JS changes, so browsers fetch the new files instead of a cached copy. -->
-  <script src="scene.js?v=20261031"></script>
-  <script src="main.js?v=20261031"></script>
-  <script src="orbit.js?v=20261031"></script>
-  <script src="chaos.js?v=20261031"></script>
-  <script src="palette.js?v=20261031"></script>
+  <script src="scene.js?v=20261101"></script>
+  <script src="main.js?v=20261101"></script>
+  <script src="orbit.js?v=20261101"></script>
+  <script src="chaos.js?v=20261101"></script>
+  <script src="palette.js?v=20261101"></script>
 </body>
 </html>
