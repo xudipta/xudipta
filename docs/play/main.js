@@ -160,6 +160,7 @@
   // ---------- Typed roles ----------
   function initTyped() {
     const el = $("#typed");
+    if (!el) return;
     if (reducedMotion) { el.textContent = roles[0]; return; }
     let r = 0, i = 0, deleting = false;
     (function tick() {
@@ -188,6 +189,7 @@
   // ---------- Skills & projects ----------
   function renderSkills() {
     const root = $("#skill-groups");
+    if (!root) return;
     const total = skills.reduce((n, g) => n + g.items.length, 0);
     const stat = document.querySelector("[data-count-skills]");
     if (stat) stat.dataset.count = total;
@@ -296,6 +298,7 @@
 
   function renderProjects() {
     const grid = $("#project-grid");
+    if (!grid) return;
     for (const p of projects) {
       const a = document.createElement("a");
       a.className = "card project tilt";
@@ -357,6 +360,7 @@
   // ---------- Resume button (only shown if docs/resume.pdf exists) ----------
   function initResume() {
     const btn = $("#resume-btn");
+    if (!btn) return;
     fetch(btn.getAttribute("href"), { method: "HEAD" })
       .then((r) => { if (r.ok) btn.hidden = false; })
       .catch(() => {});
@@ -592,6 +596,7 @@
   // ---------- Problem-solving loop (highlights one step at a time) ----------
   function initLoop() {
     const steps = document.querySelectorAll("#loop li");
+    if (!steps.length) return;
     let i = 0;
     steps[0].classList.add("active");
     if (reducedMotion) return;
@@ -657,6 +662,7 @@
   ];
   function initQuotes() {
     const fig = $(".quote"), text = $("#quote-text"), by = $("#quote-by");
+    if (!fig) return;
     const favourites = ["Friedrich Nietzsche", "Fyodor Dostoevsky", "Franz Kafka"];
     const deck = quotes.flatMap((q) => (favourites.includes(q[1]) ? [q, q] : [q]))
       .sort(() => Math.random() - 0.5)

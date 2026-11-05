@@ -3,349 +3,210 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sudipta · Engineer &amp; Problem Solver</title>
-  <meta name="description" content="Sudipta (xudipta): engineer at Intel building SDKs for Intel hardware; previously edge manageability and infrastructure blueprints at Intel and backends at State Bank of India. M.Tech, NIT Durgapur.">
-  <meta name="theme-color" content="#05060d">
+  <title>Sudipta Nath · Software Engineer</title>
+  <script>
+    // Old links to the games (/#game, /#k8s, ...) now live on the playground page.
+    (function () {
+      var h = location.hash.slice(1);
+      if (["play", "game", "k8s", "terminal", "solver"].indexOf(h) !== -1) location.replace("play/#" + (h === "solver" ? "lab" : h));
+      try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+    })();
+  </script>
+  <meta name="description" content="Sudipta Nath, software engineer at Intel building SDKs and edge AI for Intel hardware. Previously State Bank of India. Projects: Local Lingua, Mynna, Flute Mastery Journey, Second Brain.">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141412" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://xudipta.github.io/xudipta/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xudipta.github.io/xudipta/">
-  <meta property="og:title" content="Sudipta · Engineer & Problem Solver">
-  <meta property="og:description" content="Engineer at Intel building SDKs for Intel hardware. Edge, infrastructure, backends and a lot of problem solving.">
+  <meta property="og:title" content="Sudipta Nath · Software Engineer">
+  <meta property="og:description" content="I build software that runs at the edge: on real hardware, on flaky links, with nobody on site.">
   <meta property="og:image" content="https://xudipta.github.io/xudipta/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20261105">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="site.css?v=20261106">
 </head>
 <body>
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="i-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
-    <symbol id="i-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="5.5" r="2.5"/><circle cx="18.5" cy="5.5" r="2.5"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><path d="M7.5 7.5 10 10M16.5 7.5 14 10M7.5 16.5 10 14M16.5 16.5 14 14"/><rect x="9.5" y="9.5" width="5" height="5" rx="1.2"/></symbol>
-    <symbol id="i-servers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></symbol>
-    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="m2 13 10 5 10-5"/></symbol>
-    <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3l1.8 4.7 4.7 1.8-4.7 1.8L11 16l-1.8-4.7L4.5 9.5l4.7-1.8L11 3z"/><path d="M18.5 14.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2z"/></symbol>
-    <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5v6c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8v-6M4 11.5v6c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8v-6"/></symbol>
-    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
-    <symbol id="i-window" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6.5 6.5h.01M9.5 6.5h.01"/></symbol>
-    <symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M11 7 5 21M13 7l6 14M7.5 15h9"/></symbol>
-    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
-    <symbol id="i-stairs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h5v-5h5v-5h5V5h3"/></symbol>
-    <symbol id="i-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
-    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.2 1.1 2V16h5v-.2c0-.8.4-1.5 1.1-2A6 6 0 0 0 12 3z"/></symbol>
-    <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
-    <symbol id="i-speech" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9h8M8 12h5"/></symbol>
-    <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5 6.6 17M12 11.5l5.4 5.5"/></symbol>
-    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></symbol>
-    <symbol id="i-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
-    <symbol id="i-notebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M9.5 3v18M13 8h3M13 12h3M4 7h2M4 12h2M4 17h2"/></symbol>
-    <symbol id="i-gamepad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 7h11A4.5 4.5 0 0 1 22 11.5v1a4.5 4.5 0 0 1-8 2.8L13.5 15h-3l-.5.3a4.5 4.5 0 0 1-8-2.8v-1A4.5 4.5 0 0 1 6.5 7z"/><path d="M7 10v4M5 12h4M15.5 11h.01M18 13h.01"/></symbol>
-    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
-    <symbol id="i-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="7" width="8" height="13" rx="4"/><path d="M12 7V4.5M9.5 4 11 7M14.5 4 13 7M4 11h4M16 11h4M4.5 16H8M16 16h3.5M12 11v9"/></symbol>
-    <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
-    <symbol id="i-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3M12 15h6"/></symbol>
-    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v4.5c0 1.6 2.7 3 6 3s6-1.4 6-3V11M22 9v6"/></symbol>
-  </svg>
-  <div class="boot" aria-hidden="true">
-    <pre><span>&gt; initialising curiosity ........ ok</span>
-<span>&gt; loading problem_solver ......... ok</span>
-<span>&gt; mounting /dev/coffee ........... ok</span>
-<span>&gt; ordering chaos ................. ok</span></pre>
-  </div>
-  <canvas id="bg" aria-hidden="true"></canvas>
-  <canvas id="scene" aria-hidden="true"></canvas>
-  <div class="vignette" aria-hidden="true"></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
-
-  <header class="nav">
-    <a class="logo" href="#top"><span class="mono-mark" aria-hidden="true">SN</span><span>~/xudipta<span class="cursor">_</span></span></a>
-    <nav>
-      <a href="#about">about</a>
-      <a href="#resume">experience</a>
-      <a href="#oss">open-source</a>
-      <a href="#skills">skills</a>
-      <a href="#projects">projects</a>
-      <a href="#solver">mindset</a>
-      <a href="#play">play</a>
+<a class="skip" href="#work">Skip to content</a>
+<header><div class="wrap">
+  <a class="name" href="./">Sudipta Nath</a>
+  <div class="nav-right">
+    <nav aria-label="Sections">
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#outside">Outside work</a><a href="#contact">Contact</a>
+      <a class="play-link" href="play/" data-play>Playground ↗</a>
     </nav>
-    <button class="palette-btn" id="palette-open" type="button" aria-label="Open command palette"><span>⌕</span><kbd>Ctrl K</kbd></button>
-  </header>
+    <button class="theme" type="button" aria-label="Toggle dark mode">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</div></header>
 
-  <main id="top">
-    <section class="hero" id="home">
-      <p class="eyebrow"><span class="pulse"></span>$ whoami · Software Engineer @ Intel · Edge AI &amp; Infrastructure</p>
-      <h1>Hey, I'm <span class="grad">Sudipta</span></h1>
-      <h2 class="typed-line">I'm a <span id="typed"></span><span class="cursor">|</span></h2>
-      <p class="lead">Software engineer at <strong>Intel</strong>, building SDKs and edge AI for Intel hardware, from a drone SDK to an offline translator that runs on the NPU. Before that: loan-lifecycle systems at State Bank of India, an IPsec internship at Intel, and training faculty with IIT Guwahati's E&amp;ICT Academy. Full-time code wrangler, part-time philosopher.</p>
-      <div class="cta">
-        <a class="btn primary" href="#oss">See my work</a>
-        <a class="btn btn-ic" href="#play"><svg aria-hidden="true"><use href="#i-gamepad"/></svg>Play Zone</a>
-        <a class="btn" href="https://github.com/xudipta" target="_blank" rel="noopener">GitHub ↗</a>
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Software Engineer · Intel</p>
+      <h1>I build software that runs <em>at the edge</em>: on real hardware, on flaky links, with nobody on site.</h1>
+      <p class="lede">At Intel I work on SDKs and edge AI for Intel CPUs, GPUs and NPUs, from a drone SDK to an offline translator. Before that I built loan-lifecycle systems at State Bank of India. Seven years in, I still like the bug more than the fix.</p>
+      <div class="links">
+        <a href="mailto:nathsudipta7@gmail.com">nathsudipta7@gmail.com</a>
+        <a href="https://www.linkedin.com/in/sudipta-nath-412833136/" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/xudipta" rel="noopener">GitHub</a>
       </div>
-      <p class="contact-line"><a href="https://www.linkedin.com/in/sudipta-nath-412833136/" target="_blank" rel="noopener">LinkedIn ↗</a><span aria-hidden="true">·</span><a href="mailto:nathsudipta7@gmail.com">nathsudipta7@gmail.com</a></p>
-      <div class="stats">
-        <div><b data-count="7" data-suffix="+">0</b><span>years building software</span></div>
-        <div><b data-count="4">0</b><span>open-source projects</span></div>
-        <div><b data-count="64" data-count-skills>0</b><span>skills &amp; tools</span></div>
-      </div>
-      <a class="scroll-cue" href="#about" aria-label="Scroll to about"><span></span></a>
-      <figure class="quote" aria-live="off"><blockquote id="quote-text"></blockquote><figcaption id="quote-by"></figcaption></figure>
-    </section>
+    </div>
+    <aside class="now" aria-label="At a glance">
+      <h2>Now</h2>
+      <p><span class="dot"></span>SDKs &amp; edge AI at Intel</p>
+      <h2>Previously</h2>
+      <p>State Bank of India<br>Intel (intern)<br>Mantra Associates</p>
+      <h2>Based in</h2>
+      <p>India</p>
+    </aside>
+  </div>
 
-    <section id="about" class="reveal">
-      <h3 class="section-title"><span>01.</span> About</h3>
-      <div class="about-grid">
-        <div>
-          <p>I like designing things end to end: the high-level architecture, the low-level class design, and the automation that keeps it all alive in production.</p>
-          <p>Known to stare at bugs longer than most people stare at sunsets. I don't quit until the problem gives up first. Ask my laptop.</p>
-          <ul class="ticks">
-            <li>Design for the edge: flaky links, real hardware and nobody on site.</li>
-            <li>Ship small, observable and reversible changes.</li>
-            <li>Automate the boring parts, and test what matters.</li>
-            <li>Leave every codebase a little clearer than I found it.</li>
-          </ul>
-        </div>
-        <div class="focus">
-          <div class="card tilt"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-chip"/></svg></span><h4>Edge AI &amp; SDKs</h4><p>SDKs and AI apps for Intel CPU, GPU and NPU, from drones to offline translation.</p></div>
-          <div class="card tilt"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-servers"/></svg></span><h4>Edge &amp; Cloud Infra</h4><p>Edge nodes, Kubernetes, Docker, Helm, Terraform and CI/CD.</p></div>
-          <div class="card tilt"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-layers"/></svg></span><h4>System Design</h4><p>HLD and LLD: from whiteboard boxes to class diagrams.</p></div>
-          <div class="card tilt"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-sparkles"/></svg></span><h4>AI Products</h4><p>LLM apps with RAG (Mynna), plus Agent Skills and MCP.</p></div>
-        </div>
-      </div>
-    </section>
+  <section id="work">
+    <div class="sec-head"><h2 class="title">Selected work</h2><p>Open-source projects from my work at Intel, and things I build for myself.</p></div>
 
-    <section id="resume" class="reveal">
-      <h3 class="section-title"><span>02.</span> Experience</h3>
-      <div class="resume">
-        <div class="timeline">
-          <div class="tl-item current">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>Intel</h4><span class="role">Software Engineer · Cloud Software Development</span><span class="badge">Current</span></div>
-            <p class="tl-meta">Aug 2024 – Present · India</p>
-            <div class="phases">
-              <div class="phase now"><b>Now</b><div><h5>SDKs &amp; edge AI for Intel hardware</h5><p>The drone SDK in the <a href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" target="_blank" rel="noopener">Federal &amp; Aerospace AI Suite</a>, and <a href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" target="_blank" rel="noopener">Local Lingua</a>, an offline translation and sentiment app running on CPU, GPU and NPU.</p></div></div>
-              <div class="phase"><b>Then</b><div><h5><a href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" target="_blank" rel="noopener">Edge Node Infrastructure Blueprint</a></h5><p>Provisioning edge nodes with GPU, NPU and SR-IOV acceleration for cloud-native workloads.</p></div></div>
-              <div class="phase"><b>Started</b><div><h5><a href="https://github.com/open-edge-platform/edge-manageability-framework" target="_blank" rel="noopener">Edge Manageability Framework</a></h5><p>Edge Orchestrator: onboarding edge nodes, provisioning their OS and creating clusters on them.</p></div></div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>State Bank of India</h4><span class="role">SDE (Assistant Manager, Systems)</span></div>
-            <p class="tl-meta">Dec 2021 – Jul 2024 · Navi Mumbai</p>
-            <p>Built loan lifecycle management applications for corporate and SME loans. Recognised with two certificates of appreciation.</p>
-          </div>
-          <div class="tl-item">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>Intel</h4><span class="role">Graduate Technical Intern</span></div>
-            <p class="tl-meta">May 2021 – Nov 2021</p>
-            <p>Played a key part in implementing IPsec channel encryption within Intel's IPU (Infrastructure Processing Unit).</p>
-          </div>
-          <div class="tl-item">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>Mantra Associates</h4><span class="role">Software Developer</span></div>
-            <p class="tl-meta">Aug 2018 – Sep 2020 · Guwahati</p>
-            <p>Worked with the E&amp;ICT Academy at IIT Guwahati to train faculty members from 30+ universities and colleges.</p>
-          </div>
-          <div class="tl-item">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>Vooid Technology</h4><span class="role">Application Developer (part-time)</span></div>
-            <p class="tl-meta">Feb 2017 – Jul 2017 · Dispur, Assam</p>
-            <p>Led the creation of an e-commerce Android app for the business.</p>
-          </div>
-          <div class="tl-item">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>Food delivery startup</h4><span class="role">College venture</span></div>
-            <p>Started and ran an end-to-end food delivery service for students on campus, from ordering to the doorstep.</p>
-          </div>
-          <div class="tl-item">
-            <span class="dot"></span>
-            <div class="tl-head"><h4>Bootstrapped projects</h4><span class="role">Throughout my career</span></div>
-            <p>Taking ideas from zero to one: <a href="https://trip.mynna.chat" target="_blank" rel="noopener">Mynna</a> (AI trip planner, @OxomiAi), <a href="https://github.com/sbrous-org/nostalgia-bytes" target="_blank" rel="noopener">nostalgia-bytes</a> (C++ games, @sbrous-org), a POC-to-production workspace, and a <a href="https://github.com/xudipta/cookbook" target="_blank" rel="noopener">CI-validated cookbook</a>.</p>
-          </div>
-        </div>
-        <div class="resume-cta card">
-          <div class="edu"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-cap"/></svg></span><div><h4>M.Tech</h4><p>NIT Durgapur</p></div></div>
-          <div class="strengths">
-            <span>Edge &amp; infrastructure</span><span>SDKs</span><span>Backends at scale</span><span>System design</span><span>Go · Python · Java · C++</span><span>Kubernetes</span>
-          </div>
-          <h4>Let's talk</h4>
-          <p>Open to interesting problems in edge AI, infrastructure and platforms.</p>
-          <a class="btn primary" href="mailto:nathsudipta7@gmail.com">Email me</a>
-          <a class="btn" href="https://www.linkedin.com/in/sudipta-nath-412833136/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="btn" href="https://github.com/xudipta" target="_blank" rel="noopener">GitHub ↗</a>
-          <a class="btn" id="resume-btn" href="resume.pdf" download hidden>Download resume (PDF)</a>
-        </div>
+    <article class="work">
+      <figure class="shot">
+        <svg viewBox="0 0 560 340" role="img" aria-label="Local Lingua pipeline: microphone or text goes to Whisper on the CPU, NLLB-200 on the GPU, and RoBERTa plus Wav2Vec2 on the NPU, then to Kokoro text-to-speech">
+          <defs><marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="dg-head" d="M0 0 8 4 0 8z"/></marker></defs>
+          <rect class="dg-bg" width="560" height="340"/>
+          <rect class="dg-box" x="24" y="140" width="92" height="56" rx="4"/><text class="dg-t" x="70" y="166" text-anchor="middle">Mic / text</text><text class="dg-s" x="70" y="183" text-anchor="middle">any language</text>
+          <rect class="dg-box" x="166" y="52" width="150" height="50" rx="4"/><text class="dg-t" x="241" y="74" text-anchor="middle">Whisper</text><text class="dg-s" x="241" y="91" text-anchor="middle">speech → text · CPU</text>
+          <rect class="dg-box" x="166" y="126" width="150" height="50" rx="4"/><text class="dg-t" x="241" y="148" text-anchor="middle">NLLB-200</text><text class="dg-s" x="241" y="165" text-anchor="middle">translation · GPU</text>
+          <rect class="dg-box" x="166" y="200" width="150" height="50" rx="4"/><text class="dg-t" x="241" y="222" text-anchor="middle">RoBERTa + Wav2Vec2</text><text class="dg-s" x="241" y="239" text-anchor="middle">sentiment &amp; tone · NPU</text>
+          <rect class="dg-out" x="370" y="126" width="150" height="50" rx="4"/><text class="dg-to" x="445" y="148" text-anchor="middle">Kokoro TTS</text><text class="dg-so" x="445" y="165" text-anchor="middle">speech out · CPU</text>
+          <g class="dg-line" marker-end="url(#arr)"><path d="M116 160 C140 160 140 77 162 77"/><path d="M116 168 H162"/><path d="M116 176 C140 176 140 225 162 225"/><path d="M316 151 H366"/></g>
+          <text class="dg-note" x="24" y="304">No cloud at runtime. Every model runs locally, each on the chip it suits best.</text>
+        </svg>
+      </figure>
+      <div>
+        <p class="kind">Intel · open source</p>
+        <h3>Local Lingua</h3>
+        <p>Offline voice translation and sentiment analysis in 15+ languages. Five models run on one laptop, split across the CPU, integrated GPU and NPU, so nothing leaves the device.</p>
+        <p class="stack">Whisper, NLLB-200, OpenVINO, FastAPI, Docker</p>
+        <a class="go" href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" rel="noopener">View on GitHub →</a>
       </div>
-    </section>
+    </article>
 
-    <section id="oss" class="reveal">
-      <h3 class="section-title"><span>03.</span> Open Source Projects</h3>
-      <p class="muted oss-intro">Things I've built at Intel that are out in the open. Edge AI, drones and the infrastructure underneath them.</p>
-      <div class="oss-grid">
-        <a class="card oss tilt" href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" target="_blank" rel="noopener">
-          <div class="oss-top"><span class="oss-ico ibox"><svg aria-hidden="true"><use href="#i-drone"/></svg></span><span class="oss-tag">Drone SDK</span></div>
-          <h4>Federal &amp; Aerospace AI Suite</h4>
-          <code class="oss-path">open-edge-platform/federal-and-aerospace-ai-suite</code>
-          <p>AI applications for aerospace and defence edge deployments. I worked on the drone SDK. The suite's UAV Vision Analytics app, for example, runs YOLO11 object detection on a drone's camera feed with live MAVLink telemetry (GPS, altitude, speed, heading) overlaid.</p>
-          <div class="meta"><span>#UAV</span><span>#EdgeAI</span><span>#OpenVINO</span><span>#DLStreamer</span><span>#MAVLink</span></div>
-          <span class="oss-link">View on GitHub ↗</span>
-        </a>
-        <a class="card oss tilt" href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" target="_blank" rel="noopener">
-          <div class="oss-top"><span class="oss-ico ibox"><svg aria-hidden="true"><use href="#i-speech"/></svg></span><span class="oss-tag">Built it</span></div>
-          <h4>Local Lingua</h4>
-          <code class="oss-path">edge-developer-kit-reference-scripts/samples/ai/local-lingua</code>
-          <p>Offline voice translation and sentiment analysis in 15+ languages. No cloud: speech-to-text, translation, text sentiment, voice-tone emotion and text-to-speech all run locally on Intel CPU, GPU and NPU.</p>
-          <div class="meta"><span>#Whisper</span><span>#NLLB-200</span><span>#OpenVINO</span><span>#NPU</span><span>#FastAPI</span><span>#Docker</span></div>
-          <span class="oss-link">View on GitHub ↗</span>
-        </a>
-        <a class="card oss tilt" href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" target="_blank" rel="noopener">
-          <div class="oss-top"><span class="oss-ico ibox"><svg aria-hidden="true"><use href="#i-layers"/></svg></span><span class="oss-tag">Infrastructure</span></div>
-          <h4>Edge Node Infrastructure Blueprint</h4>
-          <code class="oss-path">open-edge-platform/edge-node-infrastructure-blueprint</code>
-          <p>Turns edge hardware into a cloud-native platform: builds bootable install media, provisions edge nodes, and enables GPU, NPU and SR-IOV acceleration for containerised AI and real-time workloads.</p>
-          <div class="meta"><span>#Edge</span><span>#Provisioning</span><span>#CloudNative</span><span>#GPU</span><span>#NPU</span><span>#SR-IOV</span></div>
-          <span class="oss-link">View on GitHub ↗</span>
-        </a>
-        <a class="card oss tilt" href="https://github.com/open-edge-platform/edge-manageability-framework" target="_blank" rel="noopener">
-          <div class="oss-top"><span class="oss-ico ibox"><svg aria-hidden="true"><use href="#i-network"/></svg></span><span class="oss-tag">Orchestration</span></div>
-          <h4>Edge Manageability Framework</h4>
-          <code class="oss-path">open-edge-platform/edge-manageability-framework</code>
-          <p>Edge Orchestrator, a platform for running fleets of edge devices: onboard an edge node, provision its OS, create Kubernetes clusters on it, and deploy apps across distributed edge sites from one place.</p>
-          <div class="meta"><span>#EdgeOrchestration</span><span>#Onboarding</span><span>#OSProvisioning</span><span>#Kubernetes</span><span>#ClusterLifecycle</span></div>
-          <span class="oss-link">View on GitHub ↗</span>
-        </a>
+    <article class="work flip">
+      <div class="shot duo">
+        <figure class="shot phone"><img src="img/mynna-chat.webp" width="560" height="1147" loading="lazy" alt="Mynna group chat answering a question about Meghalaya, citing its sources"></figure>
+        <figure class="shot phone"><img src="img/mynna-plan.webp" width="560" height="1147" loading="lazy" alt="Mynna's shared five-day plan, editable by everyone in the trip"></figure>
       </div>
-    </section>
+      <div>
+        <p class="kind">OxomiAi · live product</p>
+        <h3>Mynna</h3>
+        <p>A trip planner for Northeast India that friends use together. Everyone joins one chat; Mynna answers from a curated knowledge base and builds a shared, live itinerary that anyone can reorder. Answers cite their sources and flag what still needs checking.</p>
+        <p class="stack">Python, FastAPI, WebSockets, PostgreSQL + pgvector, RAG, pluggable small LLMs</p>
+        <a class="go" href="https://trip.mynna.chat" rel="noopener">Open the app →</a>
+      </div>
+    </article>
 
-    <section id="skills" class="reveal">
-      <h3 class="section-title"><span>04.</span> Tech Playground</h3>
-      <p class="muted skills-intro">The tools I reach for, grouped by the problems they solve. Pick a category to see its skills; hover a highlighted one to see where I've used it, and click to open the project.</p>
-      <div id="skill-groups" class="skill-groups"></div>
-    </section>
+    <article class="work">
+      <figure class="shot"><img src="img/flute.webp" width="1400" height="875" loading="lazy" alt="Flute Mastery Journey home screen: From first sur to concert-stage raga"></figure>
+      <div>
+        <p class="kind">Personal · live app</p>
+        <h3>Flute Mastery Journey</h3>
+        <p>A practice companion for the Indian classical bansuri, built for my own riyaaz: timed routines, a microphone pitch tuner, synthesised tanpura and tabla, and animated demos for 16 ragas. Installable and fully offline.</p>
+        <p class="stack">JavaScript, Web Audio, pitch detection (YIN), PWA</p>
+        <a class="go" href="https://xudipta.github.io/Flute-Mastery-Journey/" rel="noopener">Open the app →</a>
+      </div>
+    </article>
 
-    <section id="projects" class="reveal">
-      <h3 class="section-title"><span>05.</span> Side Projects</h3>
-      <div id="project-grid" class="project-grid"></div>
-    </section>
+    <article class="work flip">
+      <figure class="shot phone"><img src="img/second-brain.webp" width="560" height="1067" loading="lazy" alt="Second Brain asking you to protect your notebook with a passphrase"></figure>
+      <div>
+        <p class="kind">Personal · live app</p>
+        <h3>Second Brain</h3>
+        <p>A capture app for my notebook. It interviews you one question at a time, never rewrites your words, and encrypts everything in the browser with AES-256-GCM before it touches storage.</p>
+        <p class="stack">JavaScript, Web Crypto, PWA, Markdown</p>
+        <a class="go" href="https://xudipta.github.io/second-brain-app/" rel="noopener">Open the app →</a>
+      </div>
+    </article>
 
-    <section id="solver" class="reveal">
-      <h3 class="section-title"><span>06.</span> Problem Solver at Heart</h3>
-      <div class="solver-grid">
-        <div>
-          <p>Give me a bug, a puzzle or a system that "just doesn't scale", and I'm hooked. Tech or pure logic, the itch is the same: I want to know <em>why</em>, not just make the error go away.</p>
-          <div class="traits">
-            <div class="card trait"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-search"/></svg></span><div><h4>Curious first</h4><p>Root cause over quick patch.</p></div></div>
-            <div class="card trait"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-stairs"/></svg></span><div><h4>Break it down</h4><p>Big problems become small, testable steps.</p></div></div>
-            <div class="card trait"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-repeat"/></svg></span><div><h4>Consistent</h4><p>A little every day. Small commits compound.</p></div></div>
-            <div class="card trait"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-bulb"/></svg></span><div><h4>Logic for fun</h4><p>Algorithms and brain teasers are how I relax.</p></div></div>
-          </div>
-          <h4 class="sub">My problem-solving loop</h4>
-          <ol class="loop" id="loop">
-            <li>Understand</li><li>Break it down</li><li>Build</li><li>Break it (on purpose)</li><li>Fix</li><li>Repeat</li>
-          </ol>
-        </div>
-        <div class="card puzzle">
-          <h4 class="with-ic"><span class="ico sm ibox"><svg aria-hidden="true"><use href="#i-grid"/></svg></span>Logic Lab: Lights Out</h4>
-          <p class="muted small">Clicking a cell flips it and its four neighbours. Turn every light off. I solve these for fun; can you?</p>
-          <div class="lo-grid" id="lo-grid" role="grid" aria-label="Lights Out puzzle"></div>
-          <div class="lo-bar">
-            <span>Moves <b id="lo-moves">0</b></span>
-            <span id="lo-status" class="muted"></span>
-            <button class="btn small-btn" id="lo-new">New puzzle</button>
-          </div>
-        </div>
-      </div>
-      <div class="card activity" id="activity">
-        <div class="orbit-wrap">
-          <canvas id="orbit" role="img" aria-label="GitHub contributions over the last year"></canvas>
-          <div class="orbit-copy">
-            <p class="kicker">// consistency, visualised</p>
-            <h3>A year of showing up</h3>
-            <p>Every dot is a day of my GitHub activity over the last year. Each ring is a weekday, from Sunday on the inside to Saturday on the outside. Brighter dots mean more contributions, and the amber hand marks today.</p>
-            <div class="pillrow" id="orbit-pills"><span class="pill">loading live data…</span></div>
-            <blockquote>“From a certain point onward there is no longer any turning back. That is the point that must be reached.”<span>— Franz Kafka</span></blockquote>
-          </div>
-        </div>
-        <img class="activity-fallback" hidden src="https://ghchart.rshah.org/22d3ee/xudipta" alt="xudipta's GitHub contribution graph over the last year">
-      </div>
-    </section>
+    <div class="more">
+      <a href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" rel="noopener"><b>Federal &amp; Aerospace AI Suite</b><span>Drone SDK for aerospace and defence edge AI. Intel, open source.</span></a>
+      <a href="https://github.com/open-edge-platform/edge-manageability-framework" rel="noopener"><b>Edge Manageability Framework</b><span>Edge orchestrator: onboard nodes, provision OS, create clusters. Intel, open source.</span></a>
+      <a href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" rel="noopener"><b>Edge Node Infrastructure Blueprint</b><span>Edge nodes with GPU, NPU and SR-IOV acceleration. Intel, open source.</span></a>
+      <a href="https://github.com/xudipta/cookbook" rel="noopener"><b>cookbook</b><span>Infrastructure notes where every example is tested in CI.</span></a>
+    </div>
+  </section>
 
-    <section id="play" class="reveal">
-      <h3 class="section-title"><span>07.</span> Play Zone</h3>
-      <p class="muted play-intro">Three small toys that say a lot about how I think: fight a production fire, break a self-healing cluster, or poke around a terminal.</p>
-      <div class="play-tabs" role="tablist" aria-label="Play Zone">
-        <button type="button" role="tab" class="play-tab" id="tab-game" aria-controls="game" aria-selected="true"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-bug"/></svg></span><span><b>Bug Squash</b><small>30 seconds, production on fire</small></span></button>
-        <button type="button" role="tab" class="play-tab" id="tab-k8s" aria-controls="k8s" aria-selected="false" tabindex="-1"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-zap"/></svg></span><span><b>Chaos Monkey</b><small>Break my Kubernetes cluster</small></span></button>
-        <button type="button" role="tab" class="play-tab" id="tab-terminal" aria-controls="terminal" aria-selected="false" tabindex="-1"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-terminal"/></svg></span><span><b>Terminal</b><small>Poke around my shell</small></span></button>
-      </div>
-      <div class="play-panel" id="game" role="tabpanel" aria-labelledby="tab-game">
-        <p class="muted">Production is on fire. Squash the 🐛 bugs, but don't touch the ✅ features. You have 30 seconds.</p>
-        <div class="game-wrap">
-          <div class="game-hud">
-            <span>Score <b id="g-score">0</b></span>
-            <span>Time <b id="g-time">30</b>s</span>
-            <span>Best <b id="g-best">0</b></span>
-          </div>
-          <canvas id="game-canvas" width="800" height="400" aria-label="Bug squash game"></canvas>
-          <div class="game-overlay" id="g-overlay">
-            <h4 id="g-title">Ready to debug?</h4>
-            <p id="g-msg">Click or tap bugs to squash them.</p>
-            <button class="btn primary" id="g-start">Start</button>
-          </div>
-        </div>
-      </div>
-      <div class="play-panel" id="k8s" role="tabpanel" aria-labelledby="tab-k8s" hidden>
-        <p class="muted">A tiny Kubernetes cluster that heals itself. Be the chaos monkey 🐒: click pods to kill them, take a whole node down, or spike the traffic, then watch the controllers put it all back. How low can you push availability before Kubernetes heals it?</p>
-        <div class="card k8s-card">
-          <div class="k8s-bar">
-            <div class="k8s-stats">
-              <div><small>Availability</small><b id="k8s-avail" class="good">100%</b></div>
-              <div><small>Pods running</small><b id="k8s-running">9/9</b></div>
-              <div><small>Chaos dealt</small><b id="k8s-kills">0</b></div>
-              <div><small>Self-healed</small><b id="k8s-healed">0</b></div>
-              <div><small>Lowest you caused</small><b id="k8s-min">100%</b></div>
-            </div>
-            <canvas id="k8s-spark" aria-hidden="true"></canvas>
-          </div>
-          <div class="k8s-actions">
-            <button class="btn small-btn primary" id="k8s-chaos" type="button">🐒 Unleash chaos</button>
-            <button class="btn small-btn" id="k8s-spike" type="button">⚡ Traffic spike</button>
-            <button class="btn small-btn" id="k8s-reset" type="button">↺ Reset</button>
-            <span class="k8s-legend"><i class="web"></i>web <i class="api"></i>api <i class="cache"></i>cache</span>
-          </div>
-          <div class="k-pending-wrap"><small>Pending · waiting for a node</small><div id="k8s-pending" class="k-pods"></div></div>
-          <div id="k8s-nodes" class="k-nodes"></div>
-          <div class="k-log-wrap"><small>$ kubectl get events --watch</small><pre id="k8s-log" class="k-log"></pre></div>
-        </div>
-      </div>
-      <div class="play-panel" id="terminal" role="tabpanel" aria-labelledby="tab-terminal" hidden>
-        <p class="muted">Poke around. Type <code>help</code> to get started.</p>
-        <div class="term" id="term">
-          <div class="term-bar"><i></i><i></i><i></i><span>sudipta@portfolio: ~</span></div>
-          <div class="term-body" id="term-body"></div>
-          <form class="term-input" id="term-form" autocomplete="off">
-            <label for="term-in" class="prompt">sudipta@portfolio:~$</label>
-            <input id="term-in" spellcheck="false" autocapitalize="off" aria-label="Terminal command">
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+  <section id="experience">
+    <div class="sec-head"><h2 class="title">Experience</h2><p>Seven years across edge infrastructure, banking systems and teaching.</p></div>
+    <ol class="roles">
+      <li class="role"><div class="when">Aug 2024 – now</div><div>
+        <h3>Intel <span>· Software Engineer, Cloud Software Development</span></h3>
+        <ul>
+          <li>SDKs and edge AI for Intel hardware: the drone SDK and Local Lingua.</li>
+          <li>Edge Node Infrastructure Blueprint: provisioning nodes with GPU, NPU and SR-IOV.</li>
+          <li>Edge Manageability Framework: onboarding, OS provisioning and cluster creation.</li>
+        </ul></div></li>
+      <li class="role"><div class="when">Dec 2021 – Jul 2024</div><div>
+        <h3>State Bank of India <span>· SDE (Assistant Manager, Systems)</span></h3>
+        <p>Loan lifecycle management applications for corporate and SME loans. Two certificates of appreciation.</p></div></li>
+      <li class="role"><div class="when">May – Nov 2021</div><div>
+        <h3>Intel <span>· Graduate Technical Intern</span></h3>
+        <p>IPsec channel encryption within Intel's Infrastructure Processing Unit.</p></div></li>
+      <li class="role"><div class="when">Aug 2018 – Sep 2020</div><div>
+        <h3>Mantra Associates <span>· Software Developer</span></h3>
+        <p>Trained faculty from 30+ universities with the E&amp;ICT Academy, IIT Guwahati.</p></div></li>
+      <li class="role"><div class="when">Feb – Jul 2017</div><div>
+        <h3>Vooid Technology <span>· Application Developer (part-time)</span></h3>
+        <p>An e-commerce Android app for the business.</p></div></li>
+      <li class="role"><div class="when">Education</div><div>
+        <h3>M.Tech <span>· NIT Durgapur</span></h3></div></li>
+    </ol>
+  </section>
 
-  <footer>
-    <p class="footer-quote">“We are what we repeatedly do.” <span>Will Durant</span></p>
-    <p class="footer-links"><a href="mailto:nathsudipta7@gmail.com">Email</a><a href="https://www.linkedin.com/in/sudipta-nath-412833136/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/xudipta" target="_blank" rel="noopener">GitHub</a></p>
-    <p>© 2026 Sudipta Nath · Hand-built with HTML, CSS, JS &amp; raw WebGL · hosted on GitHub Pages · <span class="muted">psst… try the Konami code</span></p>
-  </footer>
+  <section id="outside">
+    <div class="outside">
+      <h2 class="title">Outside work</h2>
+      <div>
+        <p>I play the bansuri, which is why I built the flute app. I read Dostoevsky and Kafka more than I probably should, and I keep a second brain so the good ideas don't get lost.</p>
+        <p>There's also a <a href="play/" data-play>playground</a>: a self-healing Kubernetes cluster to break, a bug-squashing game, a terminal and a WebGL particle scene, all hand-built.</p>
+        <blockquote>“One must still have chaos in oneself to be able to give birth to a dancing star.”<cite>Friedrich Nietzsche</cite></blockquote>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <!-- Bump ?v= whenever CSS or JS changes, so browsers fetch the new files instead of a cached copy. -->
-  <script src="scene.js?v=20261105"></script>
-  <script src="main.js?v=20261105"></script>
-  <script src="orbit.js?v=20261105"></script>
-  <script src="chaos.js?v=20261105"></script>
-  <script src="palette.js?v=20261105"></script>
+<footer id="contact"><div class="wrap">
+  <div><h2>Let's talk.</h2><a href="mailto:nathsudipta7@gmail.com">nathsudipta7@gmail.com</a> · <a href="https://www.linkedin.com/in/sudipta-nath-412833136/" rel="noopener">LinkedIn</a> · <a href="https://github.com/xudipta" rel="noopener">GitHub</a></div>
+  <div style="align-self:end">© 2026 Sudipta Nath</div>
+</div></footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.querySelector(".theme");
+    var dark = function () { return root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+    var paint = function () { root.dataset.mode = dark() ? "dark" : "light"; btn.setAttribute("aria-pressed", String(dark())); };
+    paint();
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", paint);
+    btn.addEventListener("click", function () {
+      root.dataset.theme = dark() ? "light" : "dark";
+      try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+      paint();
+    });
+    // Fade out before entering the playground, which has its own dark theme.
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.querySelectorAll("[data-play]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        if (reduce || e.metaKey || e.ctrlKey || e.shiftKey) return;
+        e.preventDefault();
+        document.body.classList.add("leaving");
+        setTimeout(function () { location.href = a.href; }, 280);
+      });
+    });
+    // Coming back with the browser's Back button restores the page from cache: undo the fade.
+    addEventListener("pageshow", function () { document.body.classList.remove("leaving"); });
+  })();
+</script>
 </body>
 </html>

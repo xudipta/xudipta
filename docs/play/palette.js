@@ -19,33 +19,22 @@
     }, 450);
   };
   const open = (url) => () => window.open(url, "_blank", "noopener");
-  const OEP = "https://github.com/open-edge-platform";
 
   const items = [
-    ["Go to", "Home", "🏠", go("home")],
-    ["Go to", "About", "👋", go("about")],
-    ["Go to", "Experience", "💼", go("resume")],
-    ["Go to", "Open Source Projects", "🔓", go("oss")],
-    ["Go to", "Tech Playground", "🛠️", go("skills")],
-    ["Go to", "Side Projects", "📁", go("projects")],
-    ["Go to", "Problem Solver at Heart", "🧩", go("solver")],
-    ["Go to", "Play Zone", "🎮", play("game")],
     ["Play", "Bug Squash", "🐛", play("game", "#g-start")],
     ["Play", "Chaos Monkey: break the Kubernetes cluster", "🐒", play("k8s", "#k8s-chaos")],
     ["Play", "Interactive terminal", "⌨️", play("terminal")],
-    ["Play", "Lights Out logic puzzle", "💡", go("solver")],
+    ["Play", "Lights Out logic puzzle", "💡", go("lab")],
     ["Run", "kubectl get pods", "☸️", term("kubectl get pods")],
     ["Run", "experience", "💼", term("experience")],
-    ["Run", "oss", "🔓", term("oss")],
     ["Run", "quote (Nietzsche, Dostoevsky, Kafka…)", "📜", term("quote")],
     ["Run", "help", "❓", term("help")],
-    ["Open", "Federal & Aerospace AI Suite (drone SDK)", "🛸", open(`${OEP}/federal-and-aerospace-ai-suite`)],
-    ["Open", "Local Lingua", "🗣️", open(`${OEP}/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua`)],
-    ["Open", "Edge Node Infrastructure Blueprint", "🧱", open(`${OEP}/edge-node-infrastructure-blueprint`)],
-    ["Open", "Mynna (live)", "🐦", open("https://trip.mynna.chat")],
-    ["Open", "GitHub profile", "🐙", open("https://github.com/xudipta")],
+    ["Go to", "Main site", "🏠", () => { location.href = "../"; }],
+    ["Go to", "Selected work", "📁", () => { location.href = "../#work"; }],
+    ["Go to", "Experience", "💼", () => { location.href = "../#experience"; }],
     ["Contact", "Email Sudipta", "✉️", () => { location.href = "mailto:nathsudipta7@gmail.com"; }],
     ["Contact", "LinkedIn", "💼", open("https://www.linkedin.com/in/sudipta-nath-412833136/")],
+    ["Open", "GitHub profile", "🐙", open("https://github.com/xudipta")],
   ].map(([group, label, icon, run]) => ({ group, label, icon, run }));
 
   const el = document.createElement("div");
