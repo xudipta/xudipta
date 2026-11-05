@@ -93,6 +93,9 @@ h2.title { font: 400 1.9rem/1.2 var(--serif); letter-spacing: -0.02em; margin: 0
 .dg-head { fill: var(--muted); }
 .dg-note { fill: var(--muted); font: 400 11px var(--mono); }
 .dg-soc { fill: none; stroke: var(--accent); stroke-dasharray: 4 4; opacity: .55; }
+.dg-slot { stroke-dasharray: 4 3; }
+.dg-cfg { stroke: var(--accent); }
+.dg-dash { stroke: var(--accent); stroke-dasharray: 3 3; }
 .dg-k { fill: var(--accent); font: 500 10px var(--mono); letter-spacing: .08em; }
 
 /* more work */
