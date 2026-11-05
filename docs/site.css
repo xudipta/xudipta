@@ -68,6 +68,8 @@ h2.title { font: 400 1.9rem/1.2 var(--serif); letter-spacing: -0.02em; margin: 0
 .work.flip .shot { order: 2; }
 .shot { background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; margin: 0; }
 .shot img { display: block; width: 100%; height: auto; }
+.shot img.dk, [data-mode="dark"] .shot img.lt { display: none; }
+[data-mode="dark"] .shot img.dk { display: block; }
 .shot.phone { max-width: 270px; margin: 0 auto; border-radius: 22px; padding: 8px; background: var(--frame); }
 .shot.phone img { border-radius: 15px; }
 .shot.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: none; border: 0; border-radius: 0; }

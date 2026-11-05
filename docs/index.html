@@ -10,6 +10,7 @@
       var h = location.hash.slice(1);
       if (["play", "game", "k8s", "terminal", "solver"].indexOf(h) !== -1) location.replace("play/#" + (h === "solver" ? "lab" : h));
       try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+      var r = document.documentElement; r.dataset.mode = (r.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
     })();
   </script>
   <meta name="description" content="Sudipta Nath, software engineer at Intel building SDKs and edge AI for Intel hardware. Previously State Bank of India. Projects: Local Lingua, Mynna, Flute Mastery Journey, Second Brain.">
@@ -28,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="site.css?v=20261109">
+  <link rel="stylesheet" href="site.css?v=20261110">
 </head>
 <body>
 <a class="skip" href="#work">Skip to content</a>
@@ -111,8 +112,8 @@
 
     <article class="work flip">
       <div class="shot duo">
-        <figure class="shot phone"><img src="img/mynna-chat.webp" width="560" height="1147" loading="lazy" alt="Mynna suggesting a five-day Meghalaya trip in December, with its sources flagged"></figure>
-        <figure class="shot phone"><img src="img/mynna-plan.webp" width="560" height="1147" loading="lazy" alt="Mynna's shared trip plan, editable by everyone in the trip"></figure>
+        <figure class="shot phone"><img class="lt" src="img/mynna-chat-light.webp" width="560" height="1147" loading="lazy" alt="Mynna suggesting a five-day Meghalaya trip in December, with its sources flagged"><img class="dk" src="img/mynna-chat-dark.webp" width="560" height="1147" loading="lazy" alt="Mynna suggesting a five-day Meghalaya trip in December, with its sources flagged"></figure>
+        <figure class="shot phone"><img class="lt" src="img/mynna-plan-light.webp" width="560" height="1147" loading="lazy" alt="Mynna's shared trip plan, editable by everyone in the trip"><img class="dk" src="img/mynna-plan-dark.webp" width="560" height="1147" loading="lazy" alt="Mynna's shared trip plan, editable by everyone in the trip"></figure>
       </div>
       <div>
         <p class="kind">OxomiAi · live product</p>
@@ -124,7 +125,7 @@
     </article>
 
     <article class="work">
-      <figure class="shot"><img src="img/flute.webp" width="1400" height="875" loading="lazy" alt="Flute Mastery Journey home screen: From first sur to concert-stage raga"></figure>
+      <figure class="shot phone"><img class="lt" src="img/flute-light.webp" width="560" height="1147" loading="lazy" alt="Flute Mastery Journey on a phone: From first sur to concert-stage raga, with the practice toolbar"><img class="dk" src="img/flute-dark.webp" width="560" height="1147" loading="lazy" alt="Flute Mastery Journey on a phone: From first sur to concert-stage raga, with the practice toolbar"></figure>
       <div>
         <p class="kind">Personal · live app</p>
         <h3>Flute Mastery Journey</h3>
@@ -135,7 +136,7 @@
     </article>
 
     <article class="work flip">
-      <figure class="shot phone"><img src="img/second-brain.webp" width="560" height="1067" loading="lazy" alt="Second Brain asking you to protect your notebook with a passphrase"></figure>
+      <figure class="shot phone"><img class="lt" src="img/second-brain-light.webp" width="560" height="1147" loading="lazy" alt="Second Brain on a phone: pick a type of entry to capture, with an optional passphrase lock"><img class="dk" src="img/second-brain-dark.webp" width="560" height="1147" loading="lazy" alt="Second Brain on a phone: pick a type of entry to capture, with an optional passphrase lock"></figure>
       <div>
         <p class="kind">Personal · live app</p>
         <h3>Second Brain</h3>
