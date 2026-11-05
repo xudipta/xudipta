@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="site.css?v=20261108">
+  <link rel="stylesheet" href="site.css?v=20261109">
 </head>
 <body>
 <a class="skip" href="#work">Skip to content</a>
@@ -73,30 +73,38 @@
 
     <article class="work">
       <figure class="shot">
-<svg viewBox="0 0 560 360" role="img" aria-label="Local Lingua pipeline: audio goes to Whisper on the CPU for transcription, then NLLB-200 on the GPU for translation and RoBERTa on the NPU for sentiment; in parallel, Wav2Vec2 on the NPU detects voice emotion; both are fused into one result. Kokoro text-to-speech runs on the CPU to speak any message.">
+<svg viewBox="0 0 560 388" role="img" aria-label="Local Lingua architecture: the browser talks to a FastAPI pipeline orchestrator in a Docker container, which routes work to six local models. Whisper Medium, Kokoro-82M and Qwen2.5-1.5B run on the CPU; NLLB-200 3.3B runs on the Intel integrated GPU; RoBERTa and Wav2Vec2 run on the Intel NPU, all on an Intel Panther Lake SoC.">
           <defs><marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="dg-head" d="M0 0 8 4 0 8z"/></marker></defs>
-          <rect class="dg-bg" width="560" height="360"/>
-          <text class="dg-k" x="20" y="34">TRANSLATE &amp; ANALYSE</text>
-          <rect class="dg-box" x="20" y="52" width="70" height="58" rx="4"/><text class="dg-t" x="55" y="74" text-anchor="middle">Audio</text><text class="dg-s" x="55" y="90" text-anchor="middle">mic or file</text><text class="dg-s" x="55" y="103" text-anchor="middle"></text>
-          <rect class="dg-box" x="110" y="52" width="124" height="58" rx="4"/><text class="dg-t" x="172" y="74" text-anchor="middle">Whisper</text><text class="dg-s" x="172" y="90" text-anchor="middle">medium</text><text class="dg-s" x="172" y="103" text-anchor="middle">CPU · ~2–5 s</text>
-          <rect class="dg-box" x="258" y="52" width="132" height="58" rx="4"/><text class="dg-t" x="324" y="74" text-anchor="middle">NLLB-200 1.3B</text><text class="dg-s" x="324" y="90" text-anchor="middle">translation</text><text class="dg-s" x="324" y="103" text-anchor="middle">GPU · ~200 ms</text>
-          <rect class="dg-box" x="414" y="52" width="126" height="58" rx="4"/><text class="dg-t" x="477" y="74" text-anchor="middle">RoBERTa</text><text class="dg-s" x="477" y="90" text-anchor="middle">text sentiment</text><text class="dg-s" x="477" y="103" text-anchor="middle">NPU · ~6 ms</text>
-          <rect class="dg-box" x="258" y="150" width="132" height="58" rx="4"/><text class="dg-t" x="324" y="172" text-anchor="middle">Wav2Vec2</text><text class="dg-s" x="324" y="188" text-anchor="middle">voice emotion</text><text class="dg-s" x="324" y="201" text-anchor="middle">NPU · ~96 ms</text>
-          <rect class="dg-out" x="414" y="150" width="126" height="58" rx="4"/><text class="dg-to" x="477" y="172" text-anchor="middle">Fused result</text><text class="dg-so" x="477" y="188" text-anchor="middle">translation + mood</text><text class="dg-so" x="477" y="201" text-anchor="middle"></text>
-          <g class="dg-line" marker-end="url(#arr)"><path d="M90 81 H106"/><path d="M234 81 H254"/><path d="M390 81 H410"/><path d="M244 81 V179 H254"/><path d="M477 110 V146"/><path d="M390 179 H410"/></g>
-          <text class="dg-s" x="236" y="136" text-anchor="end">in parallel</text>
-          <text class="dg-k" x="20" y="252">SPEAK</text>
-          <rect class="dg-box" x="20" y="266" width="190" height="58" rx="4"/><text class="dg-t" x="115" y="288" text-anchor="middle">Kokoro-82M TTS</text><text class="dg-s" x="115" y="304" text-anchor="middle">speaks any chat bubble</text><text class="dg-s" x="115" y="317" text-anchor="middle">CPU · ~1–2 s</text>
-          <text class="dg-note" x="230" y="290">Text input skips Whisper.</text>
-          <text class="dg-note" x="230" y="308">No cloud at runtime: every model</text>
-          <text class="dg-note" x="230" y="326">runs on the device.</text>
-        </svg>
+          <rect class="dg-bg" width="560" height="388"/>
+          <rect class="dg-box" x="190" y="14" width="180" height="36" rx="4"/><text class="dg-t" x="280" y="31" text-anchor="middle">Browser</text><text class="dg-s" x="280" y="45" text-anchor="middle">touch UI · mic · file · text</text>
+          <rect class="dg-box" x="150" y="72" width="260" height="36" rx="4"/><text class="dg-t" x="280" y="89" text-anchor="middle">Pipeline orchestrator</text><text class="dg-s" x="280" y="103" text-anchor="middle">FastAPI · Docker container</text>
+          <g class="dg-line" marker-end="url(#arr)"><path d="M280 50 V68"/>
+          <path d="M280 108 L105 128"/>
+          <path d="M280 108 L280 128"/>
+          <path d="M280 108 L455 128"/>
+          </g>
+          <rect class="dg-box" x="20" y="132" width="170" height="40" rx="4"/><text class="dg-t" x="105" y="149" text-anchor="middle">Whisper Medium</text><text class="dg-s" x="105" y="163" text-anchor="middle">speech to text</text>
+          <rect class="dg-box" x="20" y="178" width="170" height="40" rx="4"/><text class="dg-t" x="105" y="195" text-anchor="middle">Kokoro-82M</text><text class="dg-s" x="105" y="209" text-anchor="middle">text to speech</text>
+          <rect class="dg-box" x="20" y="224" width="170" height="40" rx="4"/><text class="dg-t" x="105" y="241" text-anchor="middle">Qwen2.5-1.5B</text><text class="dg-s" x="105" y="255" text-anchor="middle">mission-cue LLM</text>
+          <path class="dg-line" marker-end="url(#arr)" d="M105 264 V282"/>
+          <rect class="dg-out" x="20" y="286" width="170" height="34" rx="4"/><text class="dg-to" x="105" y="308" text-anchor="middle">CPU</text>
+          <rect class="dg-box" x="195" y="132" width="170" height="40" rx="4"/><text class="dg-t" x="280" y="149" text-anchor="middle">NLLB-200 3.3B</text><text class="dg-s" x="280" y="163" text-anchor="middle">translation</text>
+          <path class="dg-line" marker-end="url(#arr)" d="M280 172 V282"/>
+          <rect class="dg-out" x="195" y="286" width="170" height="34" rx="4"/><text class="dg-to" x="280" y="308" text-anchor="middle">Intel iGPU</text>
+          <rect class="dg-box" x="370" y="132" width="170" height="40" rx="4"/><text class="dg-t" x="455" y="149" text-anchor="middle">RoBERTa</text><text class="dg-s" x="455" y="163" text-anchor="middle">sentiment</text>
+          <rect class="dg-box" x="370" y="178" width="170" height="40" rx="4"/><text class="dg-t" x="455" y="195" text-anchor="middle">Wav2Vec2</text><text class="dg-s" x="455" y="209" text-anchor="middle">voice emotion</text>
+          <path class="dg-line" marker-end="url(#arr)" d="M455 218 V282"/>
+          <rect class="dg-out" x="370" y="286" width="170" height="34" rx="4"/><text class="dg-to" x="455" y="308" text-anchor="middle">Intel NPU</text>
+          <rect class="dg-soc" x="12" y="278" width="536" height="50" rx="6"/>
+          <text class="dg-k" x="280" y="348" text-anchor="middle">INTEL PANTHER LAKE SOC · EVERY MODEL RUNS LOCALLY</text>
+          <text class="dg-note" x="280" y="370" text-anchor="middle">SQLite history · live CPU/GPU/NPU telemetry · models swappable per stage</text>
+          </svg>
       </figure>
       <div>
         <p class="kind">Intel · open source</p>
         <h3>Local Lingua</h3>
-        <p>Offline voice translation and sentiment analysis in 15+ languages. Five models run on one laptop, each on the chip it suits: speech recognition on the CPU, translation on the integrated GPU, and sentiment and voice emotion on the NPU. Nothing leaves the device.</p>
-        <p class="stack">Whisper, NLLB-200, RoBERTa, Wav2Vec2, Kokoro TTS, OpenVINO, FastAPI, Docker</p>
+        <p>Offline voice translation and sentiment analysis in 15+ languages. Six models run on one Intel laptop, each on the chip it suits: speech recognition, text to speech and the mission-cue LLM on the CPU, translation on the integrated GPU, and sentiment and voice emotion on the NPU. Nothing leaves the device.</p>
+        <p class="stack">Whisper, NLLB-200, RoBERTa, Wav2Vec2, Kokoro TTS, Qwen2.5, OpenVINO, FastAPI, Docker</p>
         <a class="go" href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" rel="noopener">View on GitHub →</a>
       </div>
     </article>
