@@ -16,7 +16,7 @@
 - [**Mynna**](https://trip.mynna.chat): AI trip planner for Northeast India, with shared live sessions and RAG
 - [**Flute Mastery Journey**](https://xudipta.github.io/Flute-Mastery-Journey/): an offline-first bansuri practice app with a pitch tuner and raga demos
 - [**Second Brain**](https://xudipta.github.io/second-brain-app/): an encrypted, interview-style knowledge capture app
-- [**cookbook**](https://github.com/xudipta/cookbook): infrastructure notes where every example is tested in CI
+- [**cookbook**](https://xudipta.github.io/cookbook/): infrastructure and AI tooling taught as phone-friendly stories, then notes and practice games; ten topics, every example tested in CI
 
 ### 🛠️ Stack
 `Go` `Python` `Java` `C++` · `Kubernetes` `Docker` `Helm` `Terraform` · `OpenVINO` `Intel NPU` `DL Streamer` · `FastAPI` `PostgreSQL` · `RAG` `MCP`
