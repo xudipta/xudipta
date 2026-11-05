@@ -90,6 +90,7 @@ h2.title { font: 400 1.9rem/1.2 var(--serif); letter-spacing: -0.02em; margin: 0
 .dg-line { stroke: var(--muted); stroke-width: 1.3; fill: none; }
 .dg-head { fill: var(--muted); }
 .dg-note { fill: var(--muted); font: 400 11px var(--mono); }
+.dg-k { fill: var(--accent); font: 500 10px var(--mono); letter-spacing: .08em; }
 
 /* more work */
 .more { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; margin-top: 8px; }
