@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playground · Sudipta Nath</title>
+  <meta name="description" content="Playground: a self-healing Kubernetes chaos game, a bug-squashing game, a terminal, a logic puzzle and a WebGL particle scene, hand-built by Sudipta Nath.">
+  <meta name="theme-color" content="#05060d">
+  <link rel="canonical" href="https://xudipta.github.io/xudipta/play/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xudipta.github.io/xudipta/play/">
+  <meta property="og:title" content="Sudipta · Engineer & Problem Solver">
+  <meta property="og:description" content="Engineer at Intel building SDKs for Intel hardware. Edge, infrastructure, backends and a lot of problem solving.">
+  <meta property="og:image" content="https://xudipta.github.io/xudipta/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=20261106">
+</head>
+<body class="playground">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+    <symbol id="i-drone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="5.5" r="2.5"/><circle cx="18.5" cy="5.5" r="2.5"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><path d="M7.5 7.5 10 10M16.5 7.5 14 10M7.5 16.5 10 14M16.5 16.5 14 14"/><rect x="9.5" y="9.5" width="5" height="5" rx="1.2"/></symbol>
+    <symbol id="i-servers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="m2 13 10 5 10-5"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3l1.8 4.7 4.7 1.8-4.7 1.8L11 16l-1.8-4.7L4.5 9.5l4.7-1.8L11 3z"/><path d="M18.5 14.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2z"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5v6c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8v-6M4 11.5v6c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8v-6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+    <symbol id="i-window" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6.5 6.5h.01M9.5 6.5h.01"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M11 7 5 21M13 7l6 14M7.5 15h9"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-stairs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h5v-5h5v-5h5V5h3"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.2 1.1 2V16h5v-.2c0-.8.4-1.5 1.1-2A6 6 0 0 0 12 3z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-speech" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9h8M8 12h5"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5 6.6 17M12 11.5l5.4 5.5"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-notebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M9.5 3v18M13 8h3M13 12h3M4 7h2M4 12h2M4 17h2"/></symbol>
+    <symbol id="i-gamepad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 7h11A4.5 4.5 0 0 1 22 11.5v1a4.5 4.5 0 0 1-8 2.8L13.5 15h-3l-.5.3a4.5 4.5 0 0 1-8-2.8v-1A4.5 4.5 0 0 1 6.5 7z"/><path d="M7 10v4M5 12h4M15.5 11h.01M18 13h.01"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="7" width="8" height="13" rx="4"/><path d="M12 7V4.5M9.5 4 11 7M14.5 4 13 7M4 11h4M16 11h4M4.5 16H8M16 16h3.5M12 11v9"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3M12 15h6"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v4.5c0 1.6 2.7 3 6 3s6-1.4 6-3V11M22 9v6"/></symbol>
+  </svg>
+  <div class="boot" aria-hidden="true">
+    <pre><span>&gt; loading playground ........ ok</span>
+<span>&gt; spawning chaos monkey ......... ok</span>
+<span>&gt; warming up particles ......... ok</span>
+<span>&gt; ready ........................ ok</span></pre>
+  </div>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="logo" href="../"><span class="mono-mark" aria-hidden="true">SN</span><span>~/xudipta/play<span class="cursor">_</span></span></a>
+    <nav>
+      <a href="#play">games</a>
+      <a href="#lab">lab</a>
+      <a href="../" class="back-link">← main site</a>
+    </nav>
+    <button class="palette-btn" id="palette-open" type="button" aria-label="Open command palette"><span>⌕</span><kbd>Ctrl K</kbd></button>
+  </header>
+
+  <main id="top">
+    <section class="hero play-hero" id="home">
+      <p class="eyebrow"><span class="pulse"></span>$ ./playground</p>
+      <h1>Things I built <span class="grad">for fun</span></h1>
+      <p class="lead">A hand-written WebGL particle scene, a Kubernetes cluster that heals itself, a 30-second production fire and a terminal to poke around in. No frameworks, no libraries: just HTML, CSS and JavaScript.</p>
+      <div class="cta">
+        <a class="btn primary" href="#game">Play Bug Squash</a>
+        <a class="btn" href="#k8s">Break my cluster</a>
+        <a class="btn" href="../">← Back to main site</a>
+      </div>
+      <a class="scroll-cue" href="#play" aria-label="Scroll to the games"><span></span></a>
+    </section>
+
+    <section id="play" class="reveal">
+      <h3 class="section-title">Games</h3>
+      <p class="muted play-intro">Three small toys that say a lot about how I think: fight a production fire, break a self-healing cluster, or poke around a terminal.</p>
+      <div class="play-tabs" role="tablist" aria-label="Play Zone">
+        <button type="button" role="tab" class="play-tab" id="tab-game" aria-controls="game" aria-selected="true"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-bug"/></svg></span><span><b>Bug Squash</b><small>30 seconds, production on fire</small></span></button>
+        <button type="button" role="tab" class="play-tab" id="tab-k8s" aria-controls="k8s" aria-selected="false" tabindex="-1"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-zap"/></svg></span><span><b>Chaos Monkey</b><small>Break my Kubernetes cluster</small></span></button>
+        <button type="button" role="tab" class="play-tab" id="tab-terminal" aria-controls="terminal" aria-selected="false" tabindex="-1"><span class="ico ibox"><svg aria-hidden="true"><use href="#i-terminal"/></svg></span><span><b>Terminal</b><small>Poke around my shell</small></span></button>
+      </div>
+      <div class="play-panel" id="game" role="tabpanel" aria-labelledby="tab-game">
+        <p class="muted">Production is on fire. Squash the 🐛 bugs, but don't touch the ✅ features. You have 30 seconds.</p>
+        <div class="game-wrap">
+          <div class="game-hud">
+            <span>Score <b id="g-score">0</b></span>
+            <span>Time <b id="g-time">30</b>s</span>
+            <span>Best <b id="g-best">0</b></span>
+          </div>
+          <canvas id="game-canvas" width="800" height="400" aria-label="Bug squash game"></canvas>
+          <div class="game-overlay" id="g-overlay">
+            <h4 id="g-title">Ready to debug?</h4>
+            <p id="g-msg">Click or tap bugs to squash them.</p>
+            <button class="btn primary" id="g-start">Start</button>
+          </div>
+        </div>
+      </div>
+      <div class="play-panel" id="k8s" role="tabpanel" aria-labelledby="tab-k8s" hidden>
+        <p class="muted">A tiny Kubernetes cluster that heals itself. Be the chaos monkey 🐒: click pods to kill them, take a whole node down, or spike the traffic, then watch the controllers put it all back. How low can you push availability before Kubernetes heals it?</p>
+        <div class="card k8s-card">
+          <div class="k8s-bar">
+            <div class="k8s-stats">
+              <div><small>Availability</small><b id="k8s-avail" class="good">100%</b></div>
+              <div><small>Pods running</small><b id="k8s-running">9/9</b></div>
+              <div><small>Chaos dealt</small><b id="k8s-kills">0</b></div>
+              <div><small>Self-healed</small><b id="k8s-healed">0</b></div>
+              <div><small>Lowest you caused</small><b id="k8s-min">100%</b></div>
+            </div>
+            <canvas id="k8s-spark" aria-hidden="true"></canvas>
+          </div>
+          <div class="k8s-actions">
+            <button class="btn small-btn primary" id="k8s-chaos" type="button">🐒 Unleash chaos</button>
+            <button class="btn small-btn" id="k8s-spike" type="button">⚡ Traffic spike</button>
+            <button class="btn small-btn" id="k8s-reset" type="button">↺ Reset</button>
+            <span class="k8s-legend"><i class="web"></i>web <i class="api"></i>api <i class="cache"></i>cache</span>
+          </div>
+          <div class="k-pending-wrap"><small>Pending · waiting for a node</small><div id="k8s-pending" class="k-pods"></div></div>
+          <div id="k8s-nodes" class="k-nodes"></div>
+          <div class="k-log-wrap"><small>$ kubectl get events --watch</small><pre id="k8s-log" class="k-log"></pre></div>
+        </div>
+      </div>
+      <div class="play-panel" id="terminal" role="tabpanel" aria-labelledby="tab-terminal" hidden>
+        <p class="muted">Poke around. Type <code>help</code> to get started.</p>
+        <div class="term" id="term">
+          <div class="term-bar"><i></i><i></i><i></i><span>sudipta@portfolio: ~</span></div>
+          <div class="term-body" id="term-body"></div>
+          <form class="term-input" id="term-form" autocomplete="off">
+            <label for="term-in" class="prompt">sudipta@portfolio:~$</label>
+            <input id="term-in" spellcheck="false" autocapitalize="off" aria-label="Terminal command">
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="lab" class="reveal">
+      <h3 class="section-title">Lab</h3>
+      <div class="lab-grid">
+        <div class="card puzzle">
+          <h4 class="with-ic"><span class="ico sm ibox"><svg aria-hidden="true"><use href="#i-grid"/></svg></span>Logic Lab: Lights Out</h4>
+          <p class="muted small">Clicking a cell flips it and its four neighbours. Turn every light off. I solve these for fun; can you?</p>
+          <div class="lo-grid" id="lo-grid" role="grid" aria-label="Lights Out puzzle"></div>
+          <div class="lo-bar">
+            <span>Moves <b id="lo-moves">0</b></span>
+            <span id="lo-status" class="muted"></span>
+            <button class="btn small-btn" id="lo-new">New puzzle</button>
+          </div>
+        </div>
+      </div>
+      <div class="card activity" id="activity">
+        <div class="orbit-wrap">
+          <canvas id="orbit" role="img" aria-label="GitHub contributions over the last year"></canvas>
+          <div class="orbit-copy">
+            <p class="kicker">// consistency, visualised</p>
+            <h3>A year of showing up</h3>
+            <p>Every dot is a day of my GitHub activity over the last year. Each ring is a weekday, from Sunday on the inside to Saturday on the outside. Brighter dots mean more contributions, and the amber hand marks today.</p>
+            <div class="pillrow" id="orbit-pills"><span class="pill">loading live data…</span></div>
+            <blockquote>“From a certain point onward there is no longer any turning back. That is the point that must be reached.”<span>— Franz Kafka</span></blockquote>
+          </div>
+        </div>
+        <img class="activity-fallback" hidden src="https://ghchart.rshah.org/22d3ee/xudipta" alt="xudipta's GitHub contribution graph over the last year">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="../">← Back to the main site</a> · <span class="muted">psst… try the Konami code</span></p>
+  </footer>
+
+  <script src="scene.js?v=20261106"></script>
+  <script src="main.js?v=20261106"></script>
+  <script src="orbit.js?v=20261106"></script>
+  <script src="chaos.js?v=20261106"></script>
+  <script src="palette.js?v=20261106"></script>
+</body>
+</html>

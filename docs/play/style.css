@@ -505,3 +505,9 @@ footer { position: relative; background: rgba(5, 6, 13, 0.6); backdrop-filter: b
   display: inline-grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 8px; font: 800 0.78rem var(--sans); letter-spacing: -0.02em;
   color: #05060d; background: linear-gradient(135deg, var(--accent), var(--accent-2));
 }
+
+/* Playground page */
+.play-hero { min-height: 82vh; }
+.play-hero .lead { max-width: 620px; }
+.back-link { color: var(--accent) !important; }
+.lab-grid { display: grid; grid-template-columns: minmax(0, 420px); justify-content: center; margin-bottom: 1.5rem; }
