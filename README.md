@@ -15,7 +15,7 @@
 ### 📌 Side projects
 - [**Mynna**](https://trip.mynna.chat): AI trip planner for Northeast India, with shared live sessions and RAG
 - [**Flute Mastery Journey**](https://xudipta.github.io/Flute-Mastery-Journey/): an offline-first bansuri practice app with a tanpura and taal player, swipeable practice cards, alankar drills, a pitch tuner and raga demos
-- [**Second Brain**](https://xudipta.github.io/second-brain-app/): an encrypted, interview-style knowledge capture app
+- [**Second Brain**](https://xudipta.github.io/second-brain-app/): an encrypted daily to-do list and notebook: unfinished tasks carry over, and the note questions come from published frameworks
 - [**cookbook**](https://xudipta.github.io/cookbook/): infrastructure and AI tooling taught as phone-friendly stories, then notes and practice games; ten topics, every example tested in CI
 
 ### 🛠️ Stack
