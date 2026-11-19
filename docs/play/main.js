@@ -73,7 +73,7 @@
       desc: "Shared-session trip planner for Northeast India. Friends plan together in one live chat with Mynna, an AI bot grounded in a curated knowledge base, which builds a shared, live itinerary.",
       tags: ["Python", "FastAPI", "WebSockets", "PostgreSQL", "pgvector", "RAG", "LLM", "Docker"] },
     { name: "Flute Mastery Journey", repo: `${GITHUB_USER}/Flute-Mastery-Journey`, url: "https://xudipta.github.io/Flute-Mastery-Journey/", linkLabel: "live ↗", icon: "🎶", ic: "music",
-      desc: "An interactive guide to the Indian classical bansuri, from first sur to concert-stage raga: a timed daily riyaaz routine, a microphone pitch tuner, synthesised tanpura and tabla, a tap-to-hear finger chart and animated demos for 16 ragas. Installable and works offline.",
+      desc: "An interactive guide to the Indian classical bansuri, from first sur to concert-stage raga: a tanpura and tabla player, swipeable timed practice cards, alankar drills played in time with the taal, a microphone pitch tuner, a tap-to-hear finger chart and animated demos for 16 ragas. Installable and works offline.",
       tags: ["JavaScript", "Web Audio", "Pitch detection", "PWA", "Offline-first", "Canvas"] },
     { name: "Second Brain", repo: `${GITHUB_USER}/second-brain-app`, url: "https://xudipta.github.io/second-brain-app/", linkLabel: "live ↗", icon: "🧠", ic: "notebook",
       desc: "A private capture app for my personal knowledge notebook. It interviews you one question at a time using proven frameworks such as Getting Things Done, never rewrites your words, encrypts everything in the browser and exports clean Markdown.",
