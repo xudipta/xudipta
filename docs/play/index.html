@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20261106">
+  <link rel="stylesheet" href="style.css?v=20261120">
 </head>
 <body class="playground">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -159,17 +159,24 @@
         </div>
       </div>
       <div class="card activity" id="activity">
-        <div class="orbit-wrap">
-          <canvas id="orbit" role="img" aria-label="GitHub contributions over the last year"></canvas>
-          <div class="orbit-copy">
-            <p class="kicker">// consistency, visualised</p>
-            <h3>A year of showing up</h3>
-            <p>Every dot is a day of my GitHub activity over the last year. Each ring is a weekday, from Sunday on the inside to Saturday on the outside. Brighter dots mean more contributions, and the amber hand marks today.</p>
-            <div class="pillrow" id="orbit-pills"><span class="pill">loading live data…</span></div>
-            <blockquote>“From a certain point onward there is no longer any turning back. That is the point that must be reached.”<span>— Franz Kafka</span></blockquote>
+        <div class="act" id="act">
+          <div class="act-head">
+            <div>
+              <p class="kicker">// consistency, visualised</p>
+              <h3>A year of showing up</h3>
+              <p class="act-sub">Every square is a day of my GitHub activity over the last year. Brighter means more contributions.</p>
+            </div>
+            <div class="act-today" id="act-today" aria-live="polite"><span class="act-n">–</span><span class="act-l">loading live data…</span></div>
+          </div>
+          <div class="act-stats" id="act-stats"></div>
+          <div class="hm-scroll" id="hm-scroll"><div id="hm"></div></div>
+          <div class="hm-foot">
+            <span class="readout" id="act-readout" aria-live="polite">Tap or hover a day</span>
+            <span class="legend" aria-hidden="true">Less <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> More</span>
           </div>
         </div>
         <img class="activity-fallback" hidden src="https://ghchart.rshah.org/22d3ee/xudipta" alt="xudipta's GitHub contribution graph over the last year">
+        <blockquote class="act-quote">“From a certain point onward there is no longer any turning back. That is the point that must be reached.”<span>— Franz Kafka</span></blockquote>
       </div>
     </section>
   </main>
@@ -180,7 +187,7 @@
 
   <script src="scene.js?v=20261106"></script>
   <script src="main.js?v=20261106"></script>
-  <script src="orbit.js?v=20261106"></script>
+  <script src="activity.js?v=20261120"></script>
   <script src="chaos.js?v=20261106"></script>
   <script src="palette.js?v=20261106"></script>
 </body>
