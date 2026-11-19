@@ -132,6 +132,10 @@ h2.title { font: 400 1.9rem/1.2 var(--serif); letter-spacing: -0.02em; margin: 0
 .role p { margin: 6px 0 0; color: var(--ink-2); max-width: 640px; }
 .role ul { margin: 10px 0 0; padding-left: 18px; color: var(--ink-2); }
 .role li { margin: 4px 0; }
+.role .titles { list-style: none; padding: 0; margin: 6px 0 0; }
+.role .titles li { margin: 2px 0; color: var(--ink-2); }
+.role .titles b { font-weight: 500; color: var(--ink); }
+.role .titles span { font: 400 0.82rem var(--mono); color: var(--muted); margin-left: 10px; }
 
 /* outside */
 .outside { display: grid; grid-template-columns: 220px 1fr; gap: 48px; }
@@ -158,6 +162,8 @@ footer h2 { font: 400 clamp(2.2rem, 4.6vw, 3.4rem)/1.08 var(--serif); letter-spa
   section { padding: 64px 0; }
   .sec-head, .role, .outside, .kitrow { grid-template-columns: 1fr; gap: 6px; }
   .more a { padding-right: 28px; }
+  .role .titles li { margin: 6px 0; }
+  .role .titles span { display: block; margin: 0; }
   footer { padding: 64px 0 40px; }
   .work, .work.flip { grid-template-columns: 1fr; gap: 28px; }
   .work.flip .shot { order: 0; }
