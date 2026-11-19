@@ -3,23 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sudipta Nath · Software Engineer</title>
+  <title>Sudipta Nath · System Software Engineer</title>
   <script>
     // Old links to the games (/#game, /#k8s, ...) now live on the playground page.
     (function () {
       var h = location.hash.slice(1);
       if (["play", "game", "k8s", "terminal", "solver"].indexOf(h) !== -1) location.replace("play/#" + (h === "solver" ? "lab" : h));
       try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+      document.documentElement.classList.add("js");
       var r = document.documentElement; r.dataset.mode = (r.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
     })();
   </script>
-  <meta name="description" content="Sudipta Nath, software engineer at Intel building SDKs and edge AI for Intel hardware. Previously State Bank of India. Projects: Local Lingua, Mynna, Flute Mastery Journey, Second Brain.">
+  <meta name="description" content="Sudipta Nath, system software engineer at Intel building SDKs and edge AI for Intel hardware. Previously cloud software development at Intel and State Bank of India. Projects: Local Lingua, Mynna, Flute Mastery Journey, Second Brain.">
   <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141412" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://xudipta.github.io/xudipta/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xudipta.github.io/xudipta/">
-  <meta property="og:title" content="Sudipta Nath · Software Engineer">
+  <meta property="og:title" content="Sudipta Nath · System Software Engineer">
   <meta property="og:description" content="I build software that runs at the edge: on real hardware, on flaky links, with nobody on site.">
   <meta property="og:image" content="https://xudipta.github.io/xudipta/og.jpg">
   <meta property="og:image:width" content="1200">
@@ -29,11 +30,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="site.css?v=20261111">
+  <link rel="stylesheet" href="site.css?v=20261120">
 </head>
 <body>
 <a class="skip" href="#work">Skip to content</a>
-<header><div class="wrap">
+<header id="top"><div class="wrap">
   <a class="name" href="./">Sudipta Nath</a>
   <div class="nav-right">
     <nav aria-label="Sections">
@@ -50,20 +51,20 @@
 <main class="wrap">
   <div class="hero">
     <div>
-      <p class="eyebrow">Software Engineer · Intel</p>
-      <h1>I build software that runs <em>at the edge</em>: on real hardware, on flaky links, with nobody on site.</h1>
-      <p class="lede">At Intel I work on SDKs and edge AI for Intel CPUs, GPUs and NPUs, from a drone SDK to an offline translator. Before that I built loan-lifecycle systems at State Bank of India. Seven years in, I still like the bug more than the fix.</p>
+      <p class="eyebrow">Intel · System Software Engineer</p>
+      <h1>System software engineer, building SDKs and <em>edge AI</em> for Intel hardware.</h1>
+      <p class="lede">From a drone SDK to an offline translator, I write the software that makes Intel CPUs, GPUs and NPUs useful. Before this I worked in cloud software development at Intel, and before that as an application developer at State Bank of India.</p>
       <div class="links">
-        <a href="mailto:nathsudipta7@gmail.com">nathsudipta7@gmail.com</a>
-        <a href="https://www.linkedin.com/in/sudipta-nath-412833136/" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/xudipta" rel="noopener">GitHub</a>
+        <a class="btn primary" href="mailto:nathsudipta7@gmail.com">nathsudipta7@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/sudipta-nath-412833136/" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/xudipta" rel="noopener">GitHub</a>
       </div>
     </div>
     <aside class="now" aria-label="At a glance">
       <h2>Now</h2>
       <p><span class="dot"></span>SDKs &amp; edge AI at Intel</p>
       <h2>Previously</h2>
-      <p>State Bank of India<br>Intel (intern)<br>Mantra Associates</p>
+      <p>Cloud software development, Intel<br>State Bank of India<br>Intel (intern)</p>
       <h2>Based in</h2>
       <p>India</p>
     </aside>
@@ -72,7 +73,7 @@
   <section id="work">
     <div class="sec-head"><h2 class="title">Selected work</h2><p>Open-source projects from my work at Intel, and things I build for myself.</p></div>
 
-    <article class="work">
+    <article class="work reveal">
       <figure class="shot">
 <svg viewBox="0 0 560 326" role="img" aria-label="Local Lingua architecture: the browser talks to a FastAPI pipeline orchestrator in Docker. The orchestrator runs six pluggable stages: speech to text, translation, text sentiment, voice emotion, text to speech and a mission-cue LLM. From the settings page you choose any model for each stage and whether it runs on the CPU, the integrated GPU or the NPU of an Intel Panther Lake SoC, through OpenVINO.">
           <defs><marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="dg-head" d="M0 0 8 4 0 8z"/></marker></defs>
@@ -103,12 +104,12 @@
         <p class="kind">Intel · open source</p>
         <h3>Local Lingua</h3>
         <p>Offline voice translation and sentiment analysis in 15+ languages, on one Intel laptop. Each stage of the pipeline is a slot: from the settings page you pick any model for it and the chip it runs on (CPU, integrated GPU or NPU). Nothing leaves the device.</p>
-        <p class="stack">OpenVINO, Hugging Face models, Python, FastAPI, Docker, SQLite</p>
+        <ul class="tags" aria-label="Built with"><li>OpenVINO</li><li>Hugging Face models</li><li>Python</li><li>FastAPI</li><li>Docker</li><li>SQLite</li></ul>
         <a class="go" href="https://github.com/open-edge-platform/edge-developer-kit-reference-scripts/tree/main/samples/ai/local-lingua" rel="noopener">View on GitHub →</a>
       </div>
     </article>
 
-    <article class="work flip">
+    <article class="work flip reveal">
       <div class="shot duo">
         <figure class="shot phone"><img class="lt" src="img/mynna-chat-light.webp" width="560" height="1147" loading="lazy" alt="Mynna suggesting a five-day Meghalaya trip in December, with its sources flagged"><img class="dk" src="img/mynna-chat-dark.webp" width="560" height="1147" loading="lazy" alt="Mynna suggesting a five-day Meghalaya trip in December, with its sources flagged"></figure>
         <figure class="shot phone"><img class="lt" src="img/mynna-plan-light.webp" width="560" height="1147" loading="lazy" alt="Mynna's shared trip plan, editable by everyone in the trip"><img class="dk" src="img/mynna-plan-dark.webp" width="560" height="1147" loading="lazy" alt="Mynna's shared trip plan, editable by everyone in the trip"></figure>
@@ -117,12 +118,12 @@
         <p class="kind">OxomiAi · live product</p>
         <h3>Mynna</h3>
         <p>A trip planner for Northeast India that friends use together. Everyone joins one chat; Mynna answers from a curated knowledge base and builds a shared, live itinerary that anyone can reorder. Answers cite their sources and flag what still needs checking.</p>
-        <p class="stack">Python, FastAPI, WebSockets, PostgreSQL + pgvector, RAG, pluggable small LLMs</p>
+        <ul class="tags" aria-label="Built with"><li>Python</li><li>FastAPI</li><li>WebSockets</li><li>PostgreSQL + pgvector</li><li>RAG</li><li>pluggable small LLMs</li></ul>
         <a class="go" href="https://trip.mynna.chat" rel="noopener">Open the app →</a>
       </div>
     </article>
 
-    <article class="work">
+    <article class="work reveal">
       <div class="shot duo">
         <figure class="shot phone"><img class="lt" src="img/flute-home-light.webp" width="560" height="1147" loading="lazy" alt="Flute Mastery Journey on a phone: the Home tab, a Tanpura and Teentaal playing together, with the scale D in large type and the beat grid"><img class="dk" src="img/flute-home-dark.webp" width="560" height="1147" loading="lazy" alt="Flute Mastery Journey on a phone: the Home tab, a Tanpura and Teentaal playing together, with the scale D in large type and the beat grid"></figure>
         <figure class="shot phone"><img class="lt" src="img/flute-alankar-light.webp" width="560" height="1147" loading="lazy" alt="Flute Mastery Journey on a phone: the Alankar tab, a list of practice patterns with a player that lights up the current note"><img class="dk" src="img/flute-alankar-dark.webp" width="560" height="1147" loading="lazy" alt="Flute Mastery Journey on a phone: the Alankar tab, a list of practice patterns with a player that lights up the current note"></figure>
@@ -130,13 +131,13 @@
       <div>
         <p class="kind">Personal · live app</p>
         <h3>Flute Mastery Journey</h3>
-        <p>A practice companion for the Indian classical bansuri, built for my own riyaaz. It opens on a tanpura and tabla player with a big scale button; swipe through timed practice cards, drill alankar patterns in time with the taal, check your pitch with the microphone tuner, and watch animated demos for 16 ragas. Installable and fully offline.</p>
-        <p class="stack">JavaScript, Web Audio, pitch detection (YIN), PWA</p>
+        <p>A practice companion for the Indian classical bansuri, built for my own riyaaz: a tanpura and tabla player, timed practice cards, alankar drills in time with the taal, a microphone pitch tuner and animated demos for 16 ragas. Installable and fully offline.</p>
+        <ul class="tags" aria-label="Built with"><li>JavaScript</li><li>Web Audio</li><li>pitch detection (YIN)</li><li>PWA</li></ul>
         <a class="go" href="https://xudipta.github.io/Flute-Mastery-Journey/" rel="noopener">Open the app →</a>
       </div>
     </article>
 
-    <article class="work flip">
+    <article class="work flip reveal">
       <div class="shot duo">
         <figure class="shot phone"><img class="lt" src="img/second-brain-today-light.webp" width="560" height="1147" loading="lazy" alt="Second Brain on a phone: today's to-do list, with two unfinished tasks carried over from earlier days, each showing how long it has waited"><img class="dk" src="img/second-brain-today-dark.webp" width="560" height="1147" loading="lazy" alt="Second Brain on a phone: today's to-do list, with two unfinished tasks carried over from earlier days, each showing how long it has waited"></figure>
         <figure class="shot phone"><img class="lt" src="img/second-brain-review-light.webp" width="560" height="1147" loading="lazy" alt="Second Brain's review tab on a phone: tasks finished over the last seven days, a bar chart of what was done and left over each day, and a list of days"><img class="dk" src="img/second-brain-review-dark.webp" width="560" height="1147" loading="lazy" alt="Second Brain's review tab on a phone: tasks finished over the last seven days, a bar chart of what was done and left over each day, and a list of days"></figure>
@@ -144,43 +145,54 @@
       <div>
         <p class="kind">Personal · live app</p>
         <h3>Second Brain</h3>
-        <p>A private notebook and daily to-do list. Tasks you do not finish carry over to the next day until they are done, and a review tab shows how each day went. Notes are interview-style: one question at a time, with questions adapted from published frameworks such as deliberate practice, Getting Things Done and Atomic Habits, and your words are never rewritten. Everything is encrypted in the browser with AES-256-GCM before it touches storage.</p>
-        <p class="stack">JavaScript, Web Crypto, PWA, Markdown</p>
+        <p>A private notebook and daily to-do list. Unfinished tasks carry over until they are done, and a review tab shows how each day went. Notes are interview-style, one question at a time, adapted from frameworks like Getting Things Done and Atomic Habits, and your words are never rewritten. Everything is encrypted in the browser with AES-256-GCM before it touches storage.</p>
+        <ul class="tags" aria-label="Built with"><li>JavaScript</li><li>Web Crypto</li><li>PWA</li><li>Markdown</li></ul>
         <a class="go" href="https://xudipta.github.io/second-brain-app/" rel="noopener">Open the app →</a>
       </div>
     </article>
 
+    <p class="kind more-kind">More work</p>
     <div class="more">
-      <a href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" rel="noopener"><b>Federal &amp; Aerospace AI Suite</b><span>Drone SDK for aerospace and defence edge AI. Intel, open source.</span></a>
-      <a href="https://github.com/open-edge-platform/edge-manageability-framework" rel="noopener"><b>Edge Manageability Framework</b><span>Edge orchestrator: onboard nodes, provision OS, create clusters. Intel, open source.</span></a>
-      <a href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" rel="noopener"><b>Edge Node Infrastructure Blueprint</b><span>Edge nodes with GPU, NPU and SR-IOV acceleration. Intel, open source.</span></a>
-      <a href="https://xudipta.github.io/cookbook/" rel="noopener"><b>cookbook</b><span>Infrastructure taught as phone-friendly stories, then notes and practice games. Every example tested in CI.</span></a>
+      <a href="https://github.com/open-edge-platform/federal-and-aerospace-ai-suite" rel="noopener"><b>Federal &amp; Aerospace AI Suite</b><span>Drone SDK for aerospace and defence edge AI. Intel, open source.</span><i aria-hidden="true">↗</i></a>
+      <a href="https://github.com/open-edge-platform/edge-manageability-framework" rel="noopener"><b>Edge Manageability Framework</b><span>Edge orchestrator: onboard nodes, provision OS, create clusters. Intel, open source.</span><i aria-hidden="true">↗</i></a>
+      <a href="https://github.com/open-edge-platform/edge-node-infrastructure-blueprint" rel="noopener"><b>Edge Node Infrastructure Blueprint</b><span>Edge nodes with GPU, NPU and SR-IOV acceleration. Intel, open source.</span><i aria-hidden="true">↗</i></a>
+      <a href="https://xudipta.github.io/cookbook/" rel="noopener"><b>cookbook</b><span>Infrastructure taught as phone-friendly stories, then notes and practice games. Every example tested in CI.</span><i aria-hidden="true">↗</i></a>
+    </div>
+  </section>
+
+  <section id="toolbox">
+    <div class="sec-head"><h2 class="title">Toolbox</h2><p>What I reach for most.</p></div>
+    <div class="kit">
+      <div class="kitrow reveal"><div class="when">Languages</div><ul class="tags"><li>Go</li><li>Python</li><li>Java</li><li>C++</li></ul></div>
+      <div class="kitrow reveal"><div class="when">Platform</div><ul class="tags"><li>Kubernetes</li><li>Docker</li><li>Helm</li><li>Terraform</li></ul></div>
+      <div class="kitrow reveal"><div class="when">Edge AI</div><ul class="tags"><li>OpenVINO</li><li>Intel NPU</li><li>DL Streamer</li></ul></div>
+      <div class="kitrow reveal"><div class="when">Backend</div><ul class="tags"><li>FastAPI</li><li>PostgreSQL</li><li>RAG</li><li>MCP</li></ul></div>
     </div>
   </section>
 
   <section id="experience">
     <div class="sec-head"><h2 class="title">Experience</h2><p>Seven years across edge infrastructure, banking systems and teaching.</p></div>
     <ol class="roles">
-      <li class="role"><div class="when">Aug 2024 – now</div><div>
-        <h3>Intel <span>· Software Engineer, Cloud Software Development</span></h3>
+      <li class="role reveal"><div class="when">Aug 2024 – now</div><div>
+        <h3>Intel <span>· System Software Engineer (previously Cloud Software Development Engineer)</span></h3>
         <ul>
           <li>SDKs and edge AI for Intel hardware: the drone SDK and Local Lingua.</li>
           <li>Edge Node Infrastructure Blueprint: provisioning nodes with GPU, NPU and SR-IOV.</li>
           <li>Edge Manageability Framework: onboarding, OS provisioning and cluster creation.</li>
         </ul></div></li>
-      <li class="role"><div class="when">Dec 2021 – Jul 2024</div><div>
+      <li class="role reveal"><div class="when">Dec 2021 – Jul 2024</div><div>
         <h3>State Bank of India <span>· SDE (Assistant Manager, Systems)</span></h3>
         <p>Loan lifecycle management applications for corporate and SME loans. Two certificates of appreciation.</p></div></li>
-      <li class="role"><div class="when">May – Nov 2021</div><div>
+      <li class="role reveal"><div class="when">May – Nov 2021</div><div>
         <h3>Intel <span>· Graduate Technical Intern</span></h3>
         <p>IPsec channel encryption within Intel's Infrastructure Processing Unit.</p></div></li>
-      <li class="role"><div class="when">Aug 2018 – Sep 2020</div><div>
+      <li class="role reveal"><div class="when">Aug 2018 – Sep 2020</div><div>
         <h3>Mantra Associates <span>· Software Developer</span></h3>
         <p>Trained faculty from 30+ universities with the E&amp;ICT Academy, IIT Guwahati.</p></div></li>
-      <li class="role"><div class="when">Feb – Jul 2017</div><div>
+      <li class="role reveal"><div class="when">Feb – Jul 2017</div><div>
         <h3>Vooid Technology <span>· Application Developer (part-time)</span></h3>
         <p>An e-commerce Android app for the business.</p></div></li>
-      <li class="role"><div class="when">Education</div><div>
+      <li class="role reveal"><div class="when">Education</div><div>
         <h3>M.Tech <span>· NIT Durgapur</span></h3></div></li>
     </ol>
   </section>
@@ -197,9 +209,18 @@
   </section>
 </main>
 
-<footer id="contact"><div class="wrap">
-  <div><h2>Let's talk.</h2><a href="mailto:nathsudipta7@gmail.com">nathsudipta7@gmail.com</a> · <a href="https://www.linkedin.com/in/sudipta-nath-412833136/" rel="noopener">LinkedIn</a> · <a href="https://github.com/xudipta" rel="noopener">GitHub</a></div>
-  <div style="align-self:end">© 2026 Sudipta Nath</div>
+<footer id="contact"><div class="wrap foot">
+  <div class="cta">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's talk.</h2>
+    <p class="foot-lede">If something here is useful, or broken, I'd like to hear about it.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:nathsudipta7@gmail.com">nathsudipta7@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/sudipta-nath-412833136/" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/xudipta" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <div class="foot-meta"><a href="#top">Back to top ↑</a><span>© 2026 Sudipta Nath</span></div>
 </div></footer>
 
 <script>
@@ -226,6 +247,28 @@
     });
     // Coming back with the browser's Back button restores the page from cache: undo the fade.
     addEventListener("pageshow", function () { document.body.classList.remove("leaving"); });
+
+    // Fade blocks in as they scroll into view, and mark the current section in the nav.
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+
+      var links = {};
+      document.querySelectorAll("nav a[href^='#']").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+      var spy = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting || !links[e.target.id]) return;
+          Object.keys(links).forEach(function (k) { links[k].removeAttribute("aria-current"); });
+          links[e.target.id].setAttribute("aria-current", "true");
+        });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+      ["work", "experience", "outside", "contact"].forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
+      // Nothing is "current" while the hero is on screen.
+      var clearTop = function () { if (scrollY < 300) Object.keys(links).forEach(function (k) { links[k].removeAttribute("aria-current"); }); };
+      addEventListener("scroll", clearTop, { passive: true }); clearTop();
+    }
   })();
 </script>
 </body>

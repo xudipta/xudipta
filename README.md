@@ -1,6 +1,6 @@
 ### Hi, I'm Sudipta 👋
 
-**Software Engineer at Intel**, building SDKs and edge AI for Intel hardware: from a drone SDK to an offline translator that runs on the NPU. Before that: loan-lifecycle systems at State Bank of India, and 7+ years of building software in total.
+**System Software Engineer at Intel**, building SDKs and edge AI for Intel hardware: from a drone SDK to an offline translator that runs on the NPU. Before that: cloud software development at Intel, application development at State Bank of India, and 7+ years of building software in total.
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-xudipta.github.io-22d3ee?logo=googlechrome&logoColor=white)](https://xudipta.github.io/xudipta/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Sudipta_Nath-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sudipta-nath-412833136/)
