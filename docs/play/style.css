@@ -191,11 +191,6 @@ h1 { font-size: clamp(2.6rem, 7.5vw, 5rem); line-height: 1.02; margin: 1rem 0 0.
 .act-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1.1rem; }
 .act-head h3 { font-size: 1.7rem; letter-spacing: -0.02em; margin: 0 0 0.4rem; }
 .act-sub { margin: 0; color: var(--muted); max-width: 44ch; }
-.act-today { display: flex; align-items: baseline; gap: 0.7rem; border: 1px solid var(--line); border-radius: 14px; padding: 0.7rem 1.1rem; background: rgba(255, 255, 255, 0.02); }
-.act-today .act-n { font: 800 2.6rem/1 var(--sans); letter-spacing: -0.04em; color: var(--text); }
-.act-today.hot { border-color: rgba(34, 211, 238, 0.4); box-shadow: 0 0 24px rgba(34, 211, 238, 0.12); }
-.act-today.hot .act-n { color: var(--accent); }
-.act-today .act-l { font: 500 0.72rem/1.35 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
 .act-stats { display: flex; flex-wrap: wrap; gap: 0.35rem 1.6rem; margin: 0 0 1rem; font: 500 0.76rem var(--mono); color: var(--muted); letter-spacing: 0.03em; }
 .act-stats b { color: var(--text); font: 800 1.15rem var(--sans); letter-spacing: -0.01em; margin-right: 0.3rem; }
 .hm-scroll { overflow-x: auto; scrollbar-width: none; margin: 0 -0.2rem; padding: 0 0.2rem; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 22px); mask-image: linear-gradient(90deg, transparent 0, #000 22px); }
@@ -426,7 +421,6 @@ footer { position: relative; background: rgba(5, 6, 13, 0.6); backdrop-filter: b
   .palette-btn kbd { display: none; }
   .activity { padding: 1.2rem; }
   .act-head h3 { font-size: 1.4rem; }
-  .act-today { width: 100%; }
   .resume-cta { position: static; }
   section { padding-top: 3.5rem; }
 }

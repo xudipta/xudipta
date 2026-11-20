@@ -9,7 +9,7 @@
   if (!root) return;
   const act = document.getElementById("act"), fallback = root.querySelector(".activity-fallback");
   const hmEl = document.getElementById("hm"), scroller = document.getElementById("hm-scroll");
-  const todayEl = document.getElementById("act-today"), statsEl = document.getElementById("act-stats"), readout = document.getElementById("act-readout");
+  const statsEl = document.getElementById("act-stats"), readout = document.getElementById("act-readout");
 
   const MN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const DN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -51,11 +51,8 @@
     if (i >= 0 && !days[i].count) i--;
     for (; i >= 0 && days[i].count; i--) current++;
 
-    // Today's number (or the latest day we have, if the visitor's date is ahead of GitHub's).
     const last = days[days.length - 1];
     const isToday = last.date.getTime() === today.getTime();
-    todayEl.classList.toggle("hot", last.count > 0);
-    todayEl.innerHTML = `<span class="act-n">${last.count}</span><span class="act-l">${isToday ? "contributions<br>today" : `contributions<br>${fmtShort(last.date)}`}</span>`;
 
     statsEl.innerHTML =
       `<span><b>${total.toLocaleString()}</b>contributions</span>` +
@@ -89,10 +86,10 @@
 
     let sel = days.length - 1;
     const say = (idx) => {
-      const d = days[idx];
+      const d = days[idx], tag = isToday && idx === days.length - 1 ? " · today" : "";
       readout.innerHTML = d.count
-        ? `<b>${d.count}</b> contribution${d.count === 1 ? "" : "s"} · ${fmtLong(d.date)}`
-        : `No contributions · ${fmtLong(d.date)}`;
+        ? `<b>${d.count}</b> contribution${d.count === 1 ? "" : "s"} · ${fmtLong(d.date)}${tag}`
+        : `No contributions · ${fmtLong(d.date)}${tag}`;
     };
     const pick = (idx) => {
       sel = Math.max(0, Math.min(days.length - 1, idx));
